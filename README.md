@@ -22,7 +22,7 @@ Green alternative producers of electricity (solar, wind, etc) aren’t able to s
 The cumulative effect will reduce the cost of electricity by optimizing production and usage.
 
 ### Why now?
-A: EV has ushered breakthroughs in green energy and battery technology. However, the electric grid remains in the past. Pricing is set by the grid because it’s the only producer. To fully leverage on these innovations, the grid needs to be updated. Instead of a single producer who holds a monopoly on pricing, we envision micro-grids for each community where pricing is dynamic and consumers benefit from optimized pricing. The micro-grid serves as a market maker and order book matching multiple electricity producers with consumers. 
+EV has ushered breakthroughs in green energy and battery technology. However, the electric grid remains in the past. Pricing is set by the grid because it’s the only producer. To fully leverage on these innovations, the grid needs to be updated. Instead of a single producer who holds a monopoly on pricing, we envision micro-grids for each community where pricing is dynamic and consumers benefit from optimized pricing. The micro-grid serves as a market maker and order book matching multiple electricity producers with consumers. 
 Now is the time to start building out this vision in anticipation of these innovations coming together.
 
 ### Why is blockchain necessary?
