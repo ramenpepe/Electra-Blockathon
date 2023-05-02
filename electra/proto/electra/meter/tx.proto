@@ -1,0 +1,7 @@
+syntax = "proto3";
+package electra.meter;
+
+option go_package = "electra/x/meter/types";
+
+// Msg defines the Msg service.
+service Msg {}
