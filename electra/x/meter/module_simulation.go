@@ -69,6 +69,58 @@ const (
 	// TODO: Determine the simulation weight value
 	defaultWeightMsgDeleteBillingcycles int = 100
 
+	opWeightMsgPrepareBill = "op_weight_msg_prepare_bill"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgPrepareBill int = 100
+
+	opWeightMsgCreateCustomerbillingline = "op_weight_msg_customerbillingline"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgCreateCustomerbillingline int = 100
+
+	opWeightMsgUpdateCustomerbillingline = "op_weight_msg_customerbillingline"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgUpdateCustomerbillingline int = 100
+
+	opWeightMsgDeleteCustomerbillingline = "op_weight_msg_customerbillingline"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgDeleteCustomerbillingline int = 100
+
+	opWeightMsgCreateCustomerbills = "op_weight_msg_customerbills"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgCreateCustomerbills int = 100
+
+	opWeightMsgUpdateCustomerbills = "op_weight_msg_customerbills"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgUpdateCustomerbills int = 100
+
+	opWeightMsgDeleteCustomerbills = "op_weight_msg_customerbills"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgDeleteCustomerbills int = 100
+
+	opWeightMsgCreateProducerbillingline = "op_weight_msg_producerbillingline"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgCreateProducerbillingline int = 100
+
+	opWeightMsgUpdateProducerbillingline = "op_weight_msg_producerbillingline"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgUpdateProducerbillingline int = 100
+
+	opWeightMsgDeleteProducerbillingline = "op_weight_msg_producerbillingline"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgDeleteProducerbillingline int = 100
+
+	opWeightMsgCreateProducerbills = "op_weight_msg_producerbills"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgCreateProducerbills int = 100
+
+	opWeightMsgUpdateProducerbills = "op_weight_msg_producerbills"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgUpdateProducerbills int = 100
+
+	opWeightMsgDeleteProducerbills = "op_weight_msg_producerbills"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgDeleteProducerbills int = 100
+
 	// this line is used by starport scaffolding # simapp/module/const
 )
 
@@ -116,6 +168,62 @@ func (AppModule) GenerateGenesisState(simState *module.SimulationState) {
 			{
 				Creator: sample.AccAddress(),
 				CycleID: 1,
+			},
+		},
+		CustomerbillinglineList: []types.Customerbillingline{
+			{
+				Creator:          sample.AccAddress(),
+				CustomerDeviceID: "0",
+				CycleID:          0,
+				Lineid:           0,
+				Paid:             true,
+			},
+			{
+				Creator:          sample.AccAddress(),
+				CustomerDeviceID: "1",
+				CycleID:          1,
+				Lineid:           1,
+				Paid:             false,
+			},
+		},
+		CustomerbillsList: []types.Customerbills{
+			{
+				Creator:          sample.AccAddress(),
+				BillCycleID:      0,
+				CustomerDeviceID: "0",
+			},
+			{
+				Creator:          sample.AccAddress(),
+				BillCycleID:      1,
+				CustomerDeviceID: "1",
+			},
+		},
+		ProducerbillinglineList: []types.Producerbillingline{
+			{
+				Creator:          sample.AccAddress(),
+				ProducerDeviceID: "0",
+				CycleID:          0,
+				Lineid:           0,
+				Paid:             true,
+			},
+			{
+				Creator:          sample.AccAddress(),
+				ProducerDeviceID: "1",
+				CycleID:          1,
+				Lineid:           1,
+				Paid:             false,
+			},
+		},
+		ProducerbillsList: []types.Producerbills{
+			{
+				Creator:          sample.AccAddress(),
+				BillCycleID:      0,
+				ProducerDeviceID: "0",
+			},
+			{
+				Creator:          sample.AccAddress(),
+				BillCycleID:      1,
+				ProducerDeviceID: "1",
 			},
 		},
 		// this line is used by starport scaffolding # simapp/module/genesisState
@@ -273,6 +381,149 @@ func (am AppModule) WeightedOperations(simState module.SimulationState) []simtyp
 	operations = append(operations, simulation.NewWeightedOperation(
 		weightMsgDeleteBillingcycles,
 		metersimulation.SimulateMsgDeleteBillingcycles(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgPrepareBill int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgPrepareBill, &weightMsgPrepareBill, nil,
+		func(_ *rand.Rand) {
+			weightMsgPrepareBill = defaultWeightMsgPrepareBill
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgPrepareBill,
+		metersimulation.SimulateMsgPrepareBill(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgCreateCustomerbillingline int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgCreateCustomerbillingline, &weightMsgCreateCustomerbillingline, nil,
+		func(_ *rand.Rand) {
+			weightMsgCreateCustomerbillingline = defaultWeightMsgCreateCustomerbillingline
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgCreateCustomerbillingline,
+		metersimulation.SimulateMsgCreateCustomerbillingline(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgUpdateCustomerbillingline int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgUpdateCustomerbillingline, &weightMsgUpdateCustomerbillingline, nil,
+		func(_ *rand.Rand) {
+			weightMsgUpdateCustomerbillingline = defaultWeightMsgUpdateCustomerbillingline
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgUpdateCustomerbillingline,
+		metersimulation.SimulateMsgUpdateCustomerbillingline(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgDeleteCustomerbillingline int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgDeleteCustomerbillingline, &weightMsgDeleteCustomerbillingline, nil,
+		func(_ *rand.Rand) {
+			weightMsgDeleteCustomerbillingline = defaultWeightMsgDeleteCustomerbillingline
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgDeleteCustomerbillingline,
+		metersimulation.SimulateMsgDeleteCustomerbillingline(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgCreateCustomerbills int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgCreateCustomerbills, &weightMsgCreateCustomerbills, nil,
+		func(_ *rand.Rand) {
+			weightMsgCreateCustomerbills = defaultWeightMsgCreateCustomerbills
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgCreateCustomerbills,
+		metersimulation.SimulateMsgCreateCustomerbills(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgUpdateCustomerbills int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgUpdateCustomerbills, &weightMsgUpdateCustomerbills, nil,
+		func(_ *rand.Rand) {
+			weightMsgUpdateCustomerbills = defaultWeightMsgUpdateCustomerbills
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgUpdateCustomerbills,
+		metersimulation.SimulateMsgUpdateCustomerbills(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgDeleteCustomerbills int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgDeleteCustomerbills, &weightMsgDeleteCustomerbills, nil,
+		func(_ *rand.Rand) {
+			weightMsgDeleteCustomerbills = defaultWeightMsgDeleteCustomerbills
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgDeleteCustomerbills,
+		metersimulation.SimulateMsgDeleteCustomerbills(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgCreateProducerbillingline int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgCreateProducerbillingline, &weightMsgCreateProducerbillingline, nil,
+		func(_ *rand.Rand) {
+			weightMsgCreateProducerbillingline = defaultWeightMsgCreateProducerbillingline
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgCreateProducerbillingline,
+		metersimulation.SimulateMsgCreateProducerbillingline(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgUpdateProducerbillingline int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgUpdateProducerbillingline, &weightMsgUpdateProducerbillingline, nil,
+		func(_ *rand.Rand) {
+			weightMsgUpdateProducerbillingline = defaultWeightMsgUpdateProducerbillingline
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgUpdateProducerbillingline,
+		metersimulation.SimulateMsgUpdateProducerbillingline(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgDeleteProducerbillingline int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgDeleteProducerbillingline, &weightMsgDeleteProducerbillingline, nil,
+		func(_ *rand.Rand) {
+			weightMsgDeleteProducerbillingline = defaultWeightMsgDeleteProducerbillingline
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgDeleteProducerbillingline,
+		metersimulation.SimulateMsgDeleteProducerbillingline(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgCreateProducerbills int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgCreateProducerbills, &weightMsgCreateProducerbills, nil,
+		func(_ *rand.Rand) {
+			weightMsgCreateProducerbills = defaultWeightMsgCreateProducerbills
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgCreateProducerbills,
+		metersimulation.SimulateMsgCreateProducerbills(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgUpdateProducerbills int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgUpdateProducerbills, &weightMsgUpdateProducerbills, nil,
+		func(_ *rand.Rand) {
+			weightMsgUpdateProducerbills = defaultWeightMsgUpdateProducerbills
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgUpdateProducerbills,
+		metersimulation.SimulateMsgUpdateProducerbills(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgDeleteProducerbills int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgDeleteProducerbills, &weightMsgDeleteProducerbills, nil,
+		func(_ *rand.Rand) {
+			weightMsgDeleteProducerbills = defaultWeightMsgDeleteProducerbills
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgDeleteProducerbills,
+		metersimulation.SimulateMsgDeleteProducerbills(am.accountKeeper, am.bankKeeper, am.keeper),
 	))
 
 	// this line is used by starport scaffolding # simapp/module/operation

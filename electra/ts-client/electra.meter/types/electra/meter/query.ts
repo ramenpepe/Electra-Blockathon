@@ -3,11 +3,15 @@ import Long from "long";
 import _m0 from "protobufjs/minimal";
 import { PageRequest, PageResponse } from "../../cosmos/base/query/v1beta1/pagination";
 import { Billingcycles } from "./billingcycles";
+import { Customerbillingline } from "./customerbillingline";
+import { Customerbills } from "./customerbills";
 import { Meterdirectory } from "./meterdirectory";
 import { Meterreadings } from "./meterreadings";
 import { Params } from "./params";
 import { PowerPurchaseContract } from "./power_purchase_contract";
 import { PpaMap } from "./ppa_map";
+import { Producerbillingline } from "./producerbillingline";
+import { Producerbills } from "./producerbills";
 
 export const protobufPackage = "electra.meter";
 
@@ -139,6 +143,110 @@ export interface QueryCurrentcycleIDResponse {
   moneyin: number;
   moneyout: number;
   curency: string;
+}
+
+export interface QueryGetCustomerbillinglineRequest {
+  customerDeviceID: string;
+  cycleID: number;
+  lineid: number;
+  paid: boolean;
+}
+
+export interface QueryGetCustomerbillinglineResponse {
+  customerbillingline: Customerbillingline | undefined;
+}
+
+export interface QueryAllCustomerbillinglineRequest {
+  pagination: PageRequest | undefined;
+}
+
+export interface QueryAllCustomerbillinglineResponse {
+  customerbillingline: Customerbillingline[];
+  pagination: PageResponse | undefined;
+}
+
+export interface QueryGetcustomerbillRequest {
+  customerDeviceID: string;
+  billCycleID: number;
+}
+
+export interface QueryGetcustomerbillResponse {
+  customerbillinglines: string;
+  billTotalWh: number;
+  billTotalPrice: number;
+  currency: string;
+  nblines: number;
+  comments: string;
+}
+
+export interface QueryGetCustomerbillsRequest {
+  billCycleID: number;
+  customerDeviceID: string;
+}
+
+export interface QueryGetCustomerbillsResponse {
+  customerbills: Customerbills | undefined;
+}
+
+export interface QueryAllCustomerbillsRequest {
+  pagination: PageRequest | undefined;
+}
+
+export interface QueryAllCustomerbillsResponse {
+  customerbills: Customerbills[];
+  pagination: PageResponse | undefined;
+}
+
+export interface QueryGetProducerbillinglineRequest {
+  producerDeviceID: string;
+  cycleID: number;
+  lineid: number;
+  paid: boolean;
+}
+
+export interface QueryGetProducerbillinglineResponse {
+  producerbillingline: Producerbillingline | undefined;
+}
+
+export interface QueryAllProducerbillinglineRequest {
+  pagination: PageRequest | undefined;
+}
+
+export interface QueryAllProducerbillinglineResponse {
+  producerbillingline: Producerbillingline[];
+  pagination: PageResponse | undefined;
+}
+
+export interface QueryGetproducerbillRequest {
+  producerDeviceID: string;
+  billCycleID: number;
+}
+
+export interface QueryGetproducerbillResponse {
+  producerbillinglines: string;
+  billTotalWh: number;
+  billTotalPrice: number;
+  curency: string;
+  nblines: number;
+  comments: string;
+}
+
+export interface QueryGetProducerbillsRequest {
+  billCycleID: number;
+  producerDeviceID: string;
+}
+
+export interface QueryGetProducerbillsResponse {
+  producerbills: Producerbills | undefined;
+}
+
+export interface QueryAllProducerbillsRequest {
+  pagination: PageRequest | undefined;
+}
+
+export interface QueryAllProducerbillsResponse {
+  producerbills: Producerbills[];
+  pagination: PageResponse | undefined;
 }
 
 function createBaseQueryParamsRequest(): QueryParamsRequest {
@@ -1715,6 +1823,1280 @@ export const QueryCurrentcycleIDResponse = {
   },
 };
 
+function createBaseQueryGetCustomerbillinglineRequest(): QueryGetCustomerbillinglineRequest {
+  return { customerDeviceID: "", cycleID: 0, lineid: 0, paid: false };
+}
+
+export const QueryGetCustomerbillinglineRequest = {
+  encode(message: QueryGetCustomerbillinglineRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.customerDeviceID !== "") {
+      writer.uint32(10).string(message.customerDeviceID);
+    }
+    if (message.cycleID !== 0) {
+      writer.uint32(16).uint64(message.cycleID);
+    }
+    if (message.lineid !== 0) {
+      writer.uint32(24).uint64(message.lineid);
+    }
+    if (message.paid === true) {
+      writer.uint32(32).bool(message.paid);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryGetCustomerbillinglineRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryGetCustomerbillinglineRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.customerDeviceID = reader.string();
+          break;
+        case 2:
+          message.cycleID = longToNumber(reader.uint64() as Long);
+          break;
+        case 3:
+          message.lineid = longToNumber(reader.uint64() as Long);
+          break;
+        case 4:
+          message.paid = reader.bool();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryGetCustomerbillinglineRequest {
+    return {
+      customerDeviceID: isSet(object.customerDeviceID) ? String(object.customerDeviceID) : "",
+      cycleID: isSet(object.cycleID) ? Number(object.cycleID) : 0,
+      lineid: isSet(object.lineid) ? Number(object.lineid) : 0,
+      paid: isSet(object.paid) ? Boolean(object.paid) : false,
+    };
+  },
+
+  toJSON(message: QueryGetCustomerbillinglineRequest): unknown {
+    const obj: any = {};
+    message.customerDeviceID !== undefined && (obj.customerDeviceID = message.customerDeviceID);
+    message.cycleID !== undefined && (obj.cycleID = Math.round(message.cycleID));
+    message.lineid !== undefined && (obj.lineid = Math.round(message.lineid));
+    message.paid !== undefined && (obj.paid = message.paid);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryGetCustomerbillinglineRequest>, I>>(
+    object: I,
+  ): QueryGetCustomerbillinglineRequest {
+    const message = createBaseQueryGetCustomerbillinglineRequest();
+    message.customerDeviceID = object.customerDeviceID ?? "";
+    message.cycleID = object.cycleID ?? 0;
+    message.lineid = object.lineid ?? 0;
+    message.paid = object.paid ?? false;
+    return message;
+  },
+};
+
+function createBaseQueryGetCustomerbillinglineResponse(): QueryGetCustomerbillinglineResponse {
+  return { customerbillingline: undefined };
+}
+
+export const QueryGetCustomerbillinglineResponse = {
+  encode(message: QueryGetCustomerbillinglineResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.customerbillingline !== undefined) {
+      Customerbillingline.encode(message.customerbillingline, writer.uint32(10).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryGetCustomerbillinglineResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryGetCustomerbillinglineResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.customerbillingline = Customerbillingline.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryGetCustomerbillinglineResponse {
+    return {
+      customerbillingline: isSet(object.customerbillingline)
+        ? Customerbillingline.fromJSON(object.customerbillingline)
+        : undefined,
+    };
+  },
+
+  toJSON(message: QueryGetCustomerbillinglineResponse): unknown {
+    const obj: any = {};
+    message.customerbillingline !== undefined && (obj.customerbillingline = message.customerbillingline
+      ? Customerbillingline.toJSON(message.customerbillingline)
+      : undefined);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryGetCustomerbillinglineResponse>, I>>(
+    object: I,
+  ): QueryGetCustomerbillinglineResponse {
+    const message = createBaseQueryGetCustomerbillinglineResponse();
+    message.customerbillingline = (object.customerbillingline !== undefined && object.customerbillingline !== null)
+      ? Customerbillingline.fromPartial(object.customerbillingline)
+      : undefined;
+    return message;
+  },
+};
+
+function createBaseQueryAllCustomerbillinglineRequest(): QueryAllCustomerbillinglineRequest {
+  return { pagination: undefined };
+}
+
+export const QueryAllCustomerbillinglineRequest = {
+  encode(message: QueryAllCustomerbillinglineRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.pagination !== undefined) {
+      PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryAllCustomerbillinglineRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryAllCustomerbillinglineRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.pagination = PageRequest.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryAllCustomerbillinglineRequest {
+    return { pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined };
+  },
+
+  toJSON(message: QueryAllCustomerbillinglineRequest): unknown {
+    const obj: any = {};
+    message.pagination !== undefined
+      && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryAllCustomerbillinglineRequest>, I>>(
+    object: I,
+  ): QueryAllCustomerbillinglineRequest {
+    const message = createBaseQueryAllCustomerbillinglineRequest();
+    message.pagination = (object.pagination !== undefined && object.pagination !== null)
+      ? PageRequest.fromPartial(object.pagination)
+      : undefined;
+    return message;
+  },
+};
+
+function createBaseQueryAllCustomerbillinglineResponse(): QueryAllCustomerbillinglineResponse {
+  return { customerbillingline: [], pagination: undefined };
+}
+
+export const QueryAllCustomerbillinglineResponse = {
+  encode(message: QueryAllCustomerbillinglineResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    for (const v of message.customerbillingline) {
+      Customerbillingline.encode(v!, writer.uint32(10).fork()).ldelim();
+    }
+    if (message.pagination !== undefined) {
+      PageResponse.encode(message.pagination, writer.uint32(18).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryAllCustomerbillinglineResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryAllCustomerbillinglineResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.customerbillingline.push(Customerbillingline.decode(reader, reader.uint32()));
+          break;
+        case 2:
+          message.pagination = PageResponse.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryAllCustomerbillinglineResponse {
+    return {
+      customerbillingline: Array.isArray(object?.customerbillingline)
+        ? object.customerbillingline.map((e: any) => Customerbillingline.fromJSON(e))
+        : [],
+      pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined,
+    };
+  },
+
+  toJSON(message: QueryAllCustomerbillinglineResponse): unknown {
+    const obj: any = {};
+    if (message.customerbillingline) {
+      obj.customerbillingline = message.customerbillingline.map((e) => e ? Customerbillingline.toJSON(e) : undefined);
+    } else {
+      obj.customerbillingline = [];
+    }
+    message.pagination !== undefined
+      && (obj.pagination = message.pagination ? PageResponse.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryAllCustomerbillinglineResponse>, I>>(
+    object: I,
+  ): QueryAllCustomerbillinglineResponse {
+    const message = createBaseQueryAllCustomerbillinglineResponse();
+    message.customerbillingline = object.customerbillingline?.map((e) => Customerbillingline.fromPartial(e)) || [];
+    message.pagination = (object.pagination !== undefined && object.pagination !== null)
+      ? PageResponse.fromPartial(object.pagination)
+      : undefined;
+    return message;
+  },
+};
+
+function createBaseQueryGetcustomerbillRequest(): QueryGetcustomerbillRequest {
+  return { customerDeviceID: "", billCycleID: 0 };
+}
+
+export const QueryGetcustomerbillRequest = {
+  encode(message: QueryGetcustomerbillRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.customerDeviceID !== "") {
+      writer.uint32(10).string(message.customerDeviceID);
+    }
+    if (message.billCycleID !== 0) {
+      writer.uint32(16).uint64(message.billCycleID);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryGetcustomerbillRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryGetcustomerbillRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.customerDeviceID = reader.string();
+          break;
+        case 2:
+          message.billCycleID = longToNumber(reader.uint64() as Long);
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryGetcustomerbillRequest {
+    return {
+      customerDeviceID: isSet(object.customerDeviceID) ? String(object.customerDeviceID) : "",
+      billCycleID: isSet(object.billCycleID) ? Number(object.billCycleID) : 0,
+    };
+  },
+
+  toJSON(message: QueryGetcustomerbillRequest): unknown {
+    const obj: any = {};
+    message.customerDeviceID !== undefined && (obj.customerDeviceID = message.customerDeviceID);
+    message.billCycleID !== undefined && (obj.billCycleID = Math.round(message.billCycleID));
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryGetcustomerbillRequest>, I>>(object: I): QueryGetcustomerbillRequest {
+    const message = createBaseQueryGetcustomerbillRequest();
+    message.customerDeviceID = object.customerDeviceID ?? "";
+    message.billCycleID = object.billCycleID ?? 0;
+    return message;
+  },
+};
+
+function createBaseQueryGetcustomerbillResponse(): QueryGetcustomerbillResponse {
+  return { customerbillinglines: "", billTotalWh: 0, billTotalPrice: 0, currency: "", nblines: 0, comments: "" };
+}
+
+export const QueryGetcustomerbillResponse = {
+  encode(message: QueryGetcustomerbillResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.customerbillinglines !== "") {
+      writer.uint32(10).string(message.customerbillinglines);
+    }
+    if (message.billTotalWh !== 0) {
+      writer.uint32(16).uint64(message.billTotalWh);
+    }
+    if (message.billTotalPrice !== 0) {
+      writer.uint32(24).uint64(message.billTotalPrice);
+    }
+    if (message.currency !== "") {
+      writer.uint32(34).string(message.currency);
+    }
+    if (message.nblines !== 0) {
+      writer.uint32(40).uint64(message.nblines);
+    }
+    if (message.comments !== "") {
+      writer.uint32(50).string(message.comments);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryGetcustomerbillResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryGetcustomerbillResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.customerbillinglines = reader.string();
+          break;
+        case 2:
+          message.billTotalWh = longToNumber(reader.uint64() as Long);
+          break;
+        case 3:
+          message.billTotalPrice = longToNumber(reader.uint64() as Long);
+          break;
+        case 4:
+          message.currency = reader.string();
+          break;
+        case 5:
+          message.nblines = longToNumber(reader.uint64() as Long);
+          break;
+        case 6:
+          message.comments = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryGetcustomerbillResponse {
+    return {
+      customerbillinglines: isSet(object.customerbillinglines) ? String(object.customerbillinglines) : "",
+      billTotalWh: isSet(object.billTotalWh) ? Number(object.billTotalWh) : 0,
+      billTotalPrice: isSet(object.billTotalPrice) ? Number(object.billTotalPrice) : 0,
+      currency: isSet(object.currency) ? String(object.currency) : "",
+      nblines: isSet(object.nblines) ? Number(object.nblines) : 0,
+      comments: isSet(object.comments) ? String(object.comments) : "",
+    };
+  },
+
+  toJSON(message: QueryGetcustomerbillResponse): unknown {
+    const obj: any = {};
+    message.customerbillinglines !== undefined && (obj.customerbillinglines = message.customerbillinglines);
+    message.billTotalWh !== undefined && (obj.billTotalWh = Math.round(message.billTotalWh));
+    message.billTotalPrice !== undefined && (obj.billTotalPrice = Math.round(message.billTotalPrice));
+    message.currency !== undefined && (obj.currency = message.currency);
+    message.nblines !== undefined && (obj.nblines = Math.round(message.nblines));
+    message.comments !== undefined && (obj.comments = message.comments);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryGetcustomerbillResponse>, I>>(object: I): QueryGetcustomerbillResponse {
+    const message = createBaseQueryGetcustomerbillResponse();
+    message.customerbillinglines = object.customerbillinglines ?? "";
+    message.billTotalWh = object.billTotalWh ?? 0;
+    message.billTotalPrice = object.billTotalPrice ?? 0;
+    message.currency = object.currency ?? "";
+    message.nblines = object.nblines ?? 0;
+    message.comments = object.comments ?? "";
+    return message;
+  },
+};
+
+function createBaseQueryGetCustomerbillsRequest(): QueryGetCustomerbillsRequest {
+  return { billCycleID: 0, customerDeviceID: "" };
+}
+
+export const QueryGetCustomerbillsRequest = {
+  encode(message: QueryGetCustomerbillsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.billCycleID !== 0) {
+      writer.uint32(8).uint64(message.billCycleID);
+    }
+    if (message.customerDeviceID !== "") {
+      writer.uint32(18).string(message.customerDeviceID);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryGetCustomerbillsRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryGetCustomerbillsRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.billCycleID = longToNumber(reader.uint64() as Long);
+          break;
+        case 2:
+          message.customerDeviceID = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryGetCustomerbillsRequest {
+    return {
+      billCycleID: isSet(object.billCycleID) ? Number(object.billCycleID) : 0,
+      customerDeviceID: isSet(object.customerDeviceID) ? String(object.customerDeviceID) : "",
+    };
+  },
+
+  toJSON(message: QueryGetCustomerbillsRequest): unknown {
+    const obj: any = {};
+    message.billCycleID !== undefined && (obj.billCycleID = Math.round(message.billCycleID));
+    message.customerDeviceID !== undefined && (obj.customerDeviceID = message.customerDeviceID);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryGetCustomerbillsRequest>, I>>(object: I): QueryGetCustomerbillsRequest {
+    const message = createBaseQueryGetCustomerbillsRequest();
+    message.billCycleID = object.billCycleID ?? 0;
+    message.customerDeviceID = object.customerDeviceID ?? "";
+    return message;
+  },
+};
+
+function createBaseQueryGetCustomerbillsResponse(): QueryGetCustomerbillsResponse {
+  return { customerbills: undefined };
+}
+
+export const QueryGetCustomerbillsResponse = {
+  encode(message: QueryGetCustomerbillsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.customerbills !== undefined) {
+      Customerbills.encode(message.customerbills, writer.uint32(10).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryGetCustomerbillsResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryGetCustomerbillsResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.customerbills = Customerbills.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryGetCustomerbillsResponse {
+    return { customerbills: isSet(object.customerbills) ? Customerbills.fromJSON(object.customerbills) : undefined };
+  },
+
+  toJSON(message: QueryGetCustomerbillsResponse): unknown {
+    const obj: any = {};
+    message.customerbills !== undefined
+      && (obj.customerbills = message.customerbills ? Customerbills.toJSON(message.customerbills) : undefined);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryGetCustomerbillsResponse>, I>>(
+    object: I,
+  ): QueryGetCustomerbillsResponse {
+    const message = createBaseQueryGetCustomerbillsResponse();
+    message.customerbills = (object.customerbills !== undefined && object.customerbills !== null)
+      ? Customerbills.fromPartial(object.customerbills)
+      : undefined;
+    return message;
+  },
+};
+
+function createBaseQueryAllCustomerbillsRequest(): QueryAllCustomerbillsRequest {
+  return { pagination: undefined };
+}
+
+export const QueryAllCustomerbillsRequest = {
+  encode(message: QueryAllCustomerbillsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.pagination !== undefined) {
+      PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryAllCustomerbillsRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryAllCustomerbillsRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.pagination = PageRequest.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryAllCustomerbillsRequest {
+    return { pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined };
+  },
+
+  toJSON(message: QueryAllCustomerbillsRequest): unknown {
+    const obj: any = {};
+    message.pagination !== undefined
+      && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryAllCustomerbillsRequest>, I>>(object: I): QueryAllCustomerbillsRequest {
+    const message = createBaseQueryAllCustomerbillsRequest();
+    message.pagination = (object.pagination !== undefined && object.pagination !== null)
+      ? PageRequest.fromPartial(object.pagination)
+      : undefined;
+    return message;
+  },
+};
+
+function createBaseQueryAllCustomerbillsResponse(): QueryAllCustomerbillsResponse {
+  return { customerbills: [], pagination: undefined };
+}
+
+export const QueryAllCustomerbillsResponse = {
+  encode(message: QueryAllCustomerbillsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    for (const v of message.customerbills) {
+      Customerbills.encode(v!, writer.uint32(10).fork()).ldelim();
+    }
+    if (message.pagination !== undefined) {
+      PageResponse.encode(message.pagination, writer.uint32(18).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryAllCustomerbillsResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryAllCustomerbillsResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.customerbills.push(Customerbills.decode(reader, reader.uint32()));
+          break;
+        case 2:
+          message.pagination = PageResponse.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryAllCustomerbillsResponse {
+    return {
+      customerbills: Array.isArray(object?.customerbills)
+        ? object.customerbills.map((e: any) => Customerbills.fromJSON(e))
+        : [],
+      pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined,
+    };
+  },
+
+  toJSON(message: QueryAllCustomerbillsResponse): unknown {
+    const obj: any = {};
+    if (message.customerbills) {
+      obj.customerbills = message.customerbills.map((e) => e ? Customerbills.toJSON(e) : undefined);
+    } else {
+      obj.customerbills = [];
+    }
+    message.pagination !== undefined
+      && (obj.pagination = message.pagination ? PageResponse.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryAllCustomerbillsResponse>, I>>(
+    object: I,
+  ): QueryAllCustomerbillsResponse {
+    const message = createBaseQueryAllCustomerbillsResponse();
+    message.customerbills = object.customerbills?.map((e) => Customerbills.fromPartial(e)) || [];
+    message.pagination = (object.pagination !== undefined && object.pagination !== null)
+      ? PageResponse.fromPartial(object.pagination)
+      : undefined;
+    return message;
+  },
+};
+
+function createBaseQueryGetProducerbillinglineRequest(): QueryGetProducerbillinglineRequest {
+  return { producerDeviceID: "", cycleID: 0, lineid: 0, paid: false };
+}
+
+export const QueryGetProducerbillinglineRequest = {
+  encode(message: QueryGetProducerbillinglineRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.producerDeviceID !== "") {
+      writer.uint32(10).string(message.producerDeviceID);
+    }
+    if (message.cycleID !== 0) {
+      writer.uint32(16).uint64(message.cycleID);
+    }
+    if (message.lineid !== 0) {
+      writer.uint32(24).uint64(message.lineid);
+    }
+    if (message.paid === true) {
+      writer.uint32(32).bool(message.paid);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryGetProducerbillinglineRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryGetProducerbillinglineRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.producerDeviceID = reader.string();
+          break;
+        case 2:
+          message.cycleID = longToNumber(reader.uint64() as Long);
+          break;
+        case 3:
+          message.lineid = longToNumber(reader.uint64() as Long);
+          break;
+        case 4:
+          message.paid = reader.bool();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryGetProducerbillinglineRequest {
+    return {
+      producerDeviceID: isSet(object.producerDeviceID) ? String(object.producerDeviceID) : "",
+      cycleID: isSet(object.cycleID) ? Number(object.cycleID) : 0,
+      lineid: isSet(object.lineid) ? Number(object.lineid) : 0,
+      paid: isSet(object.paid) ? Boolean(object.paid) : false,
+    };
+  },
+
+  toJSON(message: QueryGetProducerbillinglineRequest): unknown {
+    const obj: any = {};
+    message.producerDeviceID !== undefined && (obj.producerDeviceID = message.producerDeviceID);
+    message.cycleID !== undefined && (obj.cycleID = Math.round(message.cycleID));
+    message.lineid !== undefined && (obj.lineid = Math.round(message.lineid));
+    message.paid !== undefined && (obj.paid = message.paid);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryGetProducerbillinglineRequest>, I>>(
+    object: I,
+  ): QueryGetProducerbillinglineRequest {
+    const message = createBaseQueryGetProducerbillinglineRequest();
+    message.producerDeviceID = object.producerDeviceID ?? "";
+    message.cycleID = object.cycleID ?? 0;
+    message.lineid = object.lineid ?? 0;
+    message.paid = object.paid ?? false;
+    return message;
+  },
+};
+
+function createBaseQueryGetProducerbillinglineResponse(): QueryGetProducerbillinglineResponse {
+  return { producerbillingline: undefined };
+}
+
+export const QueryGetProducerbillinglineResponse = {
+  encode(message: QueryGetProducerbillinglineResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.producerbillingline !== undefined) {
+      Producerbillingline.encode(message.producerbillingline, writer.uint32(10).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryGetProducerbillinglineResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryGetProducerbillinglineResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.producerbillingline = Producerbillingline.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryGetProducerbillinglineResponse {
+    return {
+      producerbillingline: isSet(object.producerbillingline)
+        ? Producerbillingline.fromJSON(object.producerbillingline)
+        : undefined,
+    };
+  },
+
+  toJSON(message: QueryGetProducerbillinglineResponse): unknown {
+    const obj: any = {};
+    message.producerbillingline !== undefined && (obj.producerbillingline = message.producerbillingline
+      ? Producerbillingline.toJSON(message.producerbillingline)
+      : undefined);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryGetProducerbillinglineResponse>, I>>(
+    object: I,
+  ): QueryGetProducerbillinglineResponse {
+    const message = createBaseQueryGetProducerbillinglineResponse();
+    message.producerbillingline = (object.producerbillingline !== undefined && object.producerbillingline !== null)
+      ? Producerbillingline.fromPartial(object.producerbillingline)
+      : undefined;
+    return message;
+  },
+};
+
+function createBaseQueryAllProducerbillinglineRequest(): QueryAllProducerbillinglineRequest {
+  return { pagination: undefined };
+}
+
+export const QueryAllProducerbillinglineRequest = {
+  encode(message: QueryAllProducerbillinglineRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.pagination !== undefined) {
+      PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryAllProducerbillinglineRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryAllProducerbillinglineRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.pagination = PageRequest.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryAllProducerbillinglineRequest {
+    return { pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined };
+  },
+
+  toJSON(message: QueryAllProducerbillinglineRequest): unknown {
+    const obj: any = {};
+    message.pagination !== undefined
+      && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryAllProducerbillinglineRequest>, I>>(
+    object: I,
+  ): QueryAllProducerbillinglineRequest {
+    const message = createBaseQueryAllProducerbillinglineRequest();
+    message.pagination = (object.pagination !== undefined && object.pagination !== null)
+      ? PageRequest.fromPartial(object.pagination)
+      : undefined;
+    return message;
+  },
+};
+
+function createBaseQueryAllProducerbillinglineResponse(): QueryAllProducerbillinglineResponse {
+  return { producerbillingline: [], pagination: undefined };
+}
+
+export const QueryAllProducerbillinglineResponse = {
+  encode(message: QueryAllProducerbillinglineResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    for (const v of message.producerbillingline) {
+      Producerbillingline.encode(v!, writer.uint32(10).fork()).ldelim();
+    }
+    if (message.pagination !== undefined) {
+      PageResponse.encode(message.pagination, writer.uint32(18).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryAllProducerbillinglineResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryAllProducerbillinglineResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.producerbillingline.push(Producerbillingline.decode(reader, reader.uint32()));
+          break;
+        case 2:
+          message.pagination = PageResponse.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryAllProducerbillinglineResponse {
+    return {
+      producerbillingline: Array.isArray(object?.producerbillingline)
+        ? object.producerbillingline.map((e: any) => Producerbillingline.fromJSON(e))
+        : [],
+      pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined,
+    };
+  },
+
+  toJSON(message: QueryAllProducerbillinglineResponse): unknown {
+    const obj: any = {};
+    if (message.producerbillingline) {
+      obj.producerbillingline = message.producerbillingline.map((e) => e ? Producerbillingline.toJSON(e) : undefined);
+    } else {
+      obj.producerbillingline = [];
+    }
+    message.pagination !== undefined
+      && (obj.pagination = message.pagination ? PageResponse.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryAllProducerbillinglineResponse>, I>>(
+    object: I,
+  ): QueryAllProducerbillinglineResponse {
+    const message = createBaseQueryAllProducerbillinglineResponse();
+    message.producerbillingline = object.producerbillingline?.map((e) => Producerbillingline.fromPartial(e)) || [];
+    message.pagination = (object.pagination !== undefined && object.pagination !== null)
+      ? PageResponse.fromPartial(object.pagination)
+      : undefined;
+    return message;
+  },
+};
+
+function createBaseQueryGetproducerbillRequest(): QueryGetproducerbillRequest {
+  return { producerDeviceID: "", billCycleID: 0 };
+}
+
+export const QueryGetproducerbillRequest = {
+  encode(message: QueryGetproducerbillRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.producerDeviceID !== "") {
+      writer.uint32(10).string(message.producerDeviceID);
+    }
+    if (message.billCycleID !== 0) {
+      writer.uint32(16).uint64(message.billCycleID);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryGetproducerbillRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryGetproducerbillRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.producerDeviceID = reader.string();
+          break;
+        case 2:
+          message.billCycleID = longToNumber(reader.uint64() as Long);
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryGetproducerbillRequest {
+    return {
+      producerDeviceID: isSet(object.producerDeviceID) ? String(object.producerDeviceID) : "",
+      billCycleID: isSet(object.billCycleID) ? Number(object.billCycleID) : 0,
+    };
+  },
+
+  toJSON(message: QueryGetproducerbillRequest): unknown {
+    const obj: any = {};
+    message.producerDeviceID !== undefined && (obj.producerDeviceID = message.producerDeviceID);
+    message.billCycleID !== undefined && (obj.billCycleID = Math.round(message.billCycleID));
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryGetproducerbillRequest>, I>>(object: I): QueryGetproducerbillRequest {
+    const message = createBaseQueryGetproducerbillRequest();
+    message.producerDeviceID = object.producerDeviceID ?? "";
+    message.billCycleID = object.billCycleID ?? 0;
+    return message;
+  },
+};
+
+function createBaseQueryGetproducerbillResponse(): QueryGetproducerbillResponse {
+  return { producerbillinglines: "", billTotalWh: 0, billTotalPrice: 0, curency: "", nblines: 0, comments: "" };
+}
+
+export const QueryGetproducerbillResponse = {
+  encode(message: QueryGetproducerbillResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.producerbillinglines !== "") {
+      writer.uint32(10).string(message.producerbillinglines);
+    }
+    if (message.billTotalWh !== 0) {
+      writer.uint32(16).uint64(message.billTotalWh);
+    }
+    if (message.billTotalPrice !== 0) {
+      writer.uint32(24).uint64(message.billTotalPrice);
+    }
+    if (message.curency !== "") {
+      writer.uint32(34).string(message.curency);
+    }
+    if (message.nblines !== 0) {
+      writer.uint32(40).uint64(message.nblines);
+    }
+    if (message.comments !== "") {
+      writer.uint32(50).string(message.comments);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryGetproducerbillResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryGetproducerbillResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.producerbillinglines = reader.string();
+          break;
+        case 2:
+          message.billTotalWh = longToNumber(reader.uint64() as Long);
+          break;
+        case 3:
+          message.billTotalPrice = longToNumber(reader.uint64() as Long);
+          break;
+        case 4:
+          message.curency = reader.string();
+          break;
+        case 5:
+          message.nblines = longToNumber(reader.uint64() as Long);
+          break;
+        case 6:
+          message.comments = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryGetproducerbillResponse {
+    return {
+      producerbillinglines: isSet(object.producerbillinglines) ? String(object.producerbillinglines) : "",
+      billTotalWh: isSet(object.billTotalWh) ? Number(object.billTotalWh) : 0,
+      billTotalPrice: isSet(object.billTotalPrice) ? Number(object.billTotalPrice) : 0,
+      curency: isSet(object.curency) ? String(object.curency) : "",
+      nblines: isSet(object.nblines) ? Number(object.nblines) : 0,
+      comments: isSet(object.comments) ? String(object.comments) : "",
+    };
+  },
+
+  toJSON(message: QueryGetproducerbillResponse): unknown {
+    const obj: any = {};
+    message.producerbillinglines !== undefined && (obj.producerbillinglines = message.producerbillinglines);
+    message.billTotalWh !== undefined && (obj.billTotalWh = Math.round(message.billTotalWh));
+    message.billTotalPrice !== undefined && (obj.billTotalPrice = Math.round(message.billTotalPrice));
+    message.curency !== undefined && (obj.curency = message.curency);
+    message.nblines !== undefined && (obj.nblines = Math.round(message.nblines));
+    message.comments !== undefined && (obj.comments = message.comments);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryGetproducerbillResponse>, I>>(object: I): QueryGetproducerbillResponse {
+    const message = createBaseQueryGetproducerbillResponse();
+    message.producerbillinglines = object.producerbillinglines ?? "";
+    message.billTotalWh = object.billTotalWh ?? 0;
+    message.billTotalPrice = object.billTotalPrice ?? 0;
+    message.curency = object.curency ?? "";
+    message.nblines = object.nblines ?? 0;
+    message.comments = object.comments ?? "";
+    return message;
+  },
+};
+
+function createBaseQueryGetProducerbillsRequest(): QueryGetProducerbillsRequest {
+  return { billCycleID: 0, producerDeviceID: "" };
+}
+
+export const QueryGetProducerbillsRequest = {
+  encode(message: QueryGetProducerbillsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.billCycleID !== 0) {
+      writer.uint32(8).uint64(message.billCycleID);
+    }
+    if (message.producerDeviceID !== "") {
+      writer.uint32(18).string(message.producerDeviceID);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryGetProducerbillsRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryGetProducerbillsRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.billCycleID = longToNumber(reader.uint64() as Long);
+          break;
+        case 2:
+          message.producerDeviceID = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryGetProducerbillsRequest {
+    return {
+      billCycleID: isSet(object.billCycleID) ? Number(object.billCycleID) : 0,
+      producerDeviceID: isSet(object.producerDeviceID) ? String(object.producerDeviceID) : "",
+    };
+  },
+
+  toJSON(message: QueryGetProducerbillsRequest): unknown {
+    const obj: any = {};
+    message.billCycleID !== undefined && (obj.billCycleID = Math.round(message.billCycleID));
+    message.producerDeviceID !== undefined && (obj.producerDeviceID = message.producerDeviceID);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryGetProducerbillsRequest>, I>>(object: I): QueryGetProducerbillsRequest {
+    const message = createBaseQueryGetProducerbillsRequest();
+    message.billCycleID = object.billCycleID ?? 0;
+    message.producerDeviceID = object.producerDeviceID ?? "";
+    return message;
+  },
+};
+
+function createBaseQueryGetProducerbillsResponse(): QueryGetProducerbillsResponse {
+  return { producerbills: undefined };
+}
+
+export const QueryGetProducerbillsResponse = {
+  encode(message: QueryGetProducerbillsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.producerbills !== undefined) {
+      Producerbills.encode(message.producerbills, writer.uint32(10).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryGetProducerbillsResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryGetProducerbillsResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.producerbills = Producerbills.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryGetProducerbillsResponse {
+    return { producerbills: isSet(object.producerbills) ? Producerbills.fromJSON(object.producerbills) : undefined };
+  },
+
+  toJSON(message: QueryGetProducerbillsResponse): unknown {
+    const obj: any = {};
+    message.producerbills !== undefined
+      && (obj.producerbills = message.producerbills ? Producerbills.toJSON(message.producerbills) : undefined);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryGetProducerbillsResponse>, I>>(
+    object: I,
+  ): QueryGetProducerbillsResponse {
+    const message = createBaseQueryGetProducerbillsResponse();
+    message.producerbills = (object.producerbills !== undefined && object.producerbills !== null)
+      ? Producerbills.fromPartial(object.producerbills)
+      : undefined;
+    return message;
+  },
+};
+
+function createBaseQueryAllProducerbillsRequest(): QueryAllProducerbillsRequest {
+  return { pagination: undefined };
+}
+
+export const QueryAllProducerbillsRequest = {
+  encode(message: QueryAllProducerbillsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.pagination !== undefined) {
+      PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryAllProducerbillsRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryAllProducerbillsRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.pagination = PageRequest.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryAllProducerbillsRequest {
+    return { pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined };
+  },
+
+  toJSON(message: QueryAllProducerbillsRequest): unknown {
+    const obj: any = {};
+    message.pagination !== undefined
+      && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryAllProducerbillsRequest>, I>>(object: I): QueryAllProducerbillsRequest {
+    const message = createBaseQueryAllProducerbillsRequest();
+    message.pagination = (object.pagination !== undefined && object.pagination !== null)
+      ? PageRequest.fromPartial(object.pagination)
+      : undefined;
+    return message;
+  },
+};
+
+function createBaseQueryAllProducerbillsResponse(): QueryAllProducerbillsResponse {
+  return { producerbills: [], pagination: undefined };
+}
+
+export const QueryAllProducerbillsResponse = {
+  encode(message: QueryAllProducerbillsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    for (const v of message.producerbills) {
+      Producerbills.encode(v!, writer.uint32(10).fork()).ldelim();
+    }
+    if (message.pagination !== undefined) {
+      PageResponse.encode(message.pagination, writer.uint32(18).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryAllProducerbillsResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryAllProducerbillsResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.producerbills.push(Producerbills.decode(reader, reader.uint32()));
+          break;
+        case 2:
+          message.pagination = PageResponse.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryAllProducerbillsResponse {
+    return {
+      producerbills: Array.isArray(object?.producerbills)
+        ? object.producerbills.map((e: any) => Producerbills.fromJSON(e))
+        : [],
+      pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined,
+    };
+  },
+
+  toJSON(message: QueryAllProducerbillsResponse): unknown {
+    const obj: any = {};
+    if (message.producerbills) {
+      obj.producerbills = message.producerbills.map((e) => e ? Producerbills.toJSON(e) : undefined);
+    } else {
+      obj.producerbills = [];
+    }
+    message.pagination !== undefined
+      && (obj.pagination = message.pagination ? PageResponse.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryAllProducerbillsResponse>, I>>(
+    object: I,
+  ): QueryAllProducerbillsResponse {
+    const message = createBaseQueryAllProducerbillsResponse();
+    message.producerbills = object.producerbills?.map((e) => Producerbills.fromPartial(e)) || [];
+    message.pagination = (object.pagination !== undefined && object.pagination !== null)
+      ? PageResponse.fromPartial(object.pagination)
+      : undefined;
+    return message;
+  },
+};
+
 /** Query defines the gRPC querier service. */
 export interface Query {
   /** Parameters queries the parameters of the module. */
@@ -1740,6 +3122,22 @@ export interface Query {
   BillingcyclesAll(request: QueryAllBillingcyclesRequest): Promise<QueryAllBillingcyclesResponse>;
   /** Queries a list of CurrentcycleID items. */
   CurrentcycleID(request: QueryCurrentcycleIDRequest): Promise<QueryCurrentcycleIDResponse>;
+  /** Queries a list of Customerbillingline items. */
+  Customerbillingline(request: QueryGetCustomerbillinglineRequest): Promise<QueryGetCustomerbillinglineResponse>;
+  CustomerbillinglineAll(request: QueryAllCustomerbillinglineRequest): Promise<QueryAllCustomerbillinglineResponse>;
+  /** Queries a list of Getcustomerbill items. */
+  Getcustomerbill(request: QueryGetcustomerbillRequest): Promise<QueryGetcustomerbillResponse>;
+  /** Queries a list of Customerbills items. */
+  Customerbills(request: QueryGetCustomerbillsRequest): Promise<QueryGetCustomerbillsResponse>;
+  CustomerbillsAll(request: QueryAllCustomerbillsRequest): Promise<QueryAllCustomerbillsResponse>;
+  /** Queries a list of Producerbillingline items. */
+  Producerbillingline(request: QueryGetProducerbillinglineRequest): Promise<QueryGetProducerbillinglineResponse>;
+  ProducerbillinglineAll(request: QueryAllProducerbillinglineRequest): Promise<QueryAllProducerbillinglineResponse>;
+  /** Queries a list of Getproducerbill items. */
+  Getproducerbill(request: QueryGetproducerbillRequest): Promise<QueryGetproducerbillResponse>;
+  /** Queries a list of Producerbills items. */
+  Producerbills(request: QueryGetProducerbillsRequest): Promise<QueryGetProducerbillsResponse>;
+  ProducerbillsAll(request: QueryAllProducerbillsRequest): Promise<QueryAllProducerbillsResponse>;
 }
 
 export class QueryClientImpl implements Query {
@@ -1759,6 +3157,16 @@ export class QueryClientImpl implements Query {
     this.Billingcycles = this.Billingcycles.bind(this);
     this.BillingcyclesAll = this.BillingcyclesAll.bind(this);
     this.CurrentcycleID = this.CurrentcycleID.bind(this);
+    this.Customerbillingline = this.Customerbillingline.bind(this);
+    this.CustomerbillinglineAll = this.CustomerbillinglineAll.bind(this);
+    this.Getcustomerbill = this.Getcustomerbill.bind(this);
+    this.Customerbills = this.Customerbills.bind(this);
+    this.CustomerbillsAll = this.CustomerbillsAll.bind(this);
+    this.Producerbillingline = this.Producerbillingline.bind(this);
+    this.ProducerbillinglineAll = this.ProducerbillinglineAll.bind(this);
+    this.Getproducerbill = this.Getproducerbill.bind(this);
+    this.Producerbills = this.Producerbills.bind(this);
+    this.ProducerbillsAll = this.ProducerbillsAll.bind(this);
   }
   Params(request: QueryParamsRequest): Promise<QueryParamsResponse> {
     const data = QueryParamsRequest.encode(request).finish();
@@ -1838,6 +3246,66 @@ export class QueryClientImpl implements Query {
     const data = QueryCurrentcycleIDRequest.encode(request).finish();
     const promise = this.rpc.request("electra.meter.Query", "CurrentcycleID", data);
     return promise.then((data) => QueryCurrentcycleIDResponse.decode(new _m0.Reader(data)));
+  }
+
+  Customerbillingline(request: QueryGetCustomerbillinglineRequest): Promise<QueryGetCustomerbillinglineResponse> {
+    const data = QueryGetCustomerbillinglineRequest.encode(request).finish();
+    const promise = this.rpc.request("electra.meter.Query", "Customerbillingline", data);
+    return promise.then((data) => QueryGetCustomerbillinglineResponse.decode(new _m0.Reader(data)));
+  }
+
+  CustomerbillinglineAll(request: QueryAllCustomerbillinglineRequest): Promise<QueryAllCustomerbillinglineResponse> {
+    const data = QueryAllCustomerbillinglineRequest.encode(request).finish();
+    const promise = this.rpc.request("electra.meter.Query", "CustomerbillinglineAll", data);
+    return promise.then((data) => QueryAllCustomerbillinglineResponse.decode(new _m0.Reader(data)));
+  }
+
+  Getcustomerbill(request: QueryGetcustomerbillRequest): Promise<QueryGetcustomerbillResponse> {
+    const data = QueryGetcustomerbillRequest.encode(request).finish();
+    const promise = this.rpc.request("electra.meter.Query", "Getcustomerbill", data);
+    return promise.then((data) => QueryGetcustomerbillResponse.decode(new _m0.Reader(data)));
+  }
+
+  Customerbills(request: QueryGetCustomerbillsRequest): Promise<QueryGetCustomerbillsResponse> {
+    const data = QueryGetCustomerbillsRequest.encode(request).finish();
+    const promise = this.rpc.request("electra.meter.Query", "Customerbills", data);
+    return promise.then((data) => QueryGetCustomerbillsResponse.decode(new _m0.Reader(data)));
+  }
+
+  CustomerbillsAll(request: QueryAllCustomerbillsRequest): Promise<QueryAllCustomerbillsResponse> {
+    const data = QueryAllCustomerbillsRequest.encode(request).finish();
+    const promise = this.rpc.request("electra.meter.Query", "CustomerbillsAll", data);
+    return promise.then((data) => QueryAllCustomerbillsResponse.decode(new _m0.Reader(data)));
+  }
+
+  Producerbillingline(request: QueryGetProducerbillinglineRequest): Promise<QueryGetProducerbillinglineResponse> {
+    const data = QueryGetProducerbillinglineRequest.encode(request).finish();
+    const promise = this.rpc.request("electra.meter.Query", "Producerbillingline", data);
+    return promise.then((data) => QueryGetProducerbillinglineResponse.decode(new _m0.Reader(data)));
+  }
+
+  ProducerbillinglineAll(request: QueryAllProducerbillinglineRequest): Promise<QueryAllProducerbillinglineResponse> {
+    const data = QueryAllProducerbillinglineRequest.encode(request).finish();
+    const promise = this.rpc.request("electra.meter.Query", "ProducerbillinglineAll", data);
+    return promise.then((data) => QueryAllProducerbillinglineResponse.decode(new _m0.Reader(data)));
+  }
+
+  Getproducerbill(request: QueryGetproducerbillRequest): Promise<QueryGetproducerbillResponse> {
+    const data = QueryGetproducerbillRequest.encode(request).finish();
+    const promise = this.rpc.request("electra.meter.Query", "Getproducerbill", data);
+    return promise.then((data) => QueryGetproducerbillResponse.decode(new _m0.Reader(data)));
+  }
+
+  Producerbills(request: QueryGetProducerbillsRequest): Promise<QueryGetProducerbillsResponse> {
+    const data = QueryGetProducerbillsRequest.encode(request).finish();
+    const promise = this.rpc.request("electra.meter.Query", "Producerbills", data);
+    return promise.then((data) => QueryGetProducerbillsResponse.decode(new _m0.Reader(data)));
+  }
+
+  ProducerbillsAll(request: QueryAllProducerbillsRequest): Promise<QueryAllProducerbillsResponse> {
+    const data = QueryAllProducerbillsRequest.encode(request).finish();
+    const promise = this.rpc.request("electra.meter.Query", "ProducerbillsAll", data);
+    return promise.then((data) => QueryAllProducerbillsResponse.decode(new _m0.Reader(data)));
   }
 }
 

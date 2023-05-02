@@ -5,6 +5,10 @@ package electra.meter;
 import "electra/meter/power_purchase_contract.proto";
 import "electra/meter/ppa_map.proto";
 import "electra/meter/billingcycles.proto";
+import "electra/meter/customerbillingline.proto";
+import "electra/meter/customerbills.proto";
+import "electra/meter/producerbillingline.proto";
+import "electra/meter/producerbills.proto";
 
 option go_package = "electra/x/meter/types";
 
@@ -21,6 +25,19 @@ service Msg {
   rpc CreateBillingcycles         (MsgCreateBillingcycles        ) returns (MsgCreateBillingcyclesResponse        );
   rpc UpdateBillingcycles         (MsgUpdateBillingcycles        ) returns (MsgUpdateBillingcyclesResponse        );
   rpc DeleteBillingcycles         (MsgDeleteBillingcycles        ) returns (MsgDeleteBillingcyclesResponse        );
+  rpc PrepareBill                 (MsgPrepareBill                ) returns (MsgPrepareBillResponse                );
+  rpc CreateCustomerbillingline   (MsgCreateCustomerbillingline  ) returns (MsgCreateCustomerbillinglineResponse  );
+  rpc UpdateCustomerbillingline   (MsgUpdateCustomerbillingline  ) returns (MsgUpdateCustomerbillinglineResponse  );
+  rpc DeleteCustomerbillingline   (MsgDeleteCustomerbillingline  ) returns (MsgDeleteCustomerbillinglineResponse  );
+  rpc CreateCustomerbills         (MsgCreateCustomerbills        ) returns (MsgCreateCustomerbillsResponse        );
+  rpc UpdateCustomerbills         (MsgUpdateCustomerbills        ) returns (MsgUpdateCustomerbillsResponse        );
+  rpc DeleteCustomerbills         (MsgDeleteCustomerbills        ) returns (MsgDeleteCustomerbillsResponse        );
+  rpc CreateProducerbillingline   (MsgCreateProducerbillingline  ) returns (MsgCreateProducerbillinglineResponse  );
+  rpc UpdateProducerbillingline   (MsgUpdateProducerbillingline  ) returns (MsgUpdateProducerbillinglineResponse  );
+  rpc DeleteProducerbillingline   (MsgDeleteProducerbillingline  ) returns (MsgDeleteProducerbillinglineResponse  );
+  rpc CreateProducerbills         (MsgCreateProducerbills        ) returns (MsgCreateProducerbillsResponse        );
+  rpc UpdateProducerbills         (MsgUpdateProducerbills        ) returns (MsgUpdateProducerbillsResponse        );
+  rpc DeleteProducerbills         (MsgDeleteProducerbills        ) returns (MsgDeleteProducerbillsResponse        );
 }
 message MsgRecord {
   string creator   = 1;
@@ -195,4 +212,181 @@ message MsgDeleteBillingcycles {
 }
 
 message MsgDeleteBillingcyclesResponse {}
+
+message MsgPrepareBill {
+  string creator        = 1;
+  uint64 cycleID        = 2;
+  bool   record         = 3;
+  bool   executePayment = 4;
+}
+
+message MsgPrepareBillResponse {
+  string jsonCustomerbill = 1;
+  string jsonProducerbill = 2;
+  string comment          = 3;
+}
+
+message MsgCreateCustomerbillingline {
+  string creator          =  1;
+  string customerDeviceID =  2;
+  uint64 cycleID          =  3;
+  uint64 lineid           =  4;
+  bool   paid             =  5;
+  string producerDeviceID =  6;
+  string billContractID   =  7;
+  uint64 lineWh           =  8;
+  uint64 lineWhPrice      =  9;
+  string curency          = 10;
+  uint64 lineWhTotalPrice = 11;
+  uint64 phase            = 12;
+  uint64 referencePrice   = 13;
+  uint64 savings          = 14;
+}
+
+message MsgCreateCustomerbillinglineResponse {}
+
+message MsgUpdateCustomerbillingline {
+  string creator          =  1;
+  string customerDeviceID =  2;
+  uint64 cycleID          =  3;
+  uint64 lineid           =  4;
+  bool   paid             =  5;
+  string producerDeviceID =  6;
+  string billContractID   =  7;
+  uint64 lineWh           =  8;
+  uint64 lineWhPrice      =  9;
+  string curency          = 10;
+  uint64 lineWhTotalPrice = 11;
+  uint64 phase            = 12;
+  uint64 referencePrice   = 13;
+  uint64 savings          = 14;
+}
+
+message MsgUpdateCustomerbillinglineResponse {}
+
+message MsgDeleteCustomerbillingline {
+  string creator          = 1;
+  string customerDeviceID = 2;
+  uint64 cycleID          = 3;
+  uint64 lineid           = 4;
+  bool   paid             = 5;
+}
+
+message MsgDeleteCustomerbillinglineResponse {}
+
+message MsgCreateCustomerbills {
+  string creator          = 1;
+  uint64 billCycleID      = 2;
+  string customerDeviceID = 3;
+  uint64 billDate         = 4;
+  uint64 billTotalWh      = 5;
+  uint64 billTotalPrice   = 6;
+  string billCurrency     = 7;
+  bool   billValid        = 8;
+  bool   paid             = 9;
+}
+
+message MsgCreateCustomerbillsResponse {}
+
+message MsgUpdateCustomerbills {
+  string creator          = 1;
+  uint64 billCycleID      = 2;
+  string customerDeviceID = 3;
+  uint64 billDate         = 4;
+  uint64 billTotalWh      = 5;
+  uint64 billTotalPrice   = 6;
+  string billCurrency     = 7;
+  bool   billValid        = 8;
+  bool   paid             = 9;
+}
+
+message MsgUpdateCustomerbillsResponse {}
+
+message MsgDeleteCustomerbills {
+  string creator          = 1;
+  uint64 billCycleID      = 2;
+  string customerDeviceID = 3;
+}
+
+message MsgDeleteCustomerbillsResponse {}
+
+message MsgCreateProducerbillingline {
+  string creator          =  1;
+  string producerDeviceID =  2;
+  uint64 cycleID          =  3;
+  uint64 lineid           =  4;
+  bool   paid             =  5;
+  string customerDeviceID =  6;
+  string billContractID   =  7;
+  uint64 lineWh           =  8;
+  uint64 lineWhPrice      =  9;
+  string curency          = 10;
+  uint64 lineWhTotalPrice = 11;
+  uint64 phase            = 12;
+}
+
+message MsgCreateProducerbillinglineResponse {}
+
+message MsgUpdateProducerbillingline {
+  string creator          =  1;
+  string producerDeviceID =  2;
+  uint64 cycleID          =  3;
+  uint64 lineid           =  4;
+  bool   paid             =  5;
+  string customerDeviceID =  6;
+  string billContractID   =  7;
+  uint64 lineWh           =  8;
+  uint64 lineWhPrice      =  9;
+  string curency          = 10;
+  uint64 lineWhTotalPrice = 11;
+  uint64 phase            = 12;
+}
+
+message MsgUpdateProducerbillinglineResponse {}
+
+message MsgDeleteProducerbillingline {
+  string creator          = 1;
+  string producerDeviceID = 2;
+  uint64 cycleID          = 3;
+  uint64 lineid           = 4;
+  bool   paid             = 5;
+}
+
+message MsgDeleteProducerbillinglineResponse {}
+
+message MsgCreateProducerbills {
+  string creator          = 1;
+  uint64 billCycleID      = 2;
+  string producerDeviceID = 3;
+  uint64 billDate         = 4;
+  uint64 billTotalWh      = 5;
+  uint64 billTotalPrice   = 6;
+  string billCurrency     = 7;
+  bool   billValid        = 8;
+  bool   paid             = 9;
+}
+
+message MsgCreateProducerbillsResponse {}
+
+message MsgUpdateProducerbills {
+  string creator          = 1;
+  uint64 billCycleID      = 2;
+  string producerDeviceID = 3;
+  uint64 billDate         = 4;
+  uint64 billTotalWh      = 5;
+  uint64 billTotalPrice   = 6;
+  string billCurrency     = 7;
+  bool   billValid        = 8;
+  bool   paid             = 9;
+}
+
+message MsgUpdateProducerbillsResponse {}
+
+message MsgDeleteProducerbills {
+  string creator          = 1;
+  uint64 billCycleID      = 2;
+  string producerDeviceID = 3;
+}
+
+message MsgDeleteProducerbillsResponse {}
 
