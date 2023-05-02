@@ -8,6 +8,7 @@ import "cosmos/base/query/v1beta1/pagination.proto";
 import "electra/meter/params.proto";
 import "electra/meter/meterreadings.proto";
 import "electra/meter/meterdirectory.proto";
+import "electra/meter/power_purchase_contract.proto";
 
 option go_package = "electra/x/meter/types";
 
@@ -43,6 +44,16 @@ service Query {
   // Queries a list of Listrecordings items.
   rpc Listrecordings (QueryListrecordingsRequest) returns (QueryListrecordingsResponse) {
     option (google.api.http).get = "/electra/meter/listrecordings/{deviceID}/{start}/{end}/{byUnixTime}";
+  
+  }
+  
+  // Queries a list of PowerPurchaseContract items.
+  rpc PowerPurchaseContract    (QueryGetPowerPurchaseContractRequest) returns (QueryGetPowerPurchaseContractResponse) {
+    option (google.api.http).get = "/electra/meter/power_purchase_contract/{contractID}/{contractDeviceID}";
+  
+  }
+  rpc PowerPurchaseContractAll (QueryAllPowerPurchaseContractRequest) returns (QueryAllPowerPurchaseContractResponse) {
+    option (google.api.http).get = "/electra/meter/power_purchase_contract";
   
   }
 }
@@ -93,17 +104,35 @@ message QueryAllMeterdirectoryResponse {
 }
 
 message QueryListrecordingsRequest {
-  string deviceID   = 1;
-  uint64 start      = 2;
-  uint64 end        = 3;
-  bool   byUnixTime = 4;
+  string                                deviceID   = 1;
+  uint64                                start      = 2;
+  uint64                                end        = 3;
+  bool                                  byUnixTime = 4;
   cosmos.base.query.v1beta1.PageRequest pagination = 5;
 }
 
 message QueryListrecordingsResponse {
-  repeated string meterreadings = 1;
-  string comments      = 2;
-  uint64 total         = 3;
-  cosmos.base.query.v1beta1.PageResponse pagination = 4;
+  repeated string                                 meterreadings = 1;
+           string                                 comments      = 2;
+           uint64                                 total         = 3;
+           cosmos.base.query.v1beta1.PageResponse pagination    = 4;
+}
+
+message QueryGetPowerPurchaseContractRequest {
+  string contractID       = 1;
+  string contractDeviceID = 2;
+}
+
+message QueryGetPowerPurchaseContractResponse {
+  PowerPurchaseContract powerPurchaseContract = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllPowerPurchaseContractRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllPowerPurchaseContractResponse {
+  repeated PowerPurchaseContract                  powerPurchaseContract = 1 [(gogoproto.nullable) = false];
+           cosmos.base.query.v1beta1.PageResponse pagination            = 2;
 }
 
