@@ -1,5 +1,6 @@
 # electra
 **electra** is a blockchain built during SCB10x blockathon using Cosmos SDK and Tendermint.
+Cosmos SDK's version used is the latest production grade: v0.46.7
 
 ## Get started
 
