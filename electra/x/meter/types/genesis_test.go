@@ -52,6 +52,20 @@ func TestGenesisState_Validate(t *testing.T) {
 						ContractDeviceID: "1",
 					},
 				},
+				PpaMapList: []types.PpaMap{
+					{
+						ConsumerDeviceID: "0",
+						AgreementID:      "0",
+						AgreementActive:  true,
+						ContractID:       "0",
+					},
+					{
+						ConsumerDeviceID: "1",
+						AgreementID:      "1",
+						AgreementActive:  false,
+						ContractID:       "1",
+					},
+				},
 				// this line is used by starport scaffolding # types/genesis/validField
 			},
 			valid: true,
@@ -99,6 +113,26 @@ func TestGenesisState_Validate(t *testing.T) {
 					{
 						ContractID:       "0",
 						ContractDeviceID: "0",
+					},
+				},
+			},
+			valid: false,
+		},
+		{
+			desc: "duplicated ppaMap",
+			genState: &types.GenesisState{
+				PpaMapList: []types.PpaMap{
+					{
+						ConsumerDeviceID: "0",
+						AgreementID:      "0",
+						AgreementActive:  true,
+						ContractID:       "0",
+					},
+					{
+						ConsumerDeviceID: "0",
+						AgreementID:      "0",
+						AgreementActive:  true,
+						ContractID:       "0",
 					},
 				},
 			},

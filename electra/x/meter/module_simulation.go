@@ -45,6 +45,18 @@ const (
 	// TODO: Determine the simulation weight value
 	defaultWeightMsgDeletePowerPurchaseContract int = 100
 
+	opWeightMsgCreatePpaMap = "op_weight_msg_ppa_map"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgCreatePpaMap int = 100
+
+	opWeightMsgUpdatePpaMap = "op_weight_msg_ppa_map"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgUpdatePpaMap int = 100
+
+	opWeightMsgDeletePpaMap = "op_weight_msg_ppa_map"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgDeletePpaMap int = 100
+
 	// this line is used by starport scaffolding # simapp/module/const
 )
 
@@ -66,6 +78,22 @@ func (AppModule) GenerateGenesisState(simState *module.SimulationState) {
 				Creator:          sample.AccAddress(),
 				ContractID:       "1",
 				ContractDeviceID: "1",
+			},
+		},
+		PpaMapList: []types.PpaMap{
+			{
+				Creator:          sample.AccAddress(),
+				ConsumerDeviceID: "0",
+				AgreementID:      "0",
+				AgreementActive:  true,
+				ContractID:       "0",
+			},
+			{
+				Creator:          sample.AccAddress(),
+				ConsumerDeviceID: "1",
+				AgreementID:      "1",
+				AgreementActive:  false,
+				ContractID:       "1",
 			},
 		},
 		// this line is used by starport scaffolding # simapp/module/genesisState
@@ -157,6 +185,39 @@ func (am AppModule) WeightedOperations(simState module.SimulationState) []simtyp
 	operations = append(operations, simulation.NewWeightedOperation(
 		weightMsgDeletePowerPurchaseContract,
 		metersimulation.SimulateMsgDeletePowerPurchaseContract(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgCreatePpaMap int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgCreatePpaMap, &weightMsgCreatePpaMap, nil,
+		func(_ *rand.Rand) {
+			weightMsgCreatePpaMap = defaultWeightMsgCreatePpaMap
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgCreatePpaMap,
+		metersimulation.SimulateMsgCreatePpaMap(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgUpdatePpaMap int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgUpdatePpaMap, &weightMsgUpdatePpaMap, nil,
+		func(_ *rand.Rand) {
+			weightMsgUpdatePpaMap = defaultWeightMsgUpdatePpaMap
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgUpdatePpaMap,
+		metersimulation.SimulateMsgUpdatePpaMap(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgDeletePpaMap int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgDeletePpaMap, &weightMsgDeletePpaMap, nil,
+		func(_ *rand.Rand) {
+			weightMsgDeletePpaMap = defaultWeightMsgDeletePpaMap
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgDeletePpaMap,
+		metersimulation.SimulateMsgDeletePpaMap(am.accountKeeper, am.bankKeeper, am.keeper),
 	))
 
 	// this line is used by starport scaffolding # simapp/module/operation

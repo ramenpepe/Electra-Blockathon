@@ -953,6 +953,422 @@ func (m *MsgDeletePowerPurchaseContractResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_MsgDeletePowerPurchaseContractResponse proto.InternalMessageInfo
 
+type MsgCreatePpaMap struct {
+	Creator                  string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	ConsumerDeviceID         string `protobuf:"bytes,2,opt,name=consumerDeviceID,proto3" json:"consumerDeviceID,omitempty"`
+	AgreementID              string `protobuf:"bytes,3,opt,name=agreementID,proto3" json:"agreementID,omitempty"`
+	AgreementActive          bool   `protobuf:"varint,4,opt,name=agreementActive,proto3" json:"agreementActive,omitempty"`
+	ContractID               string `protobuf:"bytes,5,opt,name=contractID,proto3" json:"contractID,omitempty"`
+	ProducerDeviceID         string `protobuf:"bytes,6,opt,name=producerDeviceID,proto3" json:"producerDeviceID,omitempty"`
+	AgreementStartDate       uint64 `protobuf:"varint,7,opt,name=agreementStartDate,proto3" json:"agreementStartDate,omitempty"`
+	AgreementEndDate         uint64 `protobuf:"varint,8,opt,name=agreementEndDate,proto3" json:"agreementEndDate,omitempty"`
+	ContractPreferredPrice   uint64 `protobuf:"varint,9,opt,name=contractPreferredPrice,proto3" json:"contractPreferredPrice,omitempty"`
+	ContractPreferredCurency string `protobuf:"bytes,10,opt,name=contractPreferredCurency,proto3" json:"contractPreferredCurency,omitempty"`
+}
+
+func (m *MsgCreatePpaMap) Reset()         { *m = MsgCreatePpaMap{} }
+func (m *MsgCreatePpaMap) String() string { return proto.CompactTextString(m) }
+func (*MsgCreatePpaMap) ProtoMessage()    {}
+func (*MsgCreatePpaMap) Descriptor() ([]byte, []int) {
+	return fileDescriptor_687c50bdd23ff25e, []int{10}
+}
+func (m *MsgCreatePpaMap) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgCreatePpaMap) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgCreatePpaMap.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgCreatePpaMap) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgCreatePpaMap.Merge(m, src)
+}
+func (m *MsgCreatePpaMap) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgCreatePpaMap) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgCreatePpaMap.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgCreatePpaMap proto.InternalMessageInfo
+
+func (m *MsgCreatePpaMap) GetCreator() string {
+	if m != nil {
+		return m.Creator
+	}
+	return ""
+}
+
+func (m *MsgCreatePpaMap) GetConsumerDeviceID() string {
+	if m != nil {
+		return m.ConsumerDeviceID
+	}
+	return ""
+}
+
+func (m *MsgCreatePpaMap) GetAgreementID() string {
+	if m != nil {
+		return m.AgreementID
+	}
+	return ""
+}
+
+func (m *MsgCreatePpaMap) GetAgreementActive() bool {
+	if m != nil {
+		return m.AgreementActive
+	}
+	return false
+}
+
+func (m *MsgCreatePpaMap) GetContractID() string {
+	if m != nil {
+		return m.ContractID
+	}
+	return ""
+}
+
+func (m *MsgCreatePpaMap) GetProducerDeviceID() string {
+	if m != nil {
+		return m.ProducerDeviceID
+	}
+	return ""
+}
+
+func (m *MsgCreatePpaMap) GetAgreementStartDate() uint64 {
+	if m != nil {
+		return m.AgreementStartDate
+	}
+	return 0
+}
+
+func (m *MsgCreatePpaMap) GetAgreementEndDate() uint64 {
+	if m != nil {
+		return m.AgreementEndDate
+	}
+	return 0
+}
+
+func (m *MsgCreatePpaMap) GetContractPreferredPrice() uint64 {
+	if m != nil {
+		return m.ContractPreferredPrice
+	}
+	return 0
+}
+
+func (m *MsgCreatePpaMap) GetContractPreferredCurency() string {
+	if m != nil {
+		return m.ContractPreferredCurency
+	}
+	return ""
+}
+
+type MsgCreatePpaMapResponse struct {
+}
+
+func (m *MsgCreatePpaMapResponse) Reset()         { *m = MsgCreatePpaMapResponse{} }
+func (m *MsgCreatePpaMapResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgCreatePpaMapResponse) ProtoMessage()    {}
+func (*MsgCreatePpaMapResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_687c50bdd23ff25e, []int{11}
+}
+func (m *MsgCreatePpaMapResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgCreatePpaMapResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgCreatePpaMapResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgCreatePpaMapResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgCreatePpaMapResponse.Merge(m, src)
+}
+func (m *MsgCreatePpaMapResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgCreatePpaMapResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgCreatePpaMapResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgCreatePpaMapResponse proto.InternalMessageInfo
+
+type MsgUpdatePpaMap struct {
+	Creator                  string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	ConsumerDeviceID         string `protobuf:"bytes,2,opt,name=consumerDeviceID,proto3" json:"consumerDeviceID,omitempty"`
+	AgreementID              string `protobuf:"bytes,3,opt,name=agreementID,proto3" json:"agreementID,omitempty"`
+	AgreementActive          bool   `protobuf:"varint,4,opt,name=agreementActive,proto3" json:"agreementActive,omitempty"`
+	ContractID               string `protobuf:"bytes,5,opt,name=contractID,proto3" json:"contractID,omitempty"`
+	ProducerDeviceID         string `protobuf:"bytes,6,opt,name=producerDeviceID,proto3" json:"producerDeviceID,omitempty"`
+	AgreementStartDate       uint64 `protobuf:"varint,7,opt,name=agreementStartDate,proto3" json:"agreementStartDate,omitempty"`
+	AgreementEndDate         uint64 `protobuf:"varint,8,opt,name=agreementEndDate,proto3" json:"agreementEndDate,omitempty"`
+	ContractPreferredPrice   uint64 `protobuf:"varint,9,opt,name=contractPreferredPrice,proto3" json:"contractPreferredPrice,omitempty"`
+	ContractPreferredCurency string `protobuf:"bytes,10,opt,name=contractPreferredCurency,proto3" json:"contractPreferredCurency,omitempty"`
+}
+
+func (m *MsgUpdatePpaMap) Reset()         { *m = MsgUpdatePpaMap{} }
+func (m *MsgUpdatePpaMap) String() string { return proto.CompactTextString(m) }
+func (*MsgUpdatePpaMap) ProtoMessage()    {}
+func (*MsgUpdatePpaMap) Descriptor() ([]byte, []int) {
+	return fileDescriptor_687c50bdd23ff25e, []int{12}
+}
+func (m *MsgUpdatePpaMap) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgUpdatePpaMap) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgUpdatePpaMap.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgUpdatePpaMap) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgUpdatePpaMap.Merge(m, src)
+}
+func (m *MsgUpdatePpaMap) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgUpdatePpaMap) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgUpdatePpaMap.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgUpdatePpaMap proto.InternalMessageInfo
+
+func (m *MsgUpdatePpaMap) GetCreator() string {
+	if m != nil {
+		return m.Creator
+	}
+	return ""
+}
+
+func (m *MsgUpdatePpaMap) GetConsumerDeviceID() string {
+	if m != nil {
+		return m.ConsumerDeviceID
+	}
+	return ""
+}
+
+func (m *MsgUpdatePpaMap) GetAgreementID() string {
+	if m != nil {
+		return m.AgreementID
+	}
+	return ""
+}
+
+func (m *MsgUpdatePpaMap) GetAgreementActive() bool {
+	if m != nil {
+		return m.AgreementActive
+	}
+	return false
+}
+
+func (m *MsgUpdatePpaMap) GetContractID() string {
+	if m != nil {
+		return m.ContractID
+	}
+	return ""
+}
+
+func (m *MsgUpdatePpaMap) GetProducerDeviceID() string {
+	if m != nil {
+		return m.ProducerDeviceID
+	}
+	return ""
+}
+
+func (m *MsgUpdatePpaMap) GetAgreementStartDate() uint64 {
+	if m != nil {
+		return m.AgreementStartDate
+	}
+	return 0
+}
+
+func (m *MsgUpdatePpaMap) GetAgreementEndDate() uint64 {
+	if m != nil {
+		return m.AgreementEndDate
+	}
+	return 0
+}
+
+func (m *MsgUpdatePpaMap) GetContractPreferredPrice() uint64 {
+	if m != nil {
+		return m.ContractPreferredPrice
+	}
+	return 0
+}
+
+func (m *MsgUpdatePpaMap) GetContractPreferredCurency() string {
+	if m != nil {
+		return m.ContractPreferredCurency
+	}
+	return ""
+}
+
+type MsgUpdatePpaMapResponse struct {
+}
+
+func (m *MsgUpdatePpaMapResponse) Reset()         { *m = MsgUpdatePpaMapResponse{} }
+func (m *MsgUpdatePpaMapResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgUpdatePpaMapResponse) ProtoMessage()    {}
+func (*MsgUpdatePpaMapResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_687c50bdd23ff25e, []int{13}
+}
+func (m *MsgUpdatePpaMapResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgUpdatePpaMapResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgUpdatePpaMapResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgUpdatePpaMapResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgUpdatePpaMapResponse.Merge(m, src)
+}
+func (m *MsgUpdatePpaMapResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgUpdatePpaMapResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgUpdatePpaMapResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgUpdatePpaMapResponse proto.InternalMessageInfo
+
+type MsgDeletePpaMap struct {
+	Creator          string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	ConsumerDeviceID string `protobuf:"bytes,2,opt,name=consumerDeviceID,proto3" json:"consumerDeviceID,omitempty"`
+	AgreementID      string `protobuf:"bytes,3,opt,name=agreementID,proto3" json:"agreementID,omitempty"`
+	AgreementActive  bool   `protobuf:"varint,4,opt,name=agreementActive,proto3" json:"agreementActive,omitempty"`
+	ContractID       string `protobuf:"bytes,5,opt,name=contractID,proto3" json:"contractID,omitempty"`
+}
+
+func (m *MsgDeletePpaMap) Reset()         { *m = MsgDeletePpaMap{} }
+func (m *MsgDeletePpaMap) String() string { return proto.CompactTextString(m) }
+func (*MsgDeletePpaMap) ProtoMessage()    {}
+func (*MsgDeletePpaMap) Descriptor() ([]byte, []int) {
+	return fileDescriptor_687c50bdd23ff25e, []int{14}
+}
+func (m *MsgDeletePpaMap) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgDeletePpaMap) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgDeletePpaMap.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgDeletePpaMap) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgDeletePpaMap.Merge(m, src)
+}
+func (m *MsgDeletePpaMap) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgDeletePpaMap) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgDeletePpaMap.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgDeletePpaMap proto.InternalMessageInfo
+
+func (m *MsgDeletePpaMap) GetCreator() string {
+	if m != nil {
+		return m.Creator
+	}
+	return ""
+}
+
+func (m *MsgDeletePpaMap) GetConsumerDeviceID() string {
+	if m != nil {
+		return m.ConsumerDeviceID
+	}
+	return ""
+}
+
+func (m *MsgDeletePpaMap) GetAgreementID() string {
+	if m != nil {
+		return m.AgreementID
+	}
+	return ""
+}
+
+func (m *MsgDeletePpaMap) GetAgreementActive() bool {
+	if m != nil {
+		return m.AgreementActive
+	}
+	return false
+}
+
+func (m *MsgDeletePpaMap) GetContractID() string {
+	if m != nil {
+		return m.ContractID
+	}
+	return ""
+}
+
+type MsgDeletePpaMapResponse struct {
+}
+
+func (m *MsgDeletePpaMapResponse) Reset()         { *m = MsgDeletePpaMapResponse{} }
+func (m *MsgDeletePpaMapResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgDeletePpaMapResponse) ProtoMessage()    {}
+func (*MsgDeletePpaMapResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_687c50bdd23ff25e, []int{15}
+}
+func (m *MsgDeletePpaMapResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgDeletePpaMapResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgDeletePpaMapResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgDeletePpaMapResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgDeletePpaMapResponse.Merge(m, src)
+}
+func (m *MsgDeletePpaMapResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgDeletePpaMapResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgDeletePpaMapResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgDeletePpaMapResponse proto.InternalMessageInfo
+
 func init() {
 	proto.RegisterType((*MsgRecord)(nil), "electra.meter.MsgRecord")
 	proto.RegisterType((*MsgRecordResponse)(nil), "electra.meter.MsgRecordResponse")
@@ -964,65 +1380,83 @@ func init() {
 	proto.RegisterType((*MsgUpdatePowerPurchaseContractResponse)(nil), "electra.meter.MsgUpdatePowerPurchaseContractResponse")
 	proto.RegisterType((*MsgDeletePowerPurchaseContract)(nil), "electra.meter.MsgDeletePowerPurchaseContract")
 	proto.RegisterType((*MsgDeletePowerPurchaseContractResponse)(nil), "electra.meter.MsgDeletePowerPurchaseContractResponse")
+	proto.RegisterType((*MsgCreatePpaMap)(nil), "electra.meter.MsgCreatePpaMap")
+	proto.RegisterType((*MsgCreatePpaMapResponse)(nil), "electra.meter.MsgCreatePpaMapResponse")
+	proto.RegisterType((*MsgUpdatePpaMap)(nil), "electra.meter.MsgUpdatePpaMap")
+	proto.RegisterType((*MsgUpdatePpaMapResponse)(nil), "electra.meter.MsgUpdatePpaMapResponse")
+	proto.RegisterType((*MsgDeletePpaMap)(nil), "electra.meter.MsgDeletePpaMap")
+	proto.RegisterType((*MsgDeletePpaMapResponse)(nil), "electra.meter.MsgDeletePpaMapResponse")
 }
 
 func init() { proto.RegisterFile("electra/meter/tx.proto", fileDescriptor_687c50bdd23ff25e) }
 
 var fileDescriptor_687c50bdd23ff25e = []byte{
-	// 846 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xec, 0x57, 0xcb, 0x6e, 0xc3, 0x44,
-	0x14, 0xad, 0x49, 0x9a, 0xd4, 0x97, 0xa6, 0x8f, 0x49, 0x5b, 0x0d, 0x01, 0xac, 0x12, 0xa1, 0x2a,
-	0xe2, 0x91, 0x12, 0x0f, 0xb0, 0x60, 0x81, 0x54, 0x1a, 0x40, 0x5d, 0x14, 0x45, 0x46, 0x08, 0x89,
-	0x4d, 0x65, 0x9c, 0x69, 0x62, 0x29, 0x8e, 0xad, 0xf1, 0xf4, 0xc5, 0x16, 0x89, 0x35, 0xe2, 0x23,
-	0xf8, 0x16, 0x96, 0x5d, 0xc2, 0x0e, 0xb5, 0x1b, 0x3e, 0x03, 0x79, 0x3c, 0x33, 0x19, 0xd7, 0x89,
-	0x55, 0xc4, 0x02, 0x16, 0xdd, 0xf9, 0x9e, 0x7b, 0x7c, 0x73, 0x4e, 0x7c, 0x8f, 0x35, 0x86, 0x03,
-	0x3a, 0xa3, 0x01, 0x67, 0xfe, 0x71, 0x44, 0x39, 0x65, 0xc7, 0xfc, 0xb6, 0x9f, 0xb0, 0x98, 0xc7,
-	0xa8, 0x25, 0xf1, 0xbe, 0xc0, 0x3b, 0xef, 0x16, 0x69, 0x49, 0x7c, 0x43, 0xd9, 0x45, 0x72, 0xc5,
-	0x82, 0xa9, 0x9f, 0xd2, 0x8b, 0x20, 0x9e, 0x73, 0xe6, 0x07, 0x3c, 0xbf, 0xb7, 0xfb, 0x87, 0x05,
-	0xf6, 0x79, 0x3a, 0xf1, 0x68, 0x10, 0xb3, 0x31, 0xc2, 0xd0, 0x0c, 0x18, 0xf5, 0x79, 0xcc, 0xb0,
-	0x75, 0x68, 0xf5, 0x6c, 0x4f, 0x95, 0xe8, 0x0d, 0xb0, 0x79, 0x18, 0xd1, 0x94, 0xfb, 0x51, 0x82,
-	0x5f, 0x39, 0xb4, 0x7a, 0x75, 0x6f, 0x01, 0xa0, 0x3d, 0x58, 0x4f, 0xb2, 0xe9, 0xb8, 0x26, 0x3a,
-	0x79, 0x81, 0x10, 0xd4, 0x6f, 0xa6, 0xe1, 0x1c, 0xd7, 0x05, 0x28, 0xae, 0x33, 0xe6, 0xcd, 0x34,
-	0xbe, 0xe2, 0x78, 0x3d, 0x67, 0x8a, 0x22, 0x43, 0xa3, 0xeb, 0x78, 0xc6, 0x71, 0x23, 0x47, 0x45,
-	0x81, 0x0e, 0xa0, 0x11, 0x4d, 0x29, 0xe3, 0x3f, 0xe0, 0xa6, 0x80, 0x65, 0x85, 0x76, 0xa0, 0x16,
-	0x25, 0x97, 0x78, 0x43, 0x80, 0xd9, 0xa5, 0xb8, 0xdf, 0xbf, 0x8d, 0x42, 0x6c, 0xcb, 0xfb, 0xb3,
-	0xa2, 0xdb, 0x86, 0x5d, 0x6d, 0xcd, 0xa3, 0x69, 0x12, 0xcf, 0x53, 0xda, 0xfd, 0xab, 0x06, 0xa0,
-	0x51, 0xf2, 0x6f, 0x1c, 0x67, 0x7e, 0x06, 0xca, 0xb1, 0x28, 0x32, 0xc5, 0xc2, 0xd0, 0x40, 0x7a,
-	0x96, 0x95, 0x70, 0x92, 0x59, 0x1a, 0x48, 0xdb, 0xb2, 0xca, 0x7e, 0x3d, 0xf7, 0x34, 0x90, 0xce,
-	0x55, 0x99, 0xfd, 0x77, 0x51, 0x72, 0x39, 0x90, 0xce, 0xc5, 0xb5, 0x98, 0x92, 0x19, 0x1b, 0x48,
-	0xeb, 0xb2, 0x52, 0x5a, 0x5c, 0xe5, 0x5e, 0x14, 0x5a, 0x8b, 0x8b, 0xc1, 0xd0, 0xe2, 0x6a, 0x2d,
-	0x2e, 0x7e, 0xd5, 0xd0, 0xe2, 0x2e, 0xb4, 0xb8, 0x78, 0xd3, 0xd4, 0xe2, 0x4a, 0x2d, 0x2e, 0x6e,
-	0x69, 0x2d, 0xae, 0xd6, 0xe2, 0xe2, 0x2d, 0x43, 0x8b, 0xab, 0xb4, 0x10, 0xbc, 0xbd, 0xd0, 0x42,
-	0xb4, 0x16, 0x82, 0x77, 0x0c, 0x2d, 0x44, 0x6b, 0x21, 0x78, 0xd7, 0xd0, 0x42, 0x16, 0x5a, 0x08,
-	0x46, 0xa6, 0x16, 0x22, 0xb5, 0x10, 0xdc, 0xd6, 0x5a, 0x88, 0xd6, 0x42, 0xf0, 0x9e, 0xa1, 0x85,
-	0x74, 0xf7, 0x00, 0x2d, 0x9e, 0xb4, 0x5e, 0x80, 0x5f, 0x9a, 0xe0, 0x9c, 0xa7, 0x93, 0xd3, 0xec,
-	0x31, 0xd3, 0x51, 0x16, 0x8e, 0x91, 0xcc, 0xc6, 0xa9, 0x8c, 0x46, 0xc5, 0x52, 0x38, 0x00, 0x2a,
-	0x40, 0x67, 0x43, 0xb1, 0x15, 0xb6, 0x67, 0x20, 0xe8, 0x1d, 0xd8, 0x51, 0xd5, 0x90, 0x5e, 0x87,
-	0x01, 0x3d, 0x1b, 0x8a, 0x0d, 0xb1, 0xbd, 0x12, 0x8e, 0xba, 0xb0, 0xa9, 0xb0, 0xaf, 0xfc, 0x88,
-	0x8a, 0x95, 0xb1, 0xbd, 0x02, 0x86, 0x8e, 0x60, 0x4b, 0xd5, 0x27, 0x01, 0x0f, 0xaf, 0xa9, 0x58,
-	0xa0, 0x0d, 0xef, 0x09, 0x8a, 0xde, 0x86, 0x96, 0x42, 0x46, 0x22, 0x88, 0xf9, 0x3a, 0x15, 0x41,
-	0x73, 0xda, 0x17, 0x31, 0x3b, 0x99, 0xcd, 0xc4, 0x7a, 0x19, 0xd3, 0x72, 0x14, 0x7d, 0x00, 0xed,
-	0x22, 0x32, 0x62, 0x61, 0x40, 0xe5, 0xd6, 0x2d, 0x6b, 0xa1, 0x0f, 0x61, 0xbf, 0x08, 0x9f, 0x5e,
-	0x31, 0x3a, 0x0f, 0xee, 0xc4, 0x4a, 0xda, 0xde, 0xf2, 0x26, 0xfa, 0x14, 0x3a, 0xc5, 0x46, 0xee,
-	0x66, 0x44, 0x59, 0x18, 0x8f, 0xc5, 0xda, 0xda, 0x5e, 0x05, 0x03, 0xbd, 0x07, 0xbb, 0xda, 0x20,
-	0xa3, 0x97, 0x94, 0x31, 0x3a, 0x16, 0x5b, 0xbd, 0xe1, 0x95, 0x1b, 0xe8, 0x63, 0x38, 0x28, 0x81,
-	0xb9, 0xb1, 0x7c, 0xdf, 0x57, 0x74, 0xd1, 0x10, 0xde, 0x2c, 0x75, 0x0a, 0x42, 0x5b, 0x42, 0x68,
-	0x35, 0x09, 0x7d, 0x02, 0xb8, 0x44, 0x50, 0x7f, 0xd2, 0x96, 0x18, 0xb0, 0xb2, 0x6f, 0xfa, 0xfc,
-	0x9a, 0xfb, 0x8c, 0x0f, 0x7d, 0x4e, 0x65, 0xc0, 0xca, 0x0d, 0xd4, 0x83, 0x6d, 0x05, 0x7e, 0x3e,
-	0x1f, 0x0b, 0x6e, 0x9e, 0xba, 0xa7, 0x70, 0x36, 0x57, 0xbc, 0xa9, 0x07, 0x1e, 0x8d, 0xfc, 0x70,
-	0x1e, 0xce, 0x27, 0xdf, 0x4e, 0x65, 0x12, 0xcb, 0x0d, 0xcd, 0x76, 0x4d, 0x36, 0x32, 0xd8, 0xee,
-	0x32, 0x36, 0x31, 0xd9, 0x6d, 0x83, 0x6d, 0x36, 0xba, 0x3d, 0x38, 0xaa, 0xce, 0xe4, 0xd3, 0xf8,
-	0x7e, 0x93, 0x8c, 0x5f, 0xe2, 0xfb, 0x12, 0xdf, 0x97, 0xf8, 0xfe, 0x8f, 0xe2, 0x5b, 0x91, 0x49,
-	0x1d, 0xdf, 0x9f, 0x2c, 0x11, 0xdf, 0x21, 0x9d, 0xd1, 0xff, 0x34, 0xbe, 0x52, 0x72, 0x85, 0x0e,
-	0x25, 0xd9, 0xfd, 0xb5, 0x0e, 0xb5, 0xf3, 0x74, 0x82, 0x86, 0xd0, 0x50, 0xc7, 0xe4, 0x7e, 0xe1,
-	0xc4, 0xdd, 0xd7, 0xa7, 0x8c, 0xce, 0xe1, 0xaa, 0x8e, 0x9a, 0x86, 0xbe, 0x84, 0xa6, 0x3a, 0x7b,
-	0xbe, 0xb6, 0x8a, 0x4c, 0x3a, 0x6f, 0xad, 0x6c, 0xe9, 0x41, 0x3f, 0x5a, 0xf0, 0x7a, 0xd5, 0x21,
-	0xe6, 0xfd, 0xf2, 0x88, 0x0a, 0x7a, 0xe7, 0xa3, 0x7f, 0x44, 0x2f, 0xa8, 0xa8, 0x7a, 0x17, 0x2f,
-	0x51, 0x51, 0x41, 0x5f, 0xa6, 0xe2, 0x19, 0x5b, 0x25, 0x54, 0x54, 0xad, 0xd4, 0x12, 0x15, 0x15,
-	0xf4, 0x65, 0x2a, 0x9e, 0xb1, 0x28, 0x9f, 0x1d, 0xff, 0xf6, 0xe0, 0x58, 0xf7, 0x0f, 0x8e, 0xf5,
-	0xe7, 0x83, 0x63, 0xfd, 0xfc, 0xe8, 0xac, 0xdd, 0x3f, 0x3a, 0x6b, 0xbf, 0x3f, 0x3a, 0x6b, 0xdf,
-	0xed, 0xab, 0x4f, 0xb2, 0x5b, 0xf5, 0xed, 0x76, 0x97, 0xd0, 0xf4, 0xfb, 0x86, 0xf8, 0x06, 0x23,
-	0x7f, 0x07, 0x00, 0x00, 0xff, 0xff, 0x16, 0xb7, 0x61, 0x1d, 0xd9, 0x0d, 0x00, 0x00,
+	// 1038 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xec, 0x58, 0xcf, 0x6f, 0xe3, 0x44,
+	0x14, 0xae, 0x37, 0x6d, 0x5a, 0xbf, 0xed, 0xcf, 0x69, 0xb7, 0xcc, 0x66, 0xc1, 0x2a, 0x11, 0xaa,
+	0x2a, 0x7e, 0xa4, 0xc4, 0x06, 0x0e, 0x1c, 0x90, 0x96, 0x06, 0xd0, 0x1e, 0x8a, 0x22, 0x23, 0x40,
+	0xe2, 0x52, 0x19, 0x67, 0x9a, 0x58, 0x8a, 0x63, 0x6b, 0xec, 0xb4, 0x5d, 0xae, 0x48, 0x9c, 0x11,
+	0x7f, 0x08, 0xff, 0x02, 0x07, 0x2e, 0x1c, 0xf7, 0x08, 0x37, 0xd4, 0x5e, 0xf8, 0x33, 0x90, 0xc7,
+	0x33, 0x93, 0xf1, 0xaf, 0xd1, 0x22, 0x0e, 0x50, 0x29, 0x37, 0xbf, 0xef, 0x3d, 0xbf, 0x7c, 0xdf,
+	0xcc, 0xfb, 0xc6, 0xb1, 0xe1, 0x90, 0x4c, 0x89, 0x9f, 0x52, 0xef, 0x34, 0x24, 0x29, 0xa1, 0xa7,
+	0xe9, 0x4d, 0x2f, 0xa6, 0x51, 0x1a, 0xa1, 0x2d, 0x8e, 0xf7, 0x18, 0xde, 0x79, 0xab, 0x58, 0x16,
+	0x47, 0xd7, 0x84, 0x5e, 0xc4, 0x73, 0xea, 0x4f, 0xbc, 0x84, 0x5c, 0xf8, 0xd1, 0x2c, 0xa5, 0x9e,
+	0x9f, 0xe6, 0xf7, 0x76, 0x9e, 0x94, 0x8a, 0x63, 0xef, 0x22, 0xf4, 0xe2, 0x3c, 0xd9, 0xfd, 0xc3,
+	0x00, 0xf3, 0x3c, 0x19, 0xbb, 0xc4, 0x8f, 0xe8, 0x08, 0x61, 0x58, 0xf7, 0x29, 0xf1, 0xd2, 0x88,
+	0x62, 0xe3, 0xc8, 0x38, 0x31, 0x5d, 0x11, 0xa2, 0x57, 0xc1, 0x4c, 0x83, 0x90, 0x24, 0xa9, 0x17,
+	0xc6, 0xf8, 0xc1, 0x91, 0x71, 0xb2, 0xea, 0x2e, 0x00, 0x74, 0x00, 0x6b, 0x71, 0xf6, 0xd3, 0xb8,
+	0xc5, 0x32, 0x79, 0x80, 0x10, 0xac, 0x5e, 0x4f, 0x82, 0x19, 0x5e, 0x65, 0x20, 0xbb, 0xce, 0x2a,
+	0xaf, 0x27, 0xd1, 0x3c, 0xc5, 0x6b, 0x79, 0x25, 0x0b, 0x32, 0x34, 0xbc, 0x8a, 0xa6, 0x29, 0x6e,
+	0xe7, 0x28, 0x0b, 0xd0, 0x21, 0xb4, 0xc3, 0x09, 0xa1, 0xe9, 0x77, 0x78, 0x9d, 0xc1, 0x3c, 0x42,
+	0xbb, 0xd0, 0x0a, 0xe3, 0x4b, 0xbc, 0xc1, 0xc0, 0xec, 0x92, 0xdd, 0xef, 0xdd, 0x84, 0x01, 0x36,
+	0xf9, 0xfd, 0x59, 0xd0, 0xdd, 0x87, 0x3d, 0x29, 0xcd, 0x25, 0x49, 0x1c, 0xcd, 0x12, 0xd2, 0xfd,
+	0xab, 0x05, 0x20, 0x51, 0xe7, 0xdf, 0x28, 0xce, 0xf4, 0xf4, 0x85, 0x62, 0x16, 0x64, 0x8c, 0x99,
+	0xa0, 0x3e, 0xd7, 0xcc, 0x23, 0xa6, 0x24, 0x93, 0xd4, 0xe7, 0xb2, 0x79, 0x94, 0xfd, 0x7a, 0xae,
+	0xa9, 0xcf, 0x95, 0x8b, 0x30, 0x5b, 0xbb, 0x30, 0xbe, 0xec, 0x73, 0xe5, 0xec, 0x9a, 0x75, 0xc9,
+	0x84, 0xf5, 0xb9, 0x74, 0x1e, 0x09, 0x2e, 0xb6, 0x50, 0xcf, 0x02, 0xc9, 0xc5, 0xc6, 0xa0, 0x70,
+	0xb1, 0x25, 0x17, 0x1b, 0x3f, 0x54, 0xb8, 0xd8, 0x0b, 0x2e, 0x36, 0xde, 0x54, 0xb9, 0xd8, 0x9c,
+	0x8b, 0x8d, 0xb7, 0x24, 0x17, 0x5b, 0x72, 0xb1, 0xf1, 0xb6, 0xc2, 0xc5, 0x16, 0x5c, 0x1c, 0xbc,
+	0xb3, 0xe0, 0xe2, 0x48, 0x2e, 0x0e, 0xde, 0x55, 0xb8, 0x38, 0x92, 0x8b, 0x83, 0xf7, 0x14, 0x2e,
+	0xce, 0x82, 0x8b, 0x83, 0x91, 0xca, 0xc5, 0xe1, 0x5c, 0x1c, 0xbc, 0x2f, 0xb9, 0x38, 0x92, 0x8b,
+	0x83, 0x0f, 0x14, 0x2e, 0x4e, 0xf7, 0x00, 0xd0, 0x62, 0xa7, 0xe5, 0x00, 0xfc, 0xb4, 0x0e, 0xd6,
+	0x79, 0x32, 0x3e, 0xcb, 0xb6, 0x99, 0x0c, 0x33, 0xe7, 0x0c, 0xb9, 0x71, 0xce, 0xb8, 0x6f, 0x34,
+	0x43, 0x61, 0x01, 0x08, 0x77, 0x3d, 0x1b, 0xb0, 0xa9, 0x30, 0x5d, 0x05, 0x41, 0x6f, 0xc2, 0xae,
+	0x88, 0x06, 0xe4, 0x2a, 0xf0, 0xc9, 0xb3, 0x01, 0x9b, 0x10, 0xd3, 0xad, 0xe0, 0xa8, 0x0b, 0x9b,
+	0x02, 0xfb, 0xdc, 0x0b, 0x09, 0x1b, 0x19, 0xd3, 0x2d, 0x60, 0xe8, 0x18, 0xb6, 0x45, 0xfc, 0xd4,
+	0x4f, 0x83, 0x2b, 0xc2, 0x06, 0x68, 0xc3, 0x2d, 0xa1, 0xe8, 0x0d, 0xd8, 0x12, 0xc8, 0x90, 0x19,
+	0x31, 0x1f, 0xa7, 0x22, 0xa8, 0x76, 0xfb, 0x34, 0xa2, 0x4f, 0xa7, 0x53, 0x36, 0x5e, 0x4a, 0xb7,
+	0x1c, 0x45, 0xef, 0xc2, 0x7e, 0x11, 0x19, 0xd2, 0xc0, 0x27, 0x7c, 0xea, 0xea, 0x52, 0xe8, 0x3d,
+	0x78, 0x54, 0x84, 0xcf, 0xe6, 0x94, 0xcc, 0xfc, 0xe7, 0x6c, 0x24, 0x4d, 0xb7, 0x3e, 0x89, 0x3e,
+	0x82, 0x4e, 0x31, 0x91, 0xab, 0x19, 0x12, 0x1a, 0x44, 0x23, 0x36, 0xb6, 0xa6, 0xab, 0xa9, 0x40,
+	0x6f, 0xc3, 0x9e, 0x14, 0x48, 0xc9, 0x25, 0xa1, 0x94, 0x8c, 0xd8, 0x54, 0x6f, 0xb8, 0xd5, 0x04,
+	0xfa, 0x00, 0x0e, 0x2b, 0x60, 0x2e, 0x2c, 0x9f, 0xf7, 0x86, 0x2c, 0x1a, 0xc0, 0x6b, 0x95, 0x4c,
+	0x81, 0xe8, 0x16, 0x23, 0xaa, 0x2f, 0x42, 0x1f, 0x02, 0xae, 0x14, 0x88, 0x45, 0xda, 0x66, 0x0d,
+	0x1a, 0xf3, 0xaa, 0xce, 0x2f, 0x52, 0x8f, 0xa6, 0x03, 0x2f, 0x25, 0xdc, 0x60, 0xd5, 0x04, 0x3a,
+	0x81, 0x1d, 0x01, 0x7e, 0x32, 0x1b, 0xb1, 0xda, 0xdc, 0x75, 0x65, 0x38, 0xeb, 0xcb, 0x4e, 0xea,
+	0xbe, 0x4b, 0x42, 0x2f, 0x98, 0x05, 0xb3, 0xf1, 0xd7, 0x13, 0xee, 0xc4, 0x6a, 0x42, 0x56, 0xdb,
+	0x6a, 0x35, 0x52, 0xaa, 0xed, 0xba, 0x6a, 0x47, 0xad, 0xde, 0x57, 0xaa, 0xd5, 0x44, 0xf7, 0x04,
+	0x8e, 0xf5, 0x9e, 0x2c, 0xdb, 0xf7, 0xcb, 0x78, 0xb4, 0xb4, 0xef, 0xd2, 0xbe, 0x4b, 0xfb, 0xfe,
+	0x8f, 0xec, 0xab, 0xf1, 0xa4, 0xb4, 0xef, 0x0f, 0x06, 0xb3, 0xef, 0x80, 0x4c, 0xc9, 0x7f, 0x6a,
+	0x5f, 0x4e, 0x59, 0xc3, 0x43, 0x52, 0xfe, 0xa5, 0x05, 0x3b, 0x8b, 0xc3, 0x29, 0xf6, 0xce, 0xbd,
+	0x58, 0xc3, 0x31, 0xe7, 0x90, 0xcc, 0x43, 0x42, 0x25, 0x87, 0x07, 0x92, 0x43, 0x01, 0x47, 0x47,
+	0xf0, 0xd0, 0x1b, 0x53, 0x42, 0x42, 0x32, 0x4b, 0x25, 0x55, 0x15, 0xca, 0x86, 0x41, 0x86, 0xfc,
+	0x04, 0x59, 0x65, 0x06, 0x29, 0xc3, 0xa5, 0xb5, 0x59, 0xab, 0x5b, 0x9b, 0x98, 0x46, 0xa3, 0xb9,
+	0xaf, 0xf0, 0x6a, 0xe7, 0xbc, 0xca, 0x38, 0xea, 0x01, 0x92, 0xed, 0x17, 0x13, 0x9b, 0xff, 0x15,
+	0xad, 0xc9, 0x64, 0xbd, 0x25, 0x2a, 0x66, 0x36, 0x3f, 0x6d, 0x2a, 0xb8, 0xc6, 0xc6, 0xa6, 0xd6,
+	0xc6, 0x3a, 0x03, 0x82, 0xde, 0x80, 0xdd, 0xc7, 0xf0, 0x4a, 0x69, 0x03, 0xcb, 0x9b, 0xcb, 0x47,
+	0x77, 0xb9, 0xb9, 0xf7, 0x75, 0x73, 0xd5, 0x0d, 0x94, 0x9b, 0xfb, 0xab, 0xc1, 0x36, 0x97, 0x9b,
+	0xfc, 0x9e, 0x6e, 0x2e, 0x17, 0xa8, 0x8a, 0x10, 0x02, 0xed, 0x9f, 0xdb, 0xd0, 0x3a, 0x4f, 0xc6,
+	0x68, 0x00, 0x6d, 0xf1, 0x06, 0xdf, 0x2b, 0x7c, 0x29, 0xe8, 0xc9, 0x17, 0xa0, 0xce, 0x51, 0x53,
+	0x46, 0x74, 0x43, 0x9f, 0xc1, 0xba, 0x78, 0x2d, 0x7e, 0xdc, 0x54, 0xec, 0x74, 0x5e, 0x6f, 0x4c,
+	0xc9, 0x46, 0xdf, 0x1b, 0xf0, 0x44, 0xf7, 0x7e, 0xf5, 0x4e, 0xb5, 0x85, 0xa6, 0xbc, 0xf3, 0xfe,
+	0x3f, 0x2a, 0x2f, 0xb0, 0xd0, 0xfd, 0x4d, 0xac, 0x61, 0xa1, 0x29, 0xaf, 0x63, 0xf1, 0x12, 0x0f,
+	0x3c, 0xc6, 0x42, 0xf7, 0xb4, 0xab, 0x61, 0xa1, 0x29, 0xaf, 0x63, 0xf1, 0x12, 0xcf, 0x30, 0xf4,
+	0x15, 0x6c, 0x16, 0x9e, 0x5f, 0x56, 0xe3, 0x92, 0xb2, 0x7c, 0xe7, 0x58, 0x9f, 0x57, 0xfb, 0x16,
+	0x8e, 0x4e, 0xab, 0x71, 0x91, 0x1a, 0xfb, 0xd6, 0x39, 0x37, 0xeb, 0x5b, 0x70, 0xad, 0xd5, 0x28,
+	0xbb, 0xb1, 0x6f, 0x9d, 0x61, 0x3e, 0x3e, 0xfd, 0xed, 0xd6, 0x32, 0x5e, 0xdc, 0x5a, 0xc6, 0x9f,
+	0xb7, 0x96, 0xf1, 0xe3, 0x9d, 0xb5, 0xf2, 0xe2, 0xce, 0x5a, 0xf9, 0xfd, 0xce, 0x5a, 0xf9, 0xe6,
+	0x91, 0xf8, 0x4a, 0x76, 0x23, 0xbe, 0xbd, 0x3d, 0x8f, 0x49, 0xf2, 0x6d, 0x9b, 0x7d, 0x26, 0x73,
+	0xfe, 0x0e, 0x00, 0x00, 0xff, 0xff, 0x75, 0x1f, 0xdc, 0xc0, 0x99, 0x13, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -1042,6 +1476,9 @@ type MsgClient interface {
 	CreatePowerPurchaseContract(ctx context.Context, in *MsgCreatePowerPurchaseContract, opts ...grpc.CallOption) (*MsgCreatePowerPurchaseContractResponse, error)
 	UpdatePowerPurchaseContract(ctx context.Context, in *MsgUpdatePowerPurchaseContract, opts ...grpc.CallOption) (*MsgUpdatePowerPurchaseContractResponse, error)
 	DeletePowerPurchaseContract(ctx context.Context, in *MsgDeletePowerPurchaseContract, opts ...grpc.CallOption) (*MsgDeletePowerPurchaseContractResponse, error)
+	CreatePpaMap(ctx context.Context, in *MsgCreatePpaMap, opts ...grpc.CallOption) (*MsgCreatePpaMapResponse, error)
+	UpdatePpaMap(ctx context.Context, in *MsgUpdatePpaMap, opts ...grpc.CallOption) (*MsgUpdatePpaMapResponse, error)
+	DeletePpaMap(ctx context.Context, in *MsgDeletePpaMap, opts ...grpc.CallOption) (*MsgDeletePpaMapResponse, error)
 }
 
 type msgClient struct {
@@ -1097,6 +1534,33 @@ func (c *msgClient) DeletePowerPurchaseContract(ctx context.Context, in *MsgDele
 	return out, nil
 }
 
+func (c *msgClient) CreatePpaMap(ctx context.Context, in *MsgCreatePpaMap, opts ...grpc.CallOption) (*MsgCreatePpaMapResponse, error) {
+	out := new(MsgCreatePpaMapResponse)
+	err := c.cc.Invoke(ctx, "/electra.meter.Msg/CreatePpaMap", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) UpdatePpaMap(ctx context.Context, in *MsgUpdatePpaMap, opts ...grpc.CallOption) (*MsgUpdatePpaMapResponse, error) {
+	out := new(MsgUpdatePpaMapResponse)
+	err := c.cc.Invoke(ctx, "/electra.meter.Msg/UpdatePpaMap", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) DeletePpaMap(ctx context.Context, in *MsgDeletePpaMap, opts ...grpc.CallOption) (*MsgDeletePpaMapResponse, error) {
+	out := new(MsgDeletePpaMapResponse)
+	err := c.cc.Invoke(ctx, "/electra.meter.Msg/DeletePpaMap", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // MsgServer is the server API for Msg service.
 type MsgServer interface {
 	Record(context.Context, *MsgRecord) (*MsgRecordResponse, error)
@@ -1104,6 +1568,9 @@ type MsgServer interface {
 	CreatePowerPurchaseContract(context.Context, *MsgCreatePowerPurchaseContract) (*MsgCreatePowerPurchaseContractResponse, error)
 	UpdatePowerPurchaseContract(context.Context, *MsgUpdatePowerPurchaseContract) (*MsgUpdatePowerPurchaseContractResponse, error)
 	DeletePowerPurchaseContract(context.Context, *MsgDeletePowerPurchaseContract) (*MsgDeletePowerPurchaseContractResponse, error)
+	CreatePpaMap(context.Context, *MsgCreatePpaMap) (*MsgCreatePpaMapResponse, error)
+	UpdatePpaMap(context.Context, *MsgUpdatePpaMap) (*MsgUpdatePpaMapResponse, error)
+	DeletePpaMap(context.Context, *MsgDeletePpaMap) (*MsgDeletePpaMapResponse, error)
 }
 
 // UnimplementedMsgServer can be embedded to have forward compatible implementations.
@@ -1124,6 +1591,15 @@ func (*UnimplementedMsgServer) UpdatePowerPurchaseContract(ctx context.Context, 
 }
 func (*UnimplementedMsgServer) DeletePowerPurchaseContract(ctx context.Context, req *MsgDeletePowerPurchaseContract) (*MsgDeletePowerPurchaseContractResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeletePowerPurchaseContract not implemented")
+}
+func (*UnimplementedMsgServer) CreatePpaMap(ctx context.Context, req *MsgCreatePpaMap) (*MsgCreatePpaMapResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreatePpaMap not implemented")
+}
+func (*UnimplementedMsgServer) UpdatePpaMap(ctx context.Context, req *MsgUpdatePpaMap) (*MsgUpdatePpaMapResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdatePpaMap not implemented")
+}
+func (*UnimplementedMsgServer) DeletePpaMap(ctx context.Context, req *MsgDeletePpaMap) (*MsgDeletePpaMapResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeletePpaMap not implemented")
 }
 
 func RegisterMsgServer(s grpc1.Server, srv MsgServer) {
@@ -1220,6 +1696,60 @@ func _Msg_DeletePowerPurchaseContract_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Msg_CreatePpaMap_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgCreatePpaMap)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).CreatePpaMap(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/electra.meter.Msg/CreatePpaMap",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).CreatePpaMap(ctx, req.(*MsgCreatePpaMap))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_UpdatePpaMap_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgUpdatePpaMap)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).UpdatePpaMap(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/electra.meter.Msg/UpdatePpaMap",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).UpdatePpaMap(ctx, req.(*MsgUpdatePpaMap))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_DeletePpaMap_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgDeletePpaMap)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).DeletePpaMap(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/electra.meter.Msg/DeletePpaMap",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).DeletePpaMap(ctx, req.(*MsgDeletePpaMap))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Msg_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "electra.meter.Msg",
 	HandlerType: (*MsgServer)(nil),
@@ -1243,6 +1773,18 @@ var _Msg_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeletePowerPurchaseContract",
 			Handler:    _Msg_DeletePowerPurchaseContract_Handler,
+		},
+		{
+			MethodName: "CreatePpaMap",
+			Handler:    _Msg_CreatePpaMap_Handler,
+		},
+		{
+			MethodName: "UpdatePpaMap",
+			Handler:    _Msg_UpdatePpaMap_Handler,
+		},
+		{
+			MethodName: "DeletePpaMap",
+			Handler:    _Msg_DeletePpaMap_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1927,6 +2469,316 @@ func (m *MsgDeletePowerPurchaseContractResponse) MarshalToSizedBuffer(dAtA []byt
 	return len(dAtA) - i, nil
 }
 
+func (m *MsgCreatePpaMap) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgCreatePpaMap) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgCreatePpaMap) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.ContractPreferredCurency) > 0 {
+		i -= len(m.ContractPreferredCurency)
+		copy(dAtA[i:], m.ContractPreferredCurency)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.ContractPreferredCurency)))
+		i--
+		dAtA[i] = 0x52
+	}
+	if m.ContractPreferredPrice != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.ContractPreferredPrice))
+		i--
+		dAtA[i] = 0x48
+	}
+	if m.AgreementEndDate != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.AgreementEndDate))
+		i--
+		dAtA[i] = 0x40
+	}
+	if m.AgreementStartDate != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.AgreementStartDate))
+		i--
+		dAtA[i] = 0x38
+	}
+	if len(m.ProducerDeviceID) > 0 {
+		i -= len(m.ProducerDeviceID)
+		copy(dAtA[i:], m.ProducerDeviceID)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.ProducerDeviceID)))
+		i--
+		dAtA[i] = 0x32
+	}
+	if len(m.ContractID) > 0 {
+		i -= len(m.ContractID)
+		copy(dAtA[i:], m.ContractID)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.ContractID)))
+		i--
+		dAtA[i] = 0x2a
+	}
+	if m.AgreementActive {
+		i--
+		if m.AgreementActive {
+			dAtA[i] = 1
+		} else {
+			dAtA[i] = 0
+		}
+		i--
+		dAtA[i] = 0x20
+	}
+	if len(m.AgreementID) > 0 {
+		i -= len(m.AgreementID)
+		copy(dAtA[i:], m.AgreementID)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.AgreementID)))
+		i--
+		dAtA[i] = 0x1a
+	}
+	if len(m.ConsumerDeviceID) > 0 {
+		i -= len(m.ConsumerDeviceID)
+		copy(dAtA[i:], m.ConsumerDeviceID)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.ConsumerDeviceID)))
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgCreatePpaMapResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgCreatePpaMapResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgCreatePpaMapResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgUpdatePpaMap) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgUpdatePpaMap) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgUpdatePpaMap) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.ContractPreferredCurency) > 0 {
+		i -= len(m.ContractPreferredCurency)
+		copy(dAtA[i:], m.ContractPreferredCurency)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.ContractPreferredCurency)))
+		i--
+		dAtA[i] = 0x52
+	}
+	if m.ContractPreferredPrice != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.ContractPreferredPrice))
+		i--
+		dAtA[i] = 0x48
+	}
+	if m.AgreementEndDate != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.AgreementEndDate))
+		i--
+		dAtA[i] = 0x40
+	}
+	if m.AgreementStartDate != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.AgreementStartDate))
+		i--
+		dAtA[i] = 0x38
+	}
+	if len(m.ProducerDeviceID) > 0 {
+		i -= len(m.ProducerDeviceID)
+		copy(dAtA[i:], m.ProducerDeviceID)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.ProducerDeviceID)))
+		i--
+		dAtA[i] = 0x32
+	}
+	if len(m.ContractID) > 0 {
+		i -= len(m.ContractID)
+		copy(dAtA[i:], m.ContractID)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.ContractID)))
+		i--
+		dAtA[i] = 0x2a
+	}
+	if m.AgreementActive {
+		i--
+		if m.AgreementActive {
+			dAtA[i] = 1
+		} else {
+			dAtA[i] = 0
+		}
+		i--
+		dAtA[i] = 0x20
+	}
+	if len(m.AgreementID) > 0 {
+		i -= len(m.AgreementID)
+		copy(dAtA[i:], m.AgreementID)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.AgreementID)))
+		i--
+		dAtA[i] = 0x1a
+	}
+	if len(m.ConsumerDeviceID) > 0 {
+		i -= len(m.ConsumerDeviceID)
+		copy(dAtA[i:], m.ConsumerDeviceID)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.ConsumerDeviceID)))
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgUpdatePpaMapResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgUpdatePpaMapResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgUpdatePpaMapResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgDeletePpaMap) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgDeletePpaMap) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgDeletePpaMap) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.ContractID) > 0 {
+		i -= len(m.ContractID)
+		copy(dAtA[i:], m.ContractID)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.ContractID)))
+		i--
+		dAtA[i] = 0x2a
+	}
+	if m.AgreementActive {
+		i--
+		if m.AgreementActive {
+			dAtA[i] = 1
+		} else {
+			dAtA[i] = 0
+		}
+		i--
+		dAtA[i] = 0x20
+	}
+	if len(m.AgreementID) > 0 {
+		i -= len(m.AgreementID)
+		copy(dAtA[i:], m.AgreementID)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.AgreementID)))
+		i--
+		dAtA[i] = 0x1a
+	}
+	if len(m.ConsumerDeviceID) > 0 {
+		i -= len(m.ConsumerDeviceID)
+		copy(dAtA[i:], m.ConsumerDeviceID)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.ConsumerDeviceID)))
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgDeletePpaMapResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgDeletePpaMapResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgDeletePpaMapResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintTx(dAtA []byte, offset int, v uint64) int {
 	offset -= sovTx(v)
 	base := offset
@@ -2251,6 +3103,151 @@ func (m *MsgDeletePowerPurchaseContract) Size() (n int) {
 }
 
 func (m *MsgDeletePowerPurchaseContractResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
+func (m *MsgCreatePpaMap) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.ConsumerDeviceID)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.AgreementID)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.AgreementActive {
+		n += 2
+	}
+	l = len(m.ContractID)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.ProducerDeviceID)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.AgreementStartDate != 0 {
+		n += 1 + sovTx(uint64(m.AgreementStartDate))
+	}
+	if m.AgreementEndDate != 0 {
+		n += 1 + sovTx(uint64(m.AgreementEndDate))
+	}
+	if m.ContractPreferredPrice != 0 {
+		n += 1 + sovTx(uint64(m.ContractPreferredPrice))
+	}
+	l = len(m.ContractPreferredCurency)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	return n
+}
+
+func (m *MsgCreatePpaMapResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
+func (m *MsgUpdatePpaMap) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.ConsumerDeviceID)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.AgreementID)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.AgreementActive {
+		n += 2
+	}
+	l = len(m.ContractID)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.ProducerDeviceID)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.AgreementStartDate != 0 {
+		n += 1 + sovTx(uint64(m.AgreementStartDate))
+	}
+	if m.AgreementEndDate != 0 {
+		n += 1 + sovTx(uint64(m.AgreementEndDate))
+	}
+	if m.ContractPreferredPrice != 0 {
+		n += 1 + sovTx(uint64(m.ContractPreferredPrice))
+	}
+	l = len(m.ContractPreferredCurency)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	return n
+}
+
+func (m *MsgUpdatePpaMapResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
+func (m *MsgDeletePpaMap) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.ConsumerDeviceID)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.AgreementID)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.AgreementActive {
+		n += 2
+	}
+	l = len(m.ContractID)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	return n
+}
+
+func (m *MsgDeletePpaMapResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -4351,6 +5348,992 @@ func (m *MsgDeletePowerPurchaseContractResponse) Unmarshal(dAtA []byte) error {
 		}
 		if fieldNum <= 0 {
 			return fmt.Errorf("proto: MsgDeletePowerPurchaseContractResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgCreatePpaMap) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgCreatePpaMap: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgCreatePpaMap: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ConsumerDeviceID", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.ConsumerDeviceID = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field AgreementID", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.AgreementID = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 4:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field AgreementActive", wireType)
+			}
+			var v int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				v |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			m.AgreementActive = bool(v != 0)
+		case 5:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ContractID", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.ContractID = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 6:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ProducerDeviceID", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.ProducerDeviceID = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 7:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field AgreementStartDate", wireType)
+			}
+			m.AgreementStartDate = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.AgreementStartDate |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 8:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field AgreementEndDate", wireType)
+			}
+			m.AgreementEndDate = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.AgreementEndDate |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 9:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ContractPreferredPrice", wireType)
+			}
+			m.ContractPreferredPrice = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.ContractPreferredPrice |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 10:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ContractPreferredCurency", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.ContractPreferredCurency = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgCreatePpaMapResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgCreatePpaMapResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgCreatePpaMapResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgUpdatePpaMap) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgUpdatePpaMap: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgUpdatePpaMap: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ConsumerDeviceID", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.ConsumerDeviceID = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field AgreementID", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.AgreementID = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 4:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field AgreementActive", wireType)
+			}
+			var v int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				v |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			m.AgreementActive = bool(v != 0)
+		case 5:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ContractID", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.ContractID = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 6:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ProducerDeviceID", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.ProducerDeviceID = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 7:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field AgreementStartDate", wireType)
+			}
+			m.AgreementStartDate = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.AgreementStartDate |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 8:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field AgreementEndDate", wireType)
+			}
+			m.AgreementEndDate = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.AgreementEndDate |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 9:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ContractPreferredPrice", wireType)
+			}
+			m.ContractPreferredPrice = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.ContractPreferredPrice |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 10:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ContractPreferredCurency", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.ContractPreferredCurency = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgUpdatePpaMapResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgUpdatePpaMapResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgUpdatePpaMapResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgDeletePpaMap) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgDeletePpaMap: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgDeletePpaMap: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ConsumerDeviceID", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.ConsumerDeviceID = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field AgreementID", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.AgreementID = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 4:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field AgreementActive", wireType)
+			}
+			var v int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				v |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			m.AgreementActive = bool(v != 0)
+		case 5:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ContractID", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.ContractID = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgDeletePpaMapResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgDeletePpaMapResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgDeletePpaMapResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		default:

@@ -3,6 +3,7 @@ syntax = "proto3";
 package electra.meter;
 
 import "electra/meter/power_purchase_contract.proto";
+import "electra/meter/ppa_map.proto";
 
 option go_package = "electra/x/meter/types";
 
@@ -13,6 +14,9 @@ service Msg {
   rpc CreatePowerPurchaseContract (MsgCreatePowerPurchaseContract) returns (MsgCreatePowerPurchaseContractResponse);
   rpc UpdatePowerPurchaseContract (MsgUpdatePowerPurchaseContract) returns (MsgUpdatePowerPurchaseContractResponse);
   rpc DeletePowerPurchaseContract (MsgDeletePowerPurchaseContract) returns (MsgDeletePowerPurchaseContractResponse);
+  rpc CreatePpaMap                (MsgCreatePpaMap               ) returns (MsgCreatePpaMapResponse               );
+  rpc UpdatePpaMap                (MsgUpdatePpaMap               ) returns (MsgUpdatePpaMapResponse               );
+  rpc DeletePpaMap                (MsgDeletePpaMap               ) returns (MsgDeletePpaMapResponse               );
 }
 message MsgRecord {
   string creator   = 1;
@@ -108,4 +112,44 @@ message MsgDeletePowerPurchaseContract {
 }
 
 message MsgDeletePowerPurchaseContractResponse {}
+
+message MsgCreatePpaMap {
+  string creator                  =  1;
+  string consumerDeviceID         =  2;
+  string agreementID              =  3;
+  bool   agreementActive          =  4;
+  string contractID               =  5;
+  string producerDeviceID         =  6;
+  uint64 agreementStartDate       =  7;
+  uint64 agreementEndDate         =  8;
+  uint64 contractPreferredPrice   =  9;
+  string contractPreferredCurency = 10;
+}
+
+message MsgCreatePpaMapResponse {}
+
+message MsgUpdatePpaMap {
+  string creator                  =  1;
+  string consumerDeviceID         =  2;
+  string agreementID              =  3;
+  bool   agreementActive          =  4;
+  string contractID               =  5;
+  string producerDeviceID         =  6;
+  uint64 agreementStartDate       =  7;
+  uint64 agreementEndDate         =  8;
+  uint64 contractPreferredPrice   =  9;
+  string contractPreferredCurency = 10;
+}
+
+message MsgUpdatePpaMapResponse {}
+
+message MsgDeletePpaMap {
+  string creator          = 1;
+  string consumerDeviceID = 2;
+  string agreementID      = 3;
+  bool   agreementActive  = 4;
+  string contractID       = 5;
+}
+
+message MsgDeletePpaMapResponse {}
 

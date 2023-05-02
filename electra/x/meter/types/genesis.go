@@ -13,6 +13,7 @@ func DefaultGenesis() *GenesisState {
 		MeterreadingsList:         []Meterreadings{},
 		MeterdirectoryList:        []Meterdirectory{},
 		PowerPurchaseContractList: []PowerPurchaseContract{},
+		PpaMapList:                []PpaMap{},
 		// this line is used by starport scaffolding # genesis/types/default
 		Params: DefaultParams(),
 	}
@@ -50,6 +51,16 @@ func (gs GenesisState) Validate() error {
 			return fmt.Errorf("duplicated index for powerPurchaseContract")
 		}
 		powerPurchaseContractIndexMap[index] = struct{}{}
+	}
+	// Check for duplicated index in ppaMap
+	ppaMapIndexMap := make(map[string]struct{})
+
+	for _, elem := range gs.PpaMapList {
+		index := string(PpaMapKey(elem.ConsumerDeviceID, elem.AgreementID, elem.AgreementActive, elem.ContractID))
+		if _, ok := ppaMapIndexMap[index]; ok {
+			return fmt.Errorf("duplicated index for ppaMap")
+		}
+		ppaMapIndexMap[index] = struct{}{}
 	}
 	// this line is used by starport scaffolding # genesis/types/validate
 

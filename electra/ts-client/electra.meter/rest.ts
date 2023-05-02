@@ -58,13 +58,19 @@ export interface MeterMeterreadings {
 
 export type MeterMsgCreatePowerPurchaseContractResponse = object;
 
+export type MeterMsgCreatePpaMapResponse = object;
+
 export type MeterMsgDeletePowerPurchaseContractResponse = object;
+
+export type MeterMsgDeletePpaMapResponse = object;
 
 export type MeterMsgRecord3Response = object;
 
 export type MeterMsgRecordResponse = object;
 
 export type MeterMsgUpdatePowerPurchaseContractResponse = object;
+
+export type MeterMsgUpdatePpaMapResponse = object;
 
 /**
  * Params defines the parameters for the module.
@@ -115,6 +121,25 @@ export interface MeterPowerPurchaseContract {
   creator?: string;
 }
 
+export interface MeterPpaMap {
+  consumerDeviceID?: string;
+  agreementID?: string;
+  agreementActive?: boolean;
+  contractID?: string;
+  producerDeviceID?: string;
+
+  /** @format uint64 */
+  agreementStartDate?: string;
+
+  /** @format uint64 */
+  agreementEndDate?: string;
+
+  /** @format uint64 */
+  contractPreferredPrice?: string;
+  contractPreferredCurency?: string;
+  creator?: string;
+}
+
 export interface MeterQueryAllMeterdirectoryResponse {
   meterdirectory?: MeterMeterdirectory[];
 
@@ -160,6 +185,21 @@ export interface MeterQueryAllPowerPurchaseContractResponse {
   pagination?: V1Beta1PageResponse;
 }
 
+export interface MeterQueryAllPpaMapResponse {
+  ppaMap?: MeterPpaMap[];
+
+  /**
+   * PageResponse is to be embedded in gRPC response messages where the
+   * corresponding request message has used PageRequest.
+   *
+   *  message SomeResponse {
+   *          repeated Bar results = 1;
+   *          PageResponse page = 2;
+   *  }
+   */
+  pagination?: V1Beta1PageResponse;
+}
+
 export interface MeterQueryGetMeterdirectoryResponse {
   meterdirectory?: MeterMeterdirectory;
 }
@@ -170,6 +210,10 @@ export interface MeterQueryGetMeterreadingsResponse {
 
 export interface MeterQueryGetPowerPurchaseContractResponse {
   powerPurchaseContract?: MeterPowerPurchaseContract;
+}
+
+export interface MeterQueryGetPpaMapResponse {
+  ppaMap?: MeterPpaMap;
 }
 
 export interface MeterQueryListrecordingsResponse {
@@ -571,6 +615,53 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
   queryPowerPurchaseContract = (contractId: string, contractDeviceId: string, params: RequestParams = {}) =>
     this.request<MeterQueryGetPowerPurchaseContractResponse, RpcStatus>({
       path: `/electra/meter/power_purchase_contract/${contractId}/${contractDeviceId}`,
+      method: "GET",
+      format: "json",
+      ...params,
+    });
+
+  /**
+   * No description
+   *
+   * @tags Query
+   * @name QueryPpaMapAll
+   * @request GET:/electra/meter/ppa_map
+   */
+  queryPpaMapAll = (
+    query?: {
+      "pagination.key"?: string;
+      "pagination.offset"?: string;
+      "pagination.limit"?: string;
+      "pagination.count_total"?: boolean;
+      "pagination.reverse"?: boolean;
+    },
+    params: RequestParams = {},
+  ) =>
+    this.request<MeterQueryAllPpaMapResponse, RpcStatus>({
+      path: `/electra/meter/ppa_map`,
+      method: "GET",
+      query: query,
+      format: "json",
+      ...params,
+    });
+
+  /**
+   * No description
+   *
+   * @tags Query
+   * @name QueryPpaMap
+   * @summary Queries a list of PpaMap items.
+   * @request GET:/electra/meter/ppa_map/{consumerDeviceID}/{agreementID}/{agreementActive}/{contractID}
+   */
+  queryPpaMap = (
+    consumerDeviceId: string,
+    agreementId: string,
+    agreementActive: boolean,
+    contractId: string,
+    params: RequestParams = {},
+  ) =>
+    this.request<MeterQueryGetPpaMapResponse, RpcStatus>({
+      path: `/electra/meter/ppa_map/${consumerDeviceId}/${agreementId}/${agreementActive}/${contractId}`,
       method: "GET",
       format: "json",
       ...params,

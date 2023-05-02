@@ -44,6 +44,20 @@ func TestGenesis(t *testing.T) {
 				ContractDeviceID: "1",
 			},
 		},
+		PpaMapList: []types.PpaMap{
+			{
+				ConsumerDeviceID: "0",
+				AgreementID:      "0",
+				AgreementActive:  true,
+				ContractID:       "0",
+			},
+			{
+				ConsumerDeviceID: "1",
+				AgreementID:      "1",
+				AgreementActive:  false,
+				ContractID:       "1",
+			},
+		},
 		// this line is used by starport scaffolding # genesis/test/state
 	}
 
@@ -58,5 +72,6 @@ func TestGenesis(t *testing.T) {
 	require.ElementsMatch(t, genesisState.MeterreadingsList, got.MeterreadingsList)
 	require.ElementsMatch(t, genesisState.MeterdirectoryList, got.MeterdirectoryList)
 	require.ElementsMatch(t, genesisState.PowerPurchaseContractList, got.PowerPurchaseContractList)
+	require.ElementsMatch(t, genesisState.PpaMapList, got.PpaMapList)
 	// this line is used by starport scaffolding # genesis/test/assert
 }

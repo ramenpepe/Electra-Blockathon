@@ -6,6 +6,7 @@ import { Meterdirectory } from "./meterdirectory";
 import { Meterreadings } from "./meterreadings";
 import { Params } from "./params";
 import { PowerPurchaseContract } from "./power_purchase_contract";
+import { PpaMap } from "./ppa_map";
 
 export const protobufPackage = "electra.meter";
 
@@ -85,6 +86,26 @@ export interface QueryAllPowerPurchaseContractRequest {
 
 export interface QueryAllPowerPurchaseContractResponse {
   powerPurchaseContract: PowerPurchaseContract[];
+  pagination: PageResponse | undefined;
+}
+
+export interface QueryGetPpaMapRequest {
+  consumerDeviceID: string;
+  agreementID: string;
+  agreementActive: boolean;
+  contractID: string;
+}
+
+export interface QueryGetPpaMapResponse {
+  ppaMap: PpaMap | undefined;
+}
+
+export interface QueryAllPpaMapRequest {
+  pagination: PageRequest | undefined;
+}
+
+export interface QueryAllPpaMapResponse {
+  ppaMap: PpaMap[];
   pagination: PageResponse | undefined;
 }
 
@@ -1053,6 +1074,246 @@ export const QueryAllPowerPurchaseContractResponse = {
   },
 };
 
+function createBaseQueryGetPpaMapRequest(): QueryGetPpaMapRequest {
+  return { consumerDeviceID: "", agreementID: "", agreementActive: false, contractID: "" };
+}
+
+export const QueryGetPpaMapRequest = {
+  encode(message: QueryGetPpaMapRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.consumerDeviceID !== "") {
+      writer.uint32(10).string(message.consumerDeviceID);
+    }
+    if (message.agreementID !== "") {
+      writer.uint32(18).string(message.agreementID);
+    }
+    if (message.agreementActive === true) {
+      writer.uint32(24).bool(message.agreementActive);
+    }
+    if (message.contractID !== "") {
+      writer.uint32(34).string(message.contractID);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryGetPpaMapRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryGetPpaMapRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.consumerDeviceID = reader.string();
+          break;
+        case 2:
+          message.agreementID = reader.string();
+          break;
+        case 3:
+          message.agreementActive = reader.bool();
+          break;
+        case 4:
+          message.contractID = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryGetPpaMapRequest {
+    return {
+      consumerDeviceID: isSet(object.consumerDeviceID) ? String(object.consumerDeviceID) : "",
+      agreementID: isSet(object.agreementID) ? String(object.agreementID) : "",
+      agreementActive: isSet(object.agreementActive) ? Boolean(object.agreementActive) : false,
+      contractID: isSet(object.contractID) ? String(object.contractID) : "",
+    };
+  },
+
+  toJSON(message: QueryGetPpaMapRequest): unknown {
+    const obj: any = {};
+    message.consumerDeviceID !== undefined && (obj.consumerDeviceID = message.consumerDeviceID);
+    message.agreementID !== undefined && (obj.agreementID = message.agreementID);
+    message.agreementActive !== undefined && (obj.agreementActive = message.agreementActive);
+    message.contractID !== undefined && (obj.contractID = message.contractID);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryGetPpaMapRequest>, I>>(object: I): QueryGetPpaMapRequest {
+    const message = createBaseQueryGetPpaMapRequest();
+    message.consumerDeviceID = object.consumerDeviceID ?? "";
+    message.agreementID = object.agreementID ?? "";
+    message.agreementActive = object.agreementActive ?? false;
+    message.contractID = object.contractID ?? "";
+    return message;
+  },
+};
+
+function createBaseQueryGetPpaMapResponse(): QueryGetPpaMapResponse {
+  return { ppaMap: undefined };
+}
+
+export const QueryGetPpaMapResponse = {
+  encode(message: QueryGetPpaMapResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.ppaMap !== undefined) {
+      PpaMap.encode(message.ppaMap, writer.uint32(10).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryGetPpaMapResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryGetPpaMapResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.ppaMap = PpaMap.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryGetPpaMapResponse {
+    return { ppaMap: isSet(object.ppaMap) ? PpaMap.fromJSON(object.ppaMap) : undefined };
+  },
+
+  toJSON(message: QueryGetPpaMapResponse): unknown {
+    const obj: any = {};
+    message.ppaMap !== undefined && (obj.ppaMap = message.ppaMap ? PpaMap.toJSON(message.ppaMap) : undefined);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryGetPpaMapResponse>, I>>(object: I): QueryGetPpaMapResponse {
+    const message = createBaseQueryGetPpaMapResponse();
+    message.ppaMap = (object.ppaMap !== undefined && object.ppaMap !== null)
+      ? PpaMap.fromPartial(object.ppaMap)
+      : undefined;
+    return message;
+  },
+};
+
+function createBaseQueryAllPpaMapRequest(): QueryAllPpaMapRequest {
+  return { pagination: undefined };
+}
+
+export const QueryAllPpaMapRequest = {
+  encode(message: QueryAllPpaMapRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.pagination !== undefined) {
+      PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryAllPpaMapRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryAllPpaMapRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.pagination = PageRequest.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryAllPpaMapRequest {
+    return { pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined };
+  },
+
+  toJSON(message: QueryAllPpaMapRequest): unknown {
+    const obj: any = {};
+    message.pagination !== undefined
+      && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryAllPpaMapRequest>, I>>(object: I): QueryAllPpaMapRequest {
+    const message = createBaseQueryAllPpaMapRequest();
+    message.pagination = (object.pagination !== undefined && object.pagination !== null)
+      ? PageRequest.fromPartial(object.pagination)
+      : undefined;
+    return message;
+  },
+};
+
+function createBaseQueryAllPpaMapResponse(): QueryAllPpaMapResponse {
+  return { ppaMap: [], pagination: undefined };
+}
+
+export const QueryAllPpaMapResponse = {
+  encode(message: QueryAllPpaMapResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    for (const v of message.ppaMap) {
+      PpaMap.encode(v!, writer.uint32(10).fork()).ldelim();
+    }
+    if (message.pagination !== undefined) {
+      PageResponse.encode(message.pagination, writer.uint32(18).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryAllPpaMapResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryAllPpaMapResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.ppaMap.push(PpaMap.decode(reader, reader.uint32()));
+          break;
+        case 2:
+          message.pagination = PageResponse.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryAllPpaMapResponse {
+    return {
+      ppaMap: Array.isArray(object?.ppaMap) ? object.ppaMap.map((e: any) => PpaMap.fromJSON(e)) : [],
+      pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined,
+    };
+  },
+
+  toJSON(message: QueryAllPpaMapResponse): unknown {
+    const obj: any = {};
+    if (message.ppaMap) {
+      obj.ppaMap = message.ppaMap.map((e) => e ? PpaMap.toJSON(e) : undefined);
+    } else {
+      obj.ppaMap = [];
+    }
+    message.pagination !== undefined
+      && (obj.pagination = message.pagination ? PageResponse.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryAllPpaMapResponse>, I>>(object: I): QueryAllPpaMapResponse {
+    const message = createBaseQueryAllPpaMapResponse();
+    message.ppaMap = object.ppaMap?.map((e) => PpaMap.fromPartial(e)) || [];
+    message.pagination = (object.pagination !== undefined && object.pagination !== null)
+      ? PageResponse.fromPartial(object.pagination)
+      : undefined;
+    return message;
+  },
+};
+
 /** Query defines the gRPC querier service. */
 export interface Query {
   /** Parameters queries the parameters of the module. */
@@ -1070,6 +1331,9 @@ export interface Query {
   PowerPurchaseContractAll(
     request: QueryAllPowerPurchaseContractRequest,
   ): Promise<QueryAllPowerPurchaseContractResponse>;
+  /** Queries a list of PpaMap items. */
+  PpaMap(request: QueryGetPpaMapRequest): Promise<QueryGetPpaMapResponse>;
+  PpaMapAll(request: QueryAllPpaMapRequest): Promise<QueryAllPpaMapResponse>;
 }
 
 export class QueryClientImpl implements Query {
@@ -1084,6 +1348,8 @@ export class QueryClientImpl implements Query {
     this.Listrecordings = this.Listrecordings.bind(this);
     this.PowerPurchaseContract = this.PowerPurchaseContract.bind(this);
     this.PowerPurchaseContractAll = this.PowerPurchaseContractAll.bind(this);
+    this.PpaMap = this.PpaMap.bind(this);
+    this.PpaMapAll = this.PpaMapAll.bind(this);
   }
   Params(request: QueryParamsRequest): Promise<QueryParamsResponse> {
     const data = QueryParamsRequest.encode(request).finish();
@@ -1133,6 +1399,18 @@ export class QueryClientImpl implements Query {
     const data = QueryAllPowerPurchaseContractRequest.encode(request).finish();
     const promise = this.rpc.request("electra.meter.Query", "PowerPurchaseContractAll", data);
     return promise.then((data) => QueryAllPowerPurchaseContractResponse.decode(new _m0.Reader(data)));
+  }
+
+  PpaMap(request: QueryGetPpaMapRequest): Promise<QueryGetPpaMapResponse> {
+    const data = QueryGetPpaMapRequest.encode(request).finish();
+    const promise = this.rpc.request("electra.meter.Query", "PpaMap", data);
+    return promise.then((data) => QueryGetPpaMapResponse.decode(new _m0.Reader(data)));
+  }
+
+  PpaMapAll(request: QueryAllPpaMapRequest): Promise<QueryAllPpaMapResponse> {
+    const data = QueryAllPpaMapRequest.encode(request).finish();
+    const promise = this.rpc.request("electra.meter.Query", "PpaMapAll", data);
+    return promise.then((data) => QueryAllPpaMapResponse.decode(new _m0.Reader(data)));
   }
 }
 

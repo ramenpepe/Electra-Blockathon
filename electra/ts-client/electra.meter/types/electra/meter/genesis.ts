@@ -4,6 +4,7 @@ import { Meterdirectory } from "./meterdirectory";
 import { Meterreadings } from "./meterreadings";
 import { Params } from "./params";
 import { PowerPurchaseContract } from "./power_purchase_contract";
+import { PpaMap } from "./ppa_map";
 
 export const protobufPackage = "electra.meter";
 
@@ -13,10 +14,17 @@ export interface GenesisState {
   meterreadingsList: Meterreadings[];
   meterdirectoryList: Meterdirectory[];
   powerPurchaseContractList: PowerPurchaseContract[];
+  ppaMapList: PpaMap[];
 }
 
 function createBaseGenesisState(): GenesisState {
-  return { params: undefined, meterreadingsList: [], meterdirectoryList: [], powerPurchaseContractList: [] };
+  return {
+    params: undefined,
+    meterreadingsList: [],
+    meterdirectoryList: [],
+    powerPurchaseContractList: [],
+    ppaMapList: [],
+  };
 }
 
 export const GenesisState = {
@@ -32,6 +40,9 @@ export const GenesisState = {
     }
     for (const v of message.powerPurchaseContractList) {
       PowerPurchaseContract.encode(v!, writer.uint32(34).fork()).ldelim();
+    }
+    for (const v of message.ppaMapList) {
+      PpaMap.encode(v!, writer.uint32(42).fork()).ldelim();
     }
     return writer;
   },
@@ -55,6 +66,9 @@ export const GenesisState = {
         case 4:
           message.powerPurchaseContractList.push(PowerPurchaseContract.decode(reader, reader.uint32()));
           break;
+        case 5:
+          message.ppaMapList.push(PpaMap.decode(reader, reader.uint32()));
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -75,6 +89,7 @@ export const GenesisState = {
       powerPurchaseContractList: Array.isArray(object?.powerPurchaseContractList)
         ? object.powerPurchaseContractList.map((e: any) => PowerPurchaseContract.fromJSON(e))
         : [],
+      ppaMapList: Array.isArray(object?.ppaMapList) ? object.ppaMapList.map((e: any) => PpaMap.fromJSON(e)) : [],
     };
   },
 
@@ -98,6 +113,11 @@ export const GenesisState = {
     } else {
       obj.powerPurchaseContractList = [];
     }
+    if (message.ppaMapList) {
+      obj.ppaMapList = message.ppaMapList.map((e) => e ? PpaMap.toJSON(e) : undefined);
+    } else {
+      obj.ppaMapList = [];
+    }
     return obj;
   },
 
@@ -110,6 +130,7 @@ export const GenesisState = {
     message.meterdirectoryList = object.meterdirectoryList?.map((e) => Meterdirectory.fromPartial(e)) || [];
     message.powerPurchaseContractList =
       object.powerPurchaseContractList?.map((e) => PowerPurchaseContract.fromPartial(e)) || [];
+    message.ppaMapList = object.ppaMapList?.map((e) => PpaMap.fromPartial(e)) || [];
     return message;
   },
 };

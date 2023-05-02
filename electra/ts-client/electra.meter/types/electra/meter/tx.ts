@@ -104,6 +104,49 @@ export interface MsgDeletePowerPurchaseContract {
 export interface MsgDeletePowerPurchaseContractResponse {
 }
 
+export interface MsgCreatePpaMap {
+  creator: string;
+  consumerDeviceID: string;
+  agreementID: string;
+  agreementActive: boolean;
+  contractID: string;
+  producerDeviceID: string;
+  agreementStartDate: number;
+  agreementEndDate: number;
+  contractPreferredPrice: number;
+  contractPreferredCurency: string;
+}
+
+export interface MsgCreatePpaMapResponse {
+}
+
+export interface MsgUpdatePpaMap {
+  creator: string;
+  consumerDeviceID: string;
+  agreementID: string;
+  agreementActive: boolean;
+  contractID: string;
+  producerDeviceID: string;
+  agreementStartDate: number;
+  agreementEndDate: number;
+  contractPreferredPrice: number;
+  contractPreferredCurency: string;
+}
+
+export interface MsgUpdatePpaMapResponse {
+}
+
+export interface MsgDeletePpaMap {
+  creator: string;
+  consumerDeviceID: string;
+  agreementID: string;
+  agreementActive: boolean;
+  contractID: string;
+}
+
+export interface MsgDeletePpaMapResponse {
+}
+
 function createBaseMsgRecord(): MsgRecord {
   return { creator: "", timestamp: 0, phase: 0, whin: 0, whout: 0, mvolt: 0, mhertz: 0, mpf: 0, maxmi: 0 };
 }
@@ -1216,6 +1259,492 @@ export const MsgDeletePowerPurchaseContractResponse = {
   },
 };
 
+function createBaseMsgCreatePpaMap(): MsgCreatePpaMap {
+  return {
+    creator: "",
+    consumerDeviceID: "",
+    agreementID: "",
+    agreementActive: false,
+    contractID: "",
+    producerDeviceID: "",
+    agreementStartDate: 0,
+    agreementEndDate: 0,
+    contractPreferredPrice: 0,
+    contractPreferredCurency: "",
+  };
+}
+
+export const MsgCreatePpaMap = {
+  encode(message: MsgCreatePpaMap, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.creator !== "") {
+      writer.uint32(10).string(message.creator);
+    }
+    if (message.consumerDeviceID !== "") {
+      writer.uint32(18).string(message.consumerDeviceID);
+    }
+    if (message.agreementID !== "") {
+      writer.uint32(26).string(message.agreementID);
+    }
+    if (message.agreementActive === true) {
+      writer.uint32(32).bool(message.agreementActive);
+    }
+    if (message.contractID !== "") {
+      writer.uint32(42).string(message.contractID);
+    }
+    if (message.producerDeviceID !== "") {
+      writer.uint32(50).string(message.producerDeviceID);
+    }
+    if (message.agreementStartDate !== 0) {
+      writer.uint32(56).uint64(message.agreementStartDate);
+    }
+    if (message.agreementEndDate !== 0) {
+      writer.uint32(64).uint64(message.agreementEndDate);
+    }
+    if (message.contractPreferredPrice !== 0) {
+      writer.uint32(72).uint64(message.contractPreferredPrice);
+    }
+    if (message.contractPreferredCurency !== "") {
+      writer.uint32(82).string(message.contractPreferredCurency);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgCreatePpaMap {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseMsgCreatePpaMap();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.creator = reader.string();
+          break;
+        case 2:
+          message.consumerDeviceID = reader.string();
+          break;
+        case 3:
+          message.agreementID = reader.string();
+          break;
+        case 4:
+          message.agreementActive = reader.bool();
+          break;
+        case 5:
+          message.contractID = reader.string();
+          break;
+        case 6:
+          message.producerDeviceID = reader.string();
+          break;
+        case 7:
+          message.agreementStartDate = longToNumber(reader.uint64() as Long);
+          break;
+        case 8:
+          message.agreementEndDate = longToNumber(reader.uint64() as Long);
+          break;
+        case 9:
+          message.contractPreferredPrice = longToNumber(reader.uint64() as Long);
+          break;
+        case 10:
+          message.contractPreferredCurency = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): MsgCreatePpaMap {
+    return {
+      creator: isSet(object.creator) ? String(object.creator) : "",
+      consumerDeviceID: isSet(object.consumerDeviceID) ? String(object.consumerDeviceID) : "",
+      agreementID: isSet(object.agreementID) ? String(object.agreementID) : "",
+      agreementActive: isSet(object.agreementActive) ? Boolean(object.agreementActive) : false,
+      contractID: isSet(object.contractID) ? String(object.contractID) : "",
+      producerDeviceID: isSet(object.producerDeviceID) ? String(object.producerDeviceID) : "",
+      agreementStartDate: isSet(object.agreementStartDate) ? Number(object.agreementStartDate) : 0,
+      agreementEndDate: isSet(object.agreementEndDate) ? Number(object.agreementEndDate) : 0,
+      contractPreferredPrice: isSet(object.contractPreferredPrice) ? Number(object.contractPreferredPrice) : 0,
+      contractPreferredCurency: isSet(object.contractPreferredCurency) ? String(object.contractPreferredCurency) : "",
+    };
+  },
+
+  toJSON(message: MsgCreatePpaMap): unknown {
+    const obj: any = {};
+    message.creator !== undefined && (obj.creator = message.creator);
+    message.consumerDeviceID !== undefined && (obj.consumerDeviceID = message.consumerDeviceID);
+    message.agreementID !== undefined && (obj.agreementID = message.agreementID);
+    message.agreementActive !== undefined && (obj.agreementActive = message.agreementActive);
+    message.contractID !== undefined && (obj.contractID = message.contractID);
+    message.producerDeviceID !== undefined && (obj.producerDeviceID = message.producerDeviceID);
+    message.agreementStartDate !== undefined && (obj.agreementStartDate = Math.round(message.agreementStartDate));
+    message.agreementEndDate !== undefined && (obj.agreementEndDate = Math.round(message.agreementEndDate));
+    message.contractPreferredPrice !== undefined
+      && (obj.contractPreferredPrice = Math.round(message.contractPreferredPrice));
+    message.contractPreferredCurency !== undefined && (obj.contractPreferredCurency = message.contractPreferredCurency);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<MsgCreatePpaMap>, I>>(object: I): MsgCreatePpaMap {
+    const message = createBaseMsgCreatePpaMap();
+    message.creator = object.creator ?? "";
+    message.consumerDeviceID = object.consumerDeviceID ?? "";
+    message.agreementID = object.agreementID ?? "";
+    message.agreementActive = object.agreementActive ?? false;
+    message.contractID = object.contractID ?? "";
+    message.producerDeviceID = object.producerDeviceID ?? "";
+    message.agreementStartDate = object.agreementStartDate ?? 0;
+    message.agreementEndDate = object.agreementEndDate ?? 0;
+    message.contractPreferredPrice = object.contractPreferredPrice ?? 0;
+    message.contractPreferredCurency = object.contractPreferredCurency ?? "";
+    return message;
+  },
+};
+
+function createBaseMsgCreatePpaMapResponse(): MsgCreatePpaMapResponse {
+  return {};
+}
+
+export const MsgCreatePpaMapResponse = {
+  encode(_: MsgCreatePpaMapResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgCreatePpaMapResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseMsgCreatePpaMapResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(_: any): MsgCreatePpaMapResponse {
+    return {};
+  },
+
+  toJSON(_: MsgCreatePpaMapResponse): unknown {
+    const obj: any = {};
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<MsgCreatePpaMapResponse>, I>>(_: I): MsgCreatePpaMapResponse {
+    const message = createBaseMsgCreatePpaMapResponse();
+    return message;
+  },
+};
+
+function createBaseMsgUpdatePpaMap(): MsgUpdatePpaMap {
+  return {
+    creator: "",
+    consumerDeviceID: "",
+    agreementID: "",
+    agreementActive: false,
+    contractID: "",
+    producerDeviceID: "",
+    agreementStartDate: 0,
+    agreementEndDate: 0,
+    contractPreferredPrice: 0,
+    contractPreferredCurency: "",
+  };
+}
+
+export const MsgUpdatePpaMap = {
+  encode(message: MsgUpdatePpaMap, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.creator !== "") {
+      writer.uint32(10).string(message.creator);
+    }
+    if (message.consumerDeviceID !== "") {
+      writer.uint32(18).string(message.consumerDeviceID);
+    }
+    if (message.agreementID !== "") {
+      writer.uint32(26).string(message.agreementID);
+    }
+    if (message.agreementActive === true) {
+      writer.uint32(32).bool(message.agreementActive);
+    }
+    if (message.contractID !== "") {
+      writer.uint32(42).string(message.contractID);
+    }
+    if (message.producerDeviceID !== "") {
+      writer.uint32(50).string(message.producerDeviceID);
+    }
+    if (message.agreementStartDate !== 0) {
+      writer.uint32(56).uint64(message.agreementStartDate);
+    }
+    if (message.agreementEndDate !== 0) {
+      writer.uint32(64).uint64(message.agreementEndDate);
+    }
+    if (message.contractPreferredPrice !== 0) {
+      writer.uint32(72).uint64(message.contractPreferredPrice);
+    }
+    if (message.contractPreferredCurency !== "") {
+      writer.uint32(82).string(message.contractPreferredCurency);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdatePpaMap {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseMsgUpdatePpaMap();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.creator = reader.string();
+          break;
+        case 2:
+          message.consumerDeviceID = reader.string();
+          break;
+        case 3:
+          message.agreementID = reader.string();
+          break;
+        case 4:
+          message.agreementActive = reader.bool();
+          break;
+        case 5:
+          message.contractID = reader.string();
+          break;
+        case 6:
+          message.producerDeviceID = reader.string();
+          break;
+        case 7:
+          message.agreementStartDate = longToNumber(reader.uint64() as Long);
+          break;
+        case 8:
+          message.agreementEndDate = longToNumber(reader.uint64() as Long);
+          break;
+        case 9:
+          message.contractPreferredPrice = longToNumber(reader.uint64() as Long);
+          break;
+        case 10:
+          message.contractPreferredCurency = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): MsgUpdatePpaMap {
+    return {
+      creator: isSet(object.creator) ? String(object.creator) : "",
+      consumerDeviceID: isSet(object.consumerDeviceID) ? String(object.consumerDeviceID) : "",
+      agreementID: isSet(object.agreementID) ? String(object.agreementID) : "",
+      agreementActive: isSet(object.agreementActive) ? Boolean(object.agreementActive) : false,
+      contractID: isSet(object.contractID) ? String(object.contractID) : "",
+      producerDeviceID: isSet(object.producerDeviceID) ? String(object.producerDeviceID) : "",
+      agreementStartDate: isSet(object.agreementStartDate) ? Number(object.agreementStartDate) : 0,
+      agreementEndDate: isSet(object.agreementEndDate) ? Number(object.agreementEndDate) : 0,
+      contractPreferredPrice: isSet(object.contractPreferredPrice) ? Number(object.contractPreferredPrice) : 0,
+      contractPreferredCurency: isSet(object.contractPreferredCurency) ? String(object.contractPreferredCurency) : "",
+    };
+  },
+
+  toJSON(message: MsgUpdatePpaMap): unknown {
+    const obj: any = {};
+    message.creator !== undefined && (obj.creator = message.creator);
+    message.consumerDeviceID !== undefined && (obj.consumerDeviceID = message.consumerDeviceID);
+    message.agreementID !== undefined && (obj.agreementID = message.agreementID);
+    message.agreementActive !== undefined && (obj.agreementActive = message.agreementActive);
+    message.contractID !== undefined && (obj.contractID = message.contractID);
+    message.producerDeviceID !== undefined && (obj.producerDeviceID = message.producerDeviceID);
+    message.agreementStartDate !== undefined && (obj.agreementStartDate = Math.round(message.agreementStartDate));
+    message.agreementEndDate !== undefined && (obj.agreementEndDate = Math.round(message.agreementEndDate));
+    message.contractPreferredPrice !== undefined
+      && (obj.contractPreferredPrice = Math.round(message.contractPreferredPrice));
+    message.contractPreferredCurency !== undefined && (obj.contractPreferredCurency = message.contractPreferredCurency);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<MsgUpdatePpaMap>, I>>(object: I): MsgUpdatePpaMap {
+    const message = createBaseMsgUpdatePpaMap();
+    message.creator = object.creator ?? "";
+    message.consumerDeviceID = object.consumerDeviceID ?? "";
+    message.agreementID = object.agreementID ?? "";
+    message.agreementActive = object.agreementActive ?? false;
+    message.contractID = object.contractID ?? "";
+    message.producerDeviceID = object.producerDeviceID ?? "";
+    message.agreementStartDate = object.agreementStartDate ?? 0;
+    message.agreementEndDate = object.agreementEndDate ?? 0;
+    message.contractPreferredPrice = object.contractPreferredPrice ?? 0;
+    message.contractPreferredCurency = object.contractPreferredCurency ?? "";
+    return message;
+  },
+};
+
+function createBaseMsgUpdatePpaMapResponse(): MsgUpdatePpaMapResponse {
+  return {};
+}
+
+export const MsgUpdatePpaMapResponse = {
+  encode(_: MsgUpdatePpaMapResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdatePpaMapResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseMsgUpdatePpaMapResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(_: any): MsgUpdatePpaMapResponse {
+    return {};
+  },
+
+  toJSON(_: MsgUpdatePpaMapResponse): unknown {
+    const obj: any = {};
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<MsgUpdatePpaMapResponse>, I>>(_: I): MsgUpdatePpaMapResponse {
+    const message = createBaseMsgUpdatePpaMapResponse();
+    return message;
+  },
+};
+
+function createBaseMsgDeletePpaMap(): MsgDeletePpaMap {
+  return { creator: "", consumerDeviceID: "", agreementID: "", agreementActive: false, contractID: "" };
+}
+
+export const MsgDeletePpaMap = {
+  encode(message: MsgDeletePpaMap, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.creator !== "") {
+      writer.uint32(10).string(message.creator);
+    }
+    if (message.consumerDeviceID !== "") {
+      writer.uint32(18).string(message.consumerDeviceID);
+    }
+    if (message.agreementID !== "") {
+      writer.uint32(26).string(message.agreementID);
+    }
+    if (message.agreementActive === true) {
+      writer.uint32(32).bool(message.agreementActive);
+    }
+    if (message.contractID !== "") {
+      writer.uint32(42).string(message.contractID);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgDeletePpaMap {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseMsgDeletePpaMap();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.creator = reader.string();
+          break;
+        case 2:
+          message.consumerDeviceID = reader.string();
+          break;
+        case 3:
+          message.agreementID = reader.string();
+          break;
+        case 4:
+          message.agreementActive = reader.bool();
+          break;
+        case 5:
+          message.contractID = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): MsgDeletePpaMap {
+    return {
+      creator: isSet(object.creator) ? String(object.creator) : "",
+      consumerDeviceID: isSet(object.consumerDeviceID) ? String(object.consumerDeviceID) : "",
+      agreementID: isSet(object.agreementID) ? String(object.agreementID) : "",
+      agreementActive: isSet(object.agreementActive) ? Boolean(object.agreementActive) : false,
+      contractID: isSet(object.contractID) ? String(object.contractID) : "",
+    };
+  },
+
+  toJSON(message: MsgDeletePpaMap): unknown {
+    const obj: any = {};
+    message.creator !== undefined && (obj.creator = message.creator);
+    message.consumerDeviceID !== undefined && (obj.consumerDeviceID = message.consumerDeviceID);
+    message.agreementID !== undefined && (obj.agreementID = message.agreementID);
+    message.agreementActive !== undefined && (obj.agreementActive = message.agreementActive);
+    message.contractID !== undefined && (obj.contractID = message.contractID);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<MsgDeletePpaMap>, I>>(object: I): MsgDeletePpaMap {
+    const message = createBaseMsgDeletePpaMap();
+    message.creator = object.creator ?? "";
+    message.consumerDeviceID = object.consumerDeviceID ?? "";
+    message.agreementID = object.agreementID ?? "";
+    message.agreementActive = object.agreementActive ?? false;
+    message.contractID = object.contractID ?? "";
+    return message;
+  },
+};
+
+function createBaseMsgDeletePpaMapResponse(): MsgDeletePpaMapResponse {
+  return {};
+}
+
+export const MsgDeletePpaMapResponse = {
+  encode(_: MsgDeletePpaMapResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgDeletePpaMapResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseMsgDeletePpaMapResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(_: any): MsgDeletePpaMapResponse {
+    return {};
+  },
+
+  toJSON(_: MsgDeletePpaMapResponse): unknown {
+    const obj: any = {};
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<MsgDeletePpaMapResponse>, I>>(_: I): MsgDeletePpaMapResponse {
+    const message = createBaseMsgDeletePpaMapResponse();
+    return message;
+  },
+};
+
 /** Msg defines the Msg service. */
 export interface Msg {
   Record(request: MsgRecord): Promise<MsgRecordResponse>;
@@ -1223,6 +1752,9 @@ export interface Msg {
   CreatePowerPurchaseContract(request: MsgCreatePowerPurchaseContract): Promise<MsgCreatePowerPurchaseContractResponse>;
   UpdatePowerPurchaseContract(request: MsgUpdatePowerPurchaseContract): Promise<MsgUpdatePowerPurchaseContractResponse>;
   DeletePowerPurchaseContract(request: MsgDeletePowerPurchaseContract): Promise<MsgDeletePowerPurchaseContractResponse>;
+  CreatePpaMap(request: MsgCreatePpaMap): Promise<MsgCreatePpaMapResponse>;
+  UpdatePpaMap(request: MsgUpdatePpaMap): Promise<MsgUpdatePpaMapResponse>;
+  DeletePpaMap(request: MsgDeletePpaMap): Promise<MsgDeletePpaMapResponse>;
 }
 
 export class MsgClientImpl implements Msg {
@@ -1234,6 +1766,9 @@ export class MsgClientImpl implements Msg {
     this.CreatePowerPurchaseContract = this.CreatePowerPurchaseContract.bind(this);
     this.UpdatePowerPurchaseContract = this.UpdatePowerPurchaseContract.bind(this);
     this.DeletePowerPurchaseContract = this.DeletePowerPurchaseContract.bind(this);
+    this.CreatePpaMap = this.CreatePpaMap.bind(this);
+    this.UpdatePpaMap = this.UpdatePpaMap.bind(this);
+    this.DeletePpaMap = this.DeletePpaMap.bind(this);
   }
   Record(request: MsgRecord): Promise<MsgRecordResponse> {
     const data = MsgRecord.encode(request).finish();
@@ -1269,6 +1804,24 @@ export class MsgClientImpl implements Msg {
     const data = MsgDeletePowerPurchaseContract.encode(request).finish();
     const promise = this.rpc.request("electra.meter.Msg", "DeletePowerPurchaseContract", data);
     return promise.then((data) => MsgDeletePowerPurchaseContractResponse.decode(new _m0.Reader(data)));
+  }
+
+  CreatePpaMap(request: MsgCreatePpaMap): Promise<MsgCreatePpaMapResponse> {
+    const data = MsgCreatePpaMap.encode(request).finish();
+    const promise = this.rpc.request("electra.meter.Msg", "CreatePpaMap", data);
+    return promise.then((data) => MsgCreatePpaMapResponse.decode(new _m0.Reader(data)));
+  }
+
+  UpdatePpaMap(request: MsgUpdatePpaMap): Promise<MsgUpdatePpaMapResponse> {
+    const data = MsgUpdatePpaMap.encode(request).finish();
+    const promise = this.rpc.request("electra.meter.Msg", "UpdatePpaMap", data);
+    return promise.then((data) => MsgUpdatePpaMapResponse.decode(new _m0.Reader(data)));
+  }
+
+  DeletePpaMap(request: MsgDeletePpaMap): Promise<MsgDeletePpaMapResponse> {
+    const data = MsgDeletePpaMap.encode(request).finish();
+    const promise = this.rpc.request("electra.meter.Msg", "DeletePpaMap", data);
+    return promise.then((data) => MsgDeletePpaMapResponse.decode(new _m0.Reader(data)));
   }
 }
 
