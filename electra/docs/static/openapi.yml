@@ -67079,6 +67079,8 @@ definitions:
       maxmi:
         type: string
         format: uint64
+  electra.meter.MsgRecordResponse:
+    type: object
   electra.meter.Params:
     type: object
     properties:
