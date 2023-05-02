@@ -11,26 +11,26 @@ var _ paramtypes.ParamSet = (*Params)(nil)
 
 var (
 	KeyMaxBillingIteration = []byte("MaxBillingIteration")
-	// TODO: Determine the default value
-	DefaultMaxBillingIteration uint64 = 0
+	// DONE: Determine the default value
+	DefaultMaxBillingIteration uint64 = 16
 )
 
 var (
 	KeyModuleParamBestForCustomer = []byte("ModuleParamBestForCustomer")
-	// TODO: Determine the default value
-	DefaultModuleParamBestForCustomer bool = false
+	// DONE: Determine the default value
+	DefaultModuleParamBestForCustomer bool = true
 )
 
 var (
 	KeyPayAutomatically = []byte("PayAutomatically")
-	// TODO: Determine the default value
+	// DONE: Determine the default value
 	DefaultPayAutomatically bool = false
 )
 
 var (
 	KeyBillingAdmin = []byte("BillingAdmin")
-	// TODO: Determine the default value
-	DefaultBillingAdmin string = "billing_admin"
+	// DONE: Determine the default value
+	DefaultBillingAdmin string = "electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87" // Bob
 )
 
 // ParamKeyTable the param key table for launch module
