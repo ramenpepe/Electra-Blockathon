@@ -347,6 +347,7 @@ message QueryAllProducerbillinglineResponse {
 message QueryGetproducerbillRequest {
   string producerDeviceID = 1;
   uint64 billCycleID      = 2;
+  cosmos.base.query.v1beta1.PageRequest pagination = 3;
 }
 
 message QueryGetproducerbillResponse {

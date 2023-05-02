@@ -23,7 +23,7 @@ func (k Keeper) Listrecordings(goCtx context.Context, req *types.QueryListrecord
 
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
-	// TODO: Process the query
+	// DONE: Process the query
 
 	// Performance Management
 	start := time.Now()
