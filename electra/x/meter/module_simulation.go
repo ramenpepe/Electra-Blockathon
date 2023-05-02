@@ -6,6 +6,7 @@ import (
 	"electra/testutil/sample"
 	metersimulation "electra/x/meter/simulation"
 	"electra/x/meter/types"
+
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	simappparams "github.com/cosmos/cosmos-sdk/simapp/params"
 	sdk "github.com/cosmos/cosmos-sdk/types"
@@ -25,11 +26,11 @@ var (
 
 const (
 	opWeightMsgRecord = "op_weight_msg_record"
-	// TODO: Determine the simulation weight value
+	// DONE: Determine the simulation weight value
 	defaultWeightMsgRecord int = 100
 
 	opWeightMsgRecord3 = "op_weight_msg_record_3"
-	// TODO: Determine the simulation weight value
+	// DONE: Determine the simulation weight value
 	defaultWeightMsgRecord3 int = 100
 
 	// this line is used by starport scaffolding # simapp/module/const
