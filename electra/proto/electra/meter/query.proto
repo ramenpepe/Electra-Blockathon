@@ -97,11 +97,13 @@ message QueryListrecordingsRequest {
   uint64 start      = 2;
   uint64 end        = 3;
   bool   byUnixTime = 4;
+  cosmos.base.query.v1beta1.PageRequest pagination = 5;
 }
 
 message QueryListrecordingsResponse {
   repeated string meterreadings = 1;
   string comments      = 2;
   uint64 total         = 3;
+  cosmos.base.query.v1beta1.PageResponse pagination = 4;
 }
 
