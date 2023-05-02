@@ -1,21 +1,127 @@
 version: 1
+build:
+  proto:
+    path: proto
+    third_party_paths:
+    - third_party/proto
+    - proto_vendor
 accounts:
+- name: test1
+  coins:
+  - 20000000000electra
+  - 100000stTH
+  mnemonic: slogan wreck armor floor change female industry smart daughter spawn today
+    system shop pigeon game olive always dish camp response can perfect salon stone
+- name: test2
+  coins:
+  - 20000000000electra
+  - 100000stTH
+  mnemonic: boil silk digital carry photo explain kitchen wall unusual garlic suspect
+    leave accident discover banana catch margin reward gap asset raccoon anchor leisure
+    ostrich
+- name: test3
+  coins:
+  - 240000000000electra
+  - 100000stTH
+  mnemonic: bounce duty afraid make item occur curious mention stamp lava inspire
+    shock wall hungry culture apart harsh icon burden glide cabbage deal during charge
 - name: alice
   coins:
-  - 20000token
-  - 200000000stake
+  - 990000000000000electra
+  - 10000000stTH
+  mnemonic: satisfy dirt consider electric apart coin later recall enhance pizza dust
+    way shop erosion innocent actor member double always budget rival congress person
+    uncle
 - name: bob
   coins:
-  - 10000token
-  - 100000000stake
-client:
-  openapi:
-    path: docs/static/openapi.yml
+  - 91000000000000electra
+  - 1000000stTH
+  - 1000000stSG
+  - 1000000stEU
+  mnemonic: address slogan history guitar fringe health coral dish exercise excite
+    utility now thank mosquito soul vacuum doctor squeeze host never dinosaur afford
+    tide tide
+- name: prod1
+  coins:
+  - 20000000000electra
+  - 100000stTH
+  mnemonic: thing lamp dwarf pupil hundred harsh snack review chest pledge people
+    normal pattern shoe cereal drill staff people finger type timber buddy grab rate
+- name: prod2
+  coins:
+  - 200000000000electra
+  - 100000stTH
+  mnemonic: invest theme among elbow weekend couple erode oyster stand enjoy series
+    collect ripple fringe actual muscle idle vast heavy brass donkey minimum envelope
+    capable
+- name: fame
+  coins:
+  - 200000000000electra
+  - 100000stTH
+  - 100000stSG
+  - 100000stEU
+  mnemonic: accident cry beyond fossil design attract dragon copy genius silly decrease valid tackle flame dish vault frost lobster system actress replace model fitness renew
+- name: kwang
+  coins:
+  - 200000000000electra
+  - 100000stSG
+  - 100000stTH
+  - 100000stEU
+  mnemonic: swift child leisure win recycle winner oak tissue nose opera myth owner bag popular tennis brass client sudden bring dove beauty renew federal million
+- name: rui
+  coins:
+  - 200000000000electra
+  - 100000stEU
+  - 100000stTH
+  - 100000stSG
+  mnemonic: endless often oven catalog man knife walk arctic genuine spy surface magic same clump wise alter fuel volume young improve road trial asset moral
 faucet:
   name: bob
   coins:
-  - 5token
-  - 100000stake
+  - 1000000000electra
+  - 100000stTH
+  - 100000stSG
+  - 100000stEU
+  host: 0.0.0.0:4500
+client:
+  typescript:
+    path: ts-client
+  vuex:
+    path: vue/src/store
+  composables:
+    path: vue/src/composables
+  openapi:
+    path: docs/static/openapi.yml
+genesis:
+  app_state:
+    crisis:
+      constant_fee:
+        amount: "10"
+        denom: electra
+    gov:
+      deposit_params:
+        min_deposit:
+          amount: "10"
+          denom: electra
+    mint:
+      params:
+        mint_denom: electra
+    staking:
+      params:
+        bond_denom: electra
+  bank:
+    base: electra
+    denom_metadata: null
+    denom_units:
+      aliases: microelectra
+      denom: electra
+      exponent: "6"
+    description: The native staking token of electra blockchain
+    display: electra
+    name: electra
+    symbol: ELC
+  chain_id: electra-0
 validators:
 - name: alice
-  bonded: 100000000stake
+  bonded: 10000000000electra
+  home: $HOME/.electra
