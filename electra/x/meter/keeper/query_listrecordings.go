@@ -45,9 +45,9 @@ func (k Keeper) Listrecordings(goCtx context.Context, req *types.QueryListrecord
 
 	store := ctx.KVStore(k.storeKey)
 	meterreadingsStore := prefix.NewStore(store, types.KeyPrefix(types.MeterreadingsKeyPrefix))
-	stDebug = stDebug + " myDeviceID:" + mydeviceID
-	stDebug = stDebug + fmt.Sprintf(" From:  %d | ", uint64(from))
-	stDebug = stDebug + fmt.Sprintf(" To:  %d | ", uint64(to))
+	// stDebug = stDebug + " myDeviceID:" + mydeviceID
+	// stDebug = stDebug + fmt.Sprintf(" From:  %d | ", uint64(from))
+	// stDebug = stDebug + fmt.Sprintf(" To:  %d | ", uint64(to))
 
 	pageRes, err := query.Paginate(meterreadingsStore, req.Pagination, func(key []byte, value []byte) error {
 		var meterreadings types.Meterreadings
@@ -55,12 +55,11 @@ func (k Keeper) Listrecordings(goCtx context.Context, req *types.QueryListrecord
 			stDebug = stDebug + " Error " + err.Error()
 			return err
 		}
-		//stDebug = stDebug + " mydeviceID:" + meterreadings.DeviceID
-		stDebug = stDebug + " DeviceID:" + meterreadings.DeviceID
-		stDebug = stDebug + fmt.Sprintf(" Timestamp:  %d | ", meterreadings.Timestamp)
+		// stDebug = stDebug + " mydeviceID:" + meterreadings.DeviceID
+		// stDebug = stDebug + " DeviceID:" + meterreadings.DeviceID
+		// stDebug = stDebug + fmt.Sprintf(" Timestamp:  %d | ", meterreadings.Timestamp)
 		if (mydeviceID == meterreadings.DeviceID) && (uint64(meterreadings.Timestamp) >= uint64(from)) && (uint64(meterreadings.Timestamp) <= uint64(to)) {
-			//if (mydeviceID == meterreadings.DeviceID) && (uint64(meterreadings.Timestamp) >= from) && (uint64(meterreadings.Timestamp) <= to) {
-			stDebug = stDebug + fmt.Sprintf(" Timestamp:  %d | ", meterreadings.Timestamp)
+			//stDebug = stDebug + fmt.Sprintf(" Timestamp:  %d | ", meterreadings.Timestamp)
 			meterreadingss = append(meterreadingss, meterreadings)
 			total++
 		}
@@ -71,15 +70,13 @@ func (k Keeper) Listrecordings(goCtx context.Context, req *types.QueryListrecord
 	if err != nil {
 		return nil, status.Error(codes.Internal, err.Error())
 	}
-	var compteur = 0
+
 	// Convert to array of json string
 	var displaylines []string
 	for _, line := range meterreadingss {
-		compteur++
 		json, _ := json.Marshal(line)
 		displaylines = append(displaylines, string(json))
 	}
-	stDebug = stDebug + fmt.Sprint(compteur) + " line"
 
 	elapsed := time.Since(start)
 	stDebug = stDebug + fmt.Sprintf("Search took %s", elapsed)
