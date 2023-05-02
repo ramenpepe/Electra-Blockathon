@@ -32581,6 +32581,62 @@ paths:
           format: int64
       tags:
         - Query
+  /electra/meter/listrecordings/{deviceID}/{start}/{end}/{byUnixTime}:
+    get:
+      summary: Queries a list of Listrecordings items.
+      operationId: ElectraMeterListrecordings
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              meterreadings:
+                type: string
+              comments:
+                type: string
+              total:
+                type: string
+                format: uint64
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: deviceID
+          in: path
+          required: true
+          type: string
+        - name: start
+          in: path
+          required: true
+          type: string
+          format: uint64
+        - name: end
+          in: path
+          required: true
+          type: string
+          format: uint64
+        - name: byUnixTime
+          in: path
+          required: true
+          type: boolean
+      tags:
+        - Query
   /electra/meter/meterdirectory:
     get:
       operationId: ElectraMeterMeterdirectoryAll
@@ -67522,6 +67578,16 @@ definitions:
           maxmi:
             type: string
             format: uint64
+  electra.meter.QueryListrecordingsResponse:
+    type: object
+    properties:
+      meterreadings:
+        type: string
+      comments:
+        type: string
+      total:
+        type: string
+        format: uint64
   electra.meter.QueryParamsResponse:
     type: object
     properties:

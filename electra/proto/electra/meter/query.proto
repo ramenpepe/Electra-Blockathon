@@ -39,6 +39,12 @@ service Query {
     option (google.api.http).get = "/electra/meter/meterdirectory";
   
   }
+  
+  // Queries a list of Listrecordings items.
+  rpc Listrecordings (QueryListrecordingsRequest) returns (QueryListrecordingsResponse) {
+    option (google.api.http).get = "/electra/meter/listrecordings/{deviceID}/{start}/{end}/{byUnixTime}";
+  
+  }
 }
 // QueryParamsRequest is request type for the Query/Params RPC method.
 message QueryParamsRequest {}
@@ -84,5 +90,18 @@ message QueryAllMeterdirectoryRequest {
 message QueryAllMeterdirectoryResponse {
   repeated Meterdirectory                         meterdirectory = 1 [(gogoproto.nullable) = false];
            cosmos.base.query.v1beta1.PageResponse pagination     = 2;
+}
+
+message QueryListrecordingsRequest {
+  string deviceID   = 1;
+  uint64 start      = 2;
+  uint64 end        = 3;
+  bool   byUnixTime = 4;
+}
+
+message QueryListrecordingsResponse {
+  string meterreadings = 1;
+  string comments      = 2;
+  uint64 total         = 3;
 }
 
