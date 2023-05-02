@@ -1,0 +1,523 @@
+2023/05/02 18:45:47 # BEGIN  loadMeterReadingValues cycleID:78 Timebegin:1683027526 Timeend:1683027590 ###################################
+	#1 electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 val.Timestamp:1682994046 previous:true current:false future:false  previous Produc 
+	#2 electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 val.Timestamp:1682994060 previous:true current:false future:false  previous Produc 
+	#3 electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 val.Timestamp:1683025253 previous:true current:false future:false  previous Produc 
+	#4 electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 val.Timestamp:1683025265 previous:true current:false future:false  previous Produc 
+	#5 electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 val.Timestamp:1683025271 previous:true current:false future:false  previous Produc 
+	#6 electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 val.Timestamp:1683025341 previous:true current:false future:false  previous Produc 
+	#7 electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 val.Timestamp:1683025353 previous:true current:false future:false  previous Produc 
+	#8 electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 val.Timestamp:1683025359 previous:true current:false future:false  previous Produc 
+	#9 electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 val.Timestamp:1683026758 previous:true current:false future:false  previous Consum 
+	#10 electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 val.Timestamp:1683026764 previous:true current:false future:false  previous Consum 
+	#11 electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 val.Timestamp:1683026766 previous:true current:false future:false  previous Consum 
+	#12 electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 val.Timestamp:1683026941 previous:true current:false future:false  previous Consum 
+	#13 electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 val.Timestamp:1683026947 previous:true current:false future:false  previous Consum 
+	#14 electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 val.Timestamp:1683026949 previous:true current:false future:false  previous Consum 
+	#15 electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 val.Timestamp:1683027206 previous:true current:false future:false  previous Consum 
+	#16 electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 val.Timestamp:1683027212 previous:true current:false future:false  previous Consum 
+	#17 electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 val.Timestamp:1683027214 previous:true current:false future:false  previous Consum 
+	#18 electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 val.Timestamp:1683027504 previous:true current:false future:false  previous Consum 
+	#19 electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 val.Timestamp:1683027511 previous:true current:false future:false  previous Consum 
+	#20 electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 val.Timestamp:1683027513 previous:true current:false future:false  previous Consum 
+	#21 electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 val.Timestamp:1683027569 previous:false current:true future:false  current Consum 
+	#22 electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 val.Timestamp:1683027571 previous:false current:true future:false  current Consum 
+	#23 electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 val.Timestamp:1683027846 previous:false current:false future:true 
+	#24 electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 val.Timestamp:1683027852 previous:false current:false future:true 
+	#25 electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 val.Timestamp:1683027854 previous:false current:false future:true 
+	#26 electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 val.Timestamp:1683027923 previous:false current:false future:true 
+	#27 electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 val.Timestamp:1683027925 previous:false current:false future:true 
+	#28 electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz val.Timestamp:1683025255 previous:true current:false future:false  previous Consum 
+	#29 electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz val.Timestamp:1683025273 previous:true current:false future:false  previous Consum 
+	#30 electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz val.Timestamp:1683025343 previous:true current:false future:false  previous Consum 
+	#31 electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz val.Timestamp:1683025361 previous:true current:false future:false  previous Consum 
+	#32 electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz val.Timestamp:1683026760 previous:true current:false future:false  previous Consum 
+	#33 electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz val.Timestamp:1683026768 previous:true current:false future:false  previous Consum 
+	#34 electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz val.Timestamp:1683026943 previous:true current:false future:false  previous Consum 
+	#35 electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz val.Timestamp:1683026951 previous:true current:false future:false  previous Consum 
+	#36 electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz val.Timestamp:1683027208 previous:true current:false future:false  previous Consum 
+	#37 electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz val.Timestamp:1683027216 previous:true current:false future:false  previous Consum 
+	#38 electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz val.Timestamp:1683027507 previous:true current:false future:false  previous Consum 
+	#39 electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz val.Timestamp:1683027515 previous:true current:false future:false  previous Consum 
+	#40 electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz val.Timestamp:1683027573 previous:false current:true future:false  current Consum 
+	#41 electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz val.Timestamp:1683027587 previous:false current:true future:false  current Consum 
+	#42 electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz val.Timestamp:1683027848 previous:false current:false future:true 
+	#43 electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz val.Timestamp:1683027856 previous:false current:false future:true 
+	#44 electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz val.Timestamp:1683027927 previous:false current:false future:true 
+	#45 electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz val.Timestamp:1683027942 previous:false current:false future:true 
+	#46 electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 val.Timestamp:1682997320 previous:true current:false future:false  previous Produc 
+	#47 electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 val.Timestamp:1682997323 previous:true current:false future:false  previous Produc 
+	#48 electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 val.Timestamp:1683006686 previous:true current:false future:false  previous Produc 
+	#49 electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 val.Timestamp:1683007090 previous:true current:false future:false  previous Produc 
+	#50 electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 val.Timestamp:1683007093 previous:true current:false future:false  previous Produc 
+	#51 electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 val.Timestamp:1683025238 previous:true current:false future:false  previous Consum 
+	#52 electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 val.Timestamp:1683025248 previous:true current:false future:false  previous Consum 
+	#53 electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 val.Timestamp:1683025259 previous:true current:false future:false  previous Consum 
+	#54 electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 val.Timestamp:1683025263 previous:true current:false future:false  previous Consum 
+	#55 electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 val.Timestamp:1683025269 previous:true current:false future:false  previous Consum 
+	#56 electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 val.Timestamp:1683025336 previous:true current:false future:false  previous Consum 
+	#57 electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 val.Timestamp:1683025347 previous:true current:false future:false  previous Consum 
+	#58 electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 val.Timestamp:1683025351 previous:true current:false future:false  previous Consum 
+	#59 electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 val.Timestamp:1683025357 previous:true current:false future:false  previous Consum 
+	#60 electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 val.Timestamp:1683026750 previous:true current:false future:false  previous Consum 
+	#61 electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 val.Timestamp:1683026932 previous:true current:false future:false  previous Consum 
+	#62 electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 val.Timestamp:1683027198 previous:true current:false future:false  previous Consum 
+	#63 electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 val.Timestamp:1683027496 previous:true current:false future:false  previous Consum 
+	#64 electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 val.Timestamp:1683027567 previous:false current:true future:false  current Consum 
+	#65 electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 val.Timestamp:1683027579 previous:false current:true future:false  current Consum 
+	#66 electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 val.Timestamp:1683027585 previous:false current:true future:false  current Consum 
+	#67 electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 val.Timestamp:1683027835 previous:false current:false future:true 
+	#68 electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 val.Timestamp:1683027922 previous:false current:false future:true 
+	#69 electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 val.Timestamp:1683027934 previous:false current:false future:true 
+	#70 electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 val.Timestamp:1683027940 previous:false current:false future:true 
+	#71 electra16p7dd9wp76kmxckus64un7udt59kvprfd0tw8v val.Timestamp:1683026754 previous:true current:false future:false  previous Produc 
+	#72 electra16p7dd9wp76kmxckus64un7udt59kvprfd0tw8v val.Timestamp:1683026774 previous:true current:false future:false  previous Produc 
+	#73 electra16p7dd9wp76kmxckus64un7udt59kvprfd0tw8v val.Timestamp:1683026937 previous:true current:false future:false  previous Produc 
+	#74 electra16p7dd9wp76kmxckus64un7udt59kvprfd0tw8v val.Timestamp:1683026957 previous:true current:false future:false  previous Produc 
+	#75 electra16p7dd9wp76kmxckus64un7udt59kvprfd0tw8v val.Timestamp:1683027202 previous:true current:false future:false  previous Produc 
+	#76 electra16p7dd9wp76kmxckus64un7udt59kvprfd0tw8v val.Timestamp:1683027222 previous:true current:false future:false  previous Produc 
+	#77 electra16p7dd9wp76kmxckus64un7udt59kvprfd0tw8v val.Timestamp:1683027500 previous:true current:false future:false  previous Produc 
+	#78 electra16p7dd9wp76kmxckus64un7udt59kvprfd0tw8v val.Timestamp:1683027521 previous:true current:false future:false  previous Produc 
+	#79 electra16p7dd9wp76kmxckus64un7udt59kvprfd0tw8v val.Timestamp:1683027581 previous:false current:true future:false  current Produc 
+	#80 electra16p7dd9wp76kmxckus64un7udt59kvprfd0tw8v val.Timestamp:1683027589 previous:false current:true future:false  current Produc 
+	#81 electra16p7dd9wp76kmxckus64un7udt59kvprfd0tw8v val.Timestamp:1683027842 previous:false current:false future:true 
+	#82 electra16p7dd9wp76kmxckus64un7udt59kvprfd0tw8v val.Timestamp:1683027862 previous:false current:false future:true 
+	#83 electra16p7dd9wp76kmxckus64un7udt59kvprfd0tw8v val.Timestamp:1683027936 previous:false current:false future:true 
+	#84 electra16p7dd9wp76kmxckus64un7udt59kvprfd0tw8v val.Timestamp:1683027944 previous:false current:false future:true 
+	#85 electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy val.Timestamp:1683025257 previous:true current:false future:false  previous Produc 
+	#86 electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy val.Timestamp:1683025275 previous:true current:false future:false  previous Produc 
+	#87 electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy val.Timestamp:1683025345 previous:true current:false future:false  previous Produc 
+	#88 electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy val.Timestamp:1683025363 previous:true current:false future:false  previous Produc 
+	#89 electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy val.Timestamp:1683026762 previous:true current:false future:false  previous Consum 
+	#90 electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy val.Timestamp:1683026770 previous:true current:false future:false  previous Consum 
+	#91 electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy val.Timestamp:1683026945 previous:true current:false future:false  previous Consum 
+	#92 electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy val.Timestamp:1683026953 previous:true current:false future:false  previous Consum 
+	#93 electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy val.Timestamp:1683027210 previous:true current:false future:false  previous Consum 
+	#94 electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy val.Timestamp:1683027218 previous:true current:false future:false  previous Consum 
+	#95 electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy val.Timestamp:1683027509 previous:true current:false future:false  previous Consum 
+	#96 electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy val.Timestamp:1683027517 previous:true current:false future:false  previous Consum 
+	#97 electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy val.Timestamp:1683027575 previous:false current:true future:false  current Consum 
+	#98 electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy val.Timestamp:1683027850 previous:false current:false future:true 
+	#99 electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy val.Timestamp:1683027858 previous:false current:false future:true 
+	#100 electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy val.Timestamp:1683027929 previous:false current:false future:true 
+	#101 electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87 val.Timestamp:1683025240 previous:true current:false future:false  previous Consum 
+	#102 electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87 val.Timestamp:1683025251 previous:true current:false future:false  previous Consum 
+	#103 electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87 val.Timestamp:1683025261 previous:true current:false future:false  previous Consum 
+	#104 electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87 val.Timestamp:1683025267 previous:true current:false future:false  previous Consum 
+	#105 electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87 val.Timestamp:1683025338 previous:true current:false future:false  previous Consum 
+	#106 electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87 val.Timestamp:1683025349 previous:true current:false future:false  previous Consum 
+	#107 electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87 val.Timestamp:1683025355 previous:true current:false future:false  previous Consum 
+	#108 electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87 val.Timestamp:1683025365 previous:true current:false future:false  previous Produc 
+	#109 electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87 val.Timestamp:1683026752 previous:true current:false future:false  previous Consum 
+	#110 electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87 val.Timestamp:1683026772 previous:true current:false future:false  previous Consum 
+	#111 electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87 val.Timestamp:1683026935 previous:true current:false future:false  previous Consum 
+	#112 electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87 val.Timestamp:1683026955 previous:true current:false future:false  previous Consum 
+	#113 electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87 val.Timestamp:1683027200 previous:true current:false future:false  previous Consum 
+	#114 electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87 val.Timestamp:1683027220 previous:true current:false future:false  previous Consum 
+	#115 electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87 val.Timestamp:1683027498 previous:true current:false future:false  previous Consum 
+	#116 electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87 val.Timestamp:1683027519 previous:true current:false future:false  previous Consum 
+	#117 electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87 val.Timestamp:1683027577 previous:false current:true future:false  current Consum 
+	#118 electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87 val.Timestamp:1683027840 previous:false current:false future:true 
+	#119 electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87 val.Timestamp:1683027860 previous:false current:false future:true 
+	#120 electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87 val.Timestamp:1683027932 previous:false current:false future:true 
+	#121 electra1rf56um69dum7em0kx9xen794x8gm49vxstkjwy val.Timestamp:1683026756 previous:true current:false future:false  previous Produc 
+	#122 electra1rf56um69dum7em0kx9xen794x8gm49vxstkjwy val.Timestamp:1683026776 previous:true current:false future:false  previous Produc 
+	#123 electra1rf56um69dum7em0kx9xen794x8gm49vxstkjwy val.Timestamp:1683026939 previous:true current:false future:false  previous Produc 
+	#124 electra1rf56um69dum7em0kx9xen794x8gm49vxstkjwy val.Timestamp:1683026959 previous:true current:false future:false  previous Produc 
+	#125 electra1rf56um69dum7em0kx9xen794x8gm49vxstkjwy val.Timestamp:1683027204 previous:true current:false future:false  previous Produc 
+	#126 electra1rf56um69dum7em0kx9xen794x8gm49vxstkjwy val.Timestamp:1683027224 previous:true current:false future:false  previous Produc 
+	#127 electra1rf56um69dum7em0kx9xen794x8gm49vxstkjwy val.Timestamp:1683027502 previous:true current:false future:false  previous Produc 
+	#128 electra1rf56um69dum7em0kx9xen794x8gm49vxstkjwy val.Timestamp:1683027523 previous:true current:false future:false  previous Produc 
+	#129 electra1rf56um69dum7em0kx9xen794x8gm49vxstkjwy val.Timestamp:1683027583 previous:false current:true future:false  current Produc 
+	#130 electra1rf56um69dum7em0kx9xen794x8gm49vxstkjwy val.Timestamp:1683027844 previous:false current:false future:true 
+	#131 electra1rf56um69dum7em0kx9xen794x8gm49vxstkjwy val.Timestamp:1683027864 previous:false current:false future:true 
+	#132 electra1rf56um69dum7em0kx9xen794x8gm49vxstkjwy val.Timestamp:1683027938 previous:false current:false future:true 
+
+previousConsumerMap:map[electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7:{whphase1:2200 whphase2:0 whphase3:0} electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz:{whphase1:5200 whphase2:0 whphase3:0} electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9:{whphase1:1000 whphase2:0 whphase3:0} electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy:{whphase1:6200 whphase2:0 whphase3:0} electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87:{whphase1:2200 whphase2:0 whphase3:0}]
+
+previousProducerMap:map[electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7:{whphase1:5000 whphase2:0 whphase3:0} electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9:{whphase1:9500 whphase2:0 whphase3:0} electra16p7dd9wp76kmxckus64un7udt59kvprfd0tw8v:{whphase1:28000 whphase2:0 whphase3:0} electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy:{whphase1:7000 whphase2:0 whphase3:0} electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87:{whphase1:2000 whphase2:0 whphase3:0} electra1rf56um69dum7em0kx9xen794x8gm49vxstkjwy:{whphase1:29000 whphase2:0 whphase3:0}]
+
+currentConsumerMap:map[electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7:{whphase1:2200 whphase2:0 whphase3:0} electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz:{whphase1:6500 whphase2:0 whphase3:0} electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9:{whphase1:1500 whphase2:0 whphase3:0} electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy:{whphase1:7700 whphase2:0 whphase3:0} electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87:{whphase1:3300 whphase2:0 whphase3:0}]
+
+currentProducerMap:map[electra16p7dd9wp76kmxckus64un7udt59kvprfd0tw8v:{whphase1:38000 whphase2:0 whphase3:0} electra1rf56um69dum7em0kx9xen794x8gm49vxstkjwy:{whphase1:39000 whphase2:0 whphase3:0}]
+
+# END # loadMeterReadingValues  took 3.515227ms @ 2023-05-02 18:45:47.319007998 +0700 +07 m=+2949.391006474 #############################
+
+2023/05/02 18:45:47 
+### BEGIN ### PrepareBill ### ppcList: [{ContractID:f863b4b4-1c4c-4963-872a-5c0175e612d2 ContractDeviceID:electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 ContractName:contract-name-1 ContractActive:true ContractPhase:1 ContractForAll:true ContractForAllPrice:12000 ContractForAllCurency:uelectra ContractForAllActivePeriod:[contract-for-all-active-period ContractPreferred:true ContractPreferredPrice:6800 ContractPreferredActivePeriod:contract-preferred-active-period ContractPreferredCurency:uelectra ContractStartDate:1665575799 ContractEndDate:1999999999 Phase1RemainingWh:0 Phase2RemainingWh:0 Phase3RemainingWh:0 Creator:electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9} {ContractID:prod10000-1c4c-4963-872a-5c0175e612d2 ContractDeviceID:electra16p7dd9wp76kmxckus64un7udt59kvprfd0tw8v ContractName:contract-prod-1 ContractActive:true ContractPhase:1 ContractForAll:true ContractForAllPrice:12000 ContractForAllCurency:uelectra ContractForAllActivePeriod:[contract-for-all-active-period ContractPreferred:true ContractPreferredPrice:6611 ContractPreferredActivePeriod:contract-preferred-active-period ContractPreferredCurency:uelectra ContractStartDate:1665575799 ContractEndDate:1999999999 Phase1RemainingWh:0 Phase2RemainingWh:0 Phase3RemainingWh:0 Creator:electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9} {ContractID:prod20000-2222-4963-872a-5c0175e612d2 ContractDeviceID:electra1rf56um69dum7em0kx9xen794x8gm49vxstkjwy ContractName:contract-prod-2 ContractActive:true ContractPhase:1 ContractForAll:true ContractForAllPrice:19000 ContractForAllCurency:uelectra ContractForAllActivePeriod:[contract-for-all-active-period ContractPreferred:true ContractPreferredPrice:8822 ContractPreferredActivePeriod:contract-preferred-active-period ContractPreferredCurency:uelectra ContractStartDate:1665575799 ContractEndDate:1999999999 Phase1RemainingWh:0 Phase2RemainingWh:0 Phase3RemainingWh:0 Creator:electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9} {ContractID:uuid ContractDeviceID:electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 ContractName:contract-name-1 ContractActive:true ContractPhase:1 ContractForAll:true ContractForAllPrice:12000 ContractForAllCurency:uelectra ContractForAllActivePeriod:[contract-for-all-active-period ContractPreferred:true ContractPreferredPrice:6800 ContractPreferredActivePeriod:contract-preferred-active-period ContractPreferredCurency:uelectra ContractStartDate:1665575799 ContractEndDate:1999999999 Phase1RemainingWh:0 Phase2RemainingWh:0 Phase3RemainingWh:0 Creator:electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7}]
+======
+ppaMap: map[electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7:{ConsumerDeviceID:electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 AgreementID:test1-prod2 AgreementActive:true ContractID:prod20000-2222-4963-872a-5c0175e612d2 ProducerDeviceID:electra1rf56um69dum7em0kx9xen794x8gm49vxstkjwy AgreementStartDate:1665712168 AgreementEndDate:1777777777 ContractPreferredPrice:4 ContractPreferredCurency:stTH Creator:electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7} electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz:{ConsumerDeviceID:electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz AgreementID:test2-prod2 AgreementActive:true ContractID:prod20000-2222-4963-872a-5c0175e612d2 ProducerDeviceID:electra1rf56um69dum7em0kx9xen794x8gm49vxstkjwy AgreementStartDate:1665712168 AgreementEndDate:1777777777 ContractPreferredPrice:4 ContractPreferredCurency:stTH Creator:electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7} electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy:{ConsumerDeviceID:electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy AgreementID:test3-prod2 AgreementActive:true ContractID:prod20000-2222-4963-872a-5c0175e612d2 ProducerDeviceID:electra1rf56um69dum7em0kx9xen794x8gm49vxstkjwy AgreementStartDate:1665712168 AgreementEndDate:1777777777 ContractPreferredPrice:5 ContractPreferredCurency:stTH Creator:electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7}]
+======
+
+### PrepareBill ###
+previousCycleConsumeInMap:map[electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7:{whphase1:2200 whphase2:0 whphase3:0} electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz:{whphase1:5200 whphase2:0 whphase3:0} electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9:{whphase1:1000 whphase2:0 whphase3:0} electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy:{whphase1:6200 whphase2:0 whphase3:0} electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87:{whphase1:2200 whphase2:0 whphase3:0}]
+previousCycleProduceOutMap:map[electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7:{whphase1:5000 whphase2:0 whphase3:0} electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9:{whphase1:9500 whphase2:0 whphase3:0} electra16p7dd9wp76kmxckus64un7udt59kvprfd0tw8v:{whphase1:28000 whphase2:0 whphase3:0} electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy:{whphase1:7000 whphase2:0 whphase3:0} electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87:{whphase1:2000 whphase2:0 whphase3:0} electra1rf56um69dum7em0kx9xen794x8gm49vxstkjwy:{whphase1:29000 whphase2:0 whphase3:0}]
+currentCycleConsumeInMap:map[electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7:{whphase1:2200 whphase2:0 whphase3:0} electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz:{whphase1:6500 whphase2:0 whphase3:0} electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9:{whphase1:1500 whphase2:0 whphase3:0} electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy:{whphase1:7700 whphase2:0 whphase3:0} electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87:{whphase1:3300 whphase2:0 whphase3:0}]
+currentCycleProduceOutMap:map[electra16p7dd9wp76kmxckus64un7udt59kvprfd0tw8v:{whphase1:38000 whphase2:0 whphase3:0} electra1rf56um69dum7em0kx9xen794x8gm49vxstkjwy:{whphase1:39000 whphase2:0 whphase3:0}]
+
+2023/05/02 18:45:47 === addCurrentProduction =============================================
+addCurrentProduction to Producer electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 produced WH.1= 18446744073709546616 WH.2= 0 WH.3= 0
+ {ContractID:uuid ContractDeviceID:electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 ContractName:contract-name-1 ContractActive:true ContractPhase:1 ContractForAll:true ContractForAllPrice:12000 ContractForAllCurency:uelectra ContractForAllActivePeriod:[contract-for-all-active-period ContractPreferred:true ContractPreferredPrice:6800 ContractPreferredActivePeriod:contract-preferred-active-period ContractPreferredCurency:uelectra ContractStartDate:1665575799 ContractEndDate:1999999999 Phase1RemainingWh:18446744073709546616 Phase2RemainingWh:0 Phase3RemainingWh:0 Creator:electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7}
+
+addCurrentProduction to Producer electra16p7dd9wp76kmxckus64un7udt59kvprfd0tw8v electra16p7dd9wp76kmxckus64un7udt59kvprfd0tw8v produced WH.1= 10000 WH.2= 0 WH.3= 0
+ {ContractID:prod10000-1c4c-4963-872a-5c0175e612d2 ContractDeviceID:electra16p7dd9wp76kmxckus64un7udt59kvprfd0tw8v ContractName:contract-prod-1 ContractActive:true ContractPhase:1 ContractForAll:true ContractForAllPrice:12000 ContractForAllCurency:uelectra ContractForAllActivePeriod:[contract-for-all-active-period ContractPreferred:true ContractPreferredPrice:6611 ContractPreferredActivePeriod:contract-preferred-active-period ContractPreferredCurency:uelectra ContractStartDate:1665575799 ContractEndDate:1999999999 Phase1RemainingWh:10000 Phase2RemainingWh:0 Phase3RemainingWh:0 Creator:electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9}
+
+addCurrentProduction to Producer electra1rf56um69dum7em0kx9xen794x8gm49vxstkjwy electra1rf56um69dum7em0kx9xen794x8gm49vxstkjwy produced WH.1= 10000 WH.2= 0 WH.3= 0
+ {ContractID:prod20000-2222-4963-872a-5c0175e612d2 ContractDeviceID:electra1rf56um69dum7em0kx9xen794x8gm49vxstkjwy ContractName:contract-prod-2 ContractActive:true ContractPhase:1 ContractForAll:true ContractForAllPrice:19000 ContractForAllCurency:uelectra ContractForAllActivePeriod:[contract-for-all-active-period ContractPreferred:true ContractPreferredPrice:8822 ContractPreferredActivePeriod:contract-preferred-active-period ContractPreferredCurency:uelectra ContractStartDate:1665575799 ContractEndDate:1999999999 Phase1RemainingWh:10000 Phase2RemainingWh:0 Phase3RemainingWh:0 Creator:electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9}
+
+
+2023/05/02 18:45:47 # makePrepareBill # CycleID: 78  Previous CycleID: 77
+=== addCurrentProduction =============================================
+
+
+========= Build Bill ============================================
+## BEGIN makePrepareBill for electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 #1 phase 1 | WH consumed: 500 curremcy: uelectra id: electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9
+=> buildBill Cust:electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 Iteration #1
+	buildBill Phase:1 required=500 | aPrice=12000 aWhAvailable=18446744073709546616 | pPrice=18446744073709551615, pWhAvailable=0 |
+>>>> makePrepareBill Invoice valid:true Consumer:electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 billTotalWh=500  Requested=500 Phase=1
+
+
+========= Build Bill ============================================
+## BEGIN makePrepareBill for electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy #2 phase 1 | WH consumed: 1500 curremcy: uelectra id: electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy
+=> buildBill Cust:electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy Iteration #1
+	buildBill Phase:1 required=1500 | aPrice=12000 aWhAvailable=18446744073709546116 | pPrice=18446744073709551615, pWhAvailable=0 |
+>>>> makePrepareBill Invoice valid:true Consumer:electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy billTotalWh=1500  Requested=1500 Phase=1
+
+
+========= Build Bill ============================================
+## BEGIN makePrepareBill for electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87 #3 phase 1 | WH consumed: 1100 curremcy: uelectra id: electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87
+=> buildBill Cust:electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87 Iteration #1
+	buildBill Phase:1 required=1100 | aPrice=12000 aWhAvailable=18446744073709544616 | pPrice=18446744073709551615, pWhAvailable=0 |
+>>>> makePrepareBill Invoice valid:true Consumer:electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87 billTotalWh=1100  Requested=1100 Phase=1
+
+
+========= Build Bill ============================================
+## BEGIN makePrepareBill for electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 #4 phase 1 | WH consumed: 0 curremcy: uelectra id: electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7
+
+
+========= Build Bill ============================================
+## BEGIN makePrepareBill for electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz #5 phase 1 | WH consumed: 1300 curremcy: uelectra id: electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz
+=> buildBill Cust:electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz Iteration #1
+	buildBill Phase:1 required=1300 | aPrice=12000 aWhAvailable=18446744073709543516 | pPrice=18446744073709551615, pWhAvailable=0 |
+>>>> makePrepareBill Invoice valid:true Consumer:electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz billTotalWh=1300  Requested=1300 Phase=1
+### Output customerbill ###################
+{
+ "electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz": {
+  "billCycleID": 78,
+  "customerDeviceID": "electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz",
+  "billDate": 1683027947,
+  "billTotalWh": 1300,
+  "billTotalPrice": 15600000,
+  "billCurrency": "uelectra",
+  "billValid": true
+ },
+ "electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9": {
+  "billCycleID": 78,
+  "customerDeviceID": "electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9",
+  "billDate": 1683027947,
+  "billTotalWh": 500,
+  "billTotalPrice": 6000000,
+  "billCurrency": "uelectra",
+  "billValid": true
+ },
+ "electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy": {
+  "billCycleID": 78,
+  "customerDeviceID": "electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy",
+  "billDate": 1683027947,
+  "billTotalWh": 1500,
+  "billTotalPrice": 18000000,
+  "billCurrency": "uelectra",
+  "billValid": true
+ },
+ "electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87": {
+  "billCycleID": 78,
+  "customerDeviceID": "electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87",
+  "billDate": 1683027947,
+  "billTotalWh": 1100,
+  "billTotalPrice": 13200000,
+  "billCurrency": "uelectra",
+  "billValid": true
+ }
+}
+### Output customerBillLines ###################
+[
+ {
+  "customerDeviceID": "electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9",
+  "cycleID": 78,
+  "lineid": 1,
+  "lineWh": 500,
+  "lineWhPrice": 18446744073709551615,
+  "curency": "uelectra",
+  "lineWhTotalPrice": 18446744073709551116,
+  "phase": 1
+ },
+ {
+  "customerDeviceID": "electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy",
+  "cycleID": 78,
+  "lineid": 1,
+  "lineWh": 1500,
+  "lineWhPrice": 18446744073709551615,
+  "curency": "uelectra",
+  "lineWhTotalPrice": 18446744073709550116,
+  "phase": 1
+ },
+ {
+  "customerDeviceID": "electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87",
+  "cycleID": 78,
+  "lineid": 1,
+  "lineWh": 1100,
+  "lineWhPrice": 18446744073709551615,
+  "curency": "uelectra",
+  "lineWhTotalPrice": 18446744073709550516,
+  "phase": 1
+ },
+ {
+  "customerDeviceID": "electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz",
+  "cycleID": 78,
+  "lineid": 1,
+  "lineWh": 1300,
+  "lineWhPrice": 18446744073709551615,
+  "curency": "uelectra",
+  "lineWhTotalPrice": 18446744073709550316,
+  "phase": 1
+ }
+]
+### Output producerBillLines ###################
+[
+ {
+  "producerDeviceID": "electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7",
+  "cycleID": 78,
+  "lineid": 1,
+  "customerDeviceID": "electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9",
+  "billContractID": "uuid",
+  "lineWh": 500,
+  "lineWhPrice": 12000,
+  "curency": "uelectra",
+  "lineWhTotalPrice": 6000000,
+  "phase": 1
+ },
+ {
+  "producerDeviceID": "electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7",
+  "cycleID": 78,
+  "lineid": 1,
+  "customerDeviceID": "electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy",
+  "billContractID": "uuid",
+  "lineWh": 1500,
+  "lineWhPrice": 12000,
+  "curency": "uelectra",
+  "lineWhTotalPrice": 18000000,
+  "phase": 1
+ },
+ {
+  "producerDeviceID": "electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7",
+  "cycleID": 78,
+  "lineid": 1,
+  "customerDeviceID": "electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87",
+  "billContractID": "uuid",
+  "lineWh": 1100,
+  "lineWhPrice": 12000,
+  "curency": "uelectra",
+  "lineWhTotalPrice": 13200000,
+  "phase": 1
+ },
+ {
+  "producerDeviceID": "electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7",
+  "cycleID": 78,
+  "lineid": 1,
+  "customerDeviceID": "electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz",
+  "billContractID": "uuid",
+  "lineWh": 1300,
+  "lineWhPrice": 12000,
+  "curency": "uelectra",
+  "lineWhTotalPrice": 15600000,
+  "phase": 1
+ }
+]
+### END ### makePrepareBill Cycle:78 took 1.379063ms @ 2023-05-02 18:45:47.322023841 +0700 +07 m=+2949.394022327
+
+2023/05/02 18:45:47 
+### BEGIN ### PrepareBill ### ppcList: [{ContractID:f863b4b4-1c4c-4963-872a-5c0175e612d2 ContractDeviceID:electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 ContractName:contract-name-1 ContractActive:true ContractPhase:1 ContractForAll:true ContractForAllPrice:12000 ContractForAllCurency:uelectra ContractForAllActivePeriod:[contract-for-all-active-period ContractPreferred:true ContractPreferredPrice:6800 ContractPreferredActivePeriod:contract-preferred-active-period ContractPreferredCurency:uelectra ContractStartDate:1665575799 ContractEndDate:1999999999 Phase1RemainingWh:0 Phase2RemainingWh:0 Phase3RemainingWh:0 Creator:electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9} {ContractID:prod10000-1c4c-4963-872a-5c0175e612d2 ContractDeviceID:electra16p7dd9wp76kmxckus64un7udt59kvprfd0tw8v ContractName:contract-prod-1 ContractActive:true ContractPhase:1 ContractForAll:true ContractForAllPrice:12000 ContractForAllCurency:uelectra ContractForAllActivePeriod:[contract-for-all-active-period ContractPreferred:true ContractPreferredPrice:6611 ContractPreferredActivePeriod:contract-preferred-active-period ContractPreferredCurency:uelectra ContractStartDate:1665575799 ContractEndDate:1999999999 Phase1RemainingWh:0 Phase2RemainingWh:0 Phase3RemainingWh:0 Creator:electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9} {ContractID:prod20000-2222-4963-872a-5c0175e612d2 ContractDeviceID:electra1rf56um69dum7em0kx9xen794x8gm49vxstkjwy ContractName:contract-prod-2 ContractActive:true ContractPhase:1 ContractForAll:true ContractForAllPrice:19000 ContractForAllCurency:uelectra ContractForAllActivePeriod:[contract-for-all-active-period ContractPreferred:true ContractPreferredPrice:8822 ContractPreferredActivePeriod:contract-preferred-active-period ContractPreferredCurency:uelectra ContractStartDate:1665575799 ContractEndDate:1999999999 Phase1RemainingWh:0 Phase2RemainingWh:0 Phase3RemainingWh:0 Creator:electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9} {ContractID:uuid ContractDeviceID:electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 ContractName:contract-name-1 ContractActive:true ContractPhase:1 ContractForAll:true ContractForAllPrice:12000 ContractForAllCurency:uelectra ContractForAllActivePeriod:[contract-for-all-active-period ContractPreferred:true ContractPreferredPrice:6800 ContractPreferredActivePeriod:contract-preferred-active-period ContractPreferredCurency:uelectra ContractStartDate:1665575799 ContractEndDate:1999999999 Phase1RemainingWh:0 Phase2RemainingWh:0 Phase3RemainingWh:0 Creator:electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7}]
+======
+ppaMap: map[electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7:{ConsumerDeviceID:electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 AgreementID:test1-prod2 AgreementActive:true ContractID:prod20000-2222-4963-872a-5c0175e612d2 ProducerDeviceID:electra1rf56um69dum7em0kx9xen794x8gm49vxstkjwy AgreementStartDate:1665712168 AgreementEndDate:1777777777 ContractPreferredPrice:4 ContractPreferredCurency:stTH Creator:electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7} electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz:{ConsumerDeviceID:electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz AgreementID:test2-prod2 AgreementActive:true ContractID:prod20000-2222-4963-872a-5c0175e612d2 ProducerDeviceID:electra1rf56um69dum7em0kx9xen794x8gm49vxstkjwy AgreementStartDate:1665712168 AgreementEndDate:1777777777 ContractPreferredPrice:4 ContractPreferredCurency:stTH Creator:electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7} electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy:{ConsumerDeviceID:electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy AgreementID:test3-prod2 AgreementActive:true ContractID:prod20000-2222-4963-872a-5c0175e612d2 ProducerDeviceID:electra1rf56um69dum7em0kx9xen794x8gm49vxstkjwy AgreementStartDate:1665712168 AgreementEndDate:1777777777 ContractPreferredPrice:5 ContractPreferredCurency:stTH Creator:electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7}]
+======
+
+### PrepareBill ###
+previousCycleConsumeInMap:map[electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7:{whphase1:2200 whphase2:0 whphase3:0} electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz:{whphase1:5200 whphase2:0 whphase3:0} electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9:{whphase1:1000 whphase2:0 whphase3:0} electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy:{whphase1:6200 whphase2:0 whphase3:0} electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87:{whphase1:2200 whphase2:0 whphase3:0}]
+previousCycleProduceOutMap:map[electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7:{whphase1:5000 whphase2:0 whphase3:0} electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9:{whphase1:9500 whphase2:0 whphase3:0} electra16p7dd9wp76kmxckus64un7udt59kvprfd0tw8v:{whphase1:28000 whphase2:0 whphase3:0} electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy:{whphase1:7000 whphase2:0 whphase3:0} electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87:{whphase1:2000 whphase2:0 whphase3:0} electra1rf56um69dum7em0kx9xen794x8gm49vxstkjwy:{whphase1:29000 whphase2:0 whphase3:0}]
+currentCycleConsumeInMap:map[electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7:{whphase1:2200 whphase2:0 whphase3:0} electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz:{whphase1:6500 whphase2:0 whphase3:0} electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9:{whphase1:1500 whphase2:0 whphase3:0} electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy:{whphase1:7700 whphase2:0 whphase3:0} electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87:{whphase1:3300 whphase2:0 whphase3:0}]
+currentCycleProduceOutMap:map[electra16p7dd9wp76kmxckus64un7udt59kvprfd0tw8v:{whphase1:38000 whphase2:0 whphase3:0} electra1rf56um69dum7em0kx9xen794x8gm49vxstkjwy:{whphase1:39000 whphase2:0 whphase3:0}]
+
+### PrepareBill ###
+customerbill:map[electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz:{BillCycleID:78 CustomerDeviceID:electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz BillDate:1683027947 BillTotalWh:1300 BillTotalPrice:15600000 BillCurrency:uelectra BillValid:true Paid:false Creator:} electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9:{BillCycleID:78 CustomerDeviceID:electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 BillDate:1683027947 BillTotalWh:500 BillTotalPrice:6000000 BillCurrency:uelectra BillValid:true Paid:false Creator:} electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy:{BillCycleID:78 CustomerDeviceID:electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy BillDate:1683027947 BillTotalWh:1500 BillTotalPrice:18000000 BillCurrency:uelectra BillValid:true Paid:false Creator:} electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87:{BillCycleID:78 CustomerDeviceID:electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87 BillDate:1683027947 BillTotalWh:1100 BillTotalPrice:13200000 BillCurrency:uelectra BillValid:true Paid:false Creator:}]
+customerbillinglines:[{CustomerDeviceID:electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 CycleID:78 Lineid:1 Paid:false ProducerDeviceID: BillContractID: LineWh:500 LineWhPrice:18446744073709551615 Curency:uelectra LineWhTotalPrice:18446744073709551116 Phase:1 ReferencePrice:0 Savings:0 Creator:} {CustomerDeviceID:electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy CycleID:78 Lineid:1 Paid:false ProducerDeviceID: BillContractID: LineWh:1500 LineWhPrice:18446744073709551615 Curency:uelectra LineWhTotalPrice:18446744073709550116 Phase:1 ReferencePrice:0 Savings:0 Creator:} {CustomerDeviceID:electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87 CycleID:78 Lineid:1 Paid:false ProducerDeviceID: BillContractID: LineWh:1100 LineWhPrice:18446744073709551615 Curency:uelectra LineWhTotalPrice:18446744073709550516 Phase:1 ReferencePrice:0 Savings:0 Creator:} {CustomerDeviceID:electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz CycleID:78 Lineid:1 Paid:false ProducerDeviceID: BillContractID: LineWh:1300 LineWhPrice:18446744073709551615 Curency:uelectra LineWhTotalPrice:18446744073709550316 Phase:1 ReferencePrice:0 Savings:0 Creator:}]
+producerbillinglines:[{ProducerDeviceID:electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 CycleID:78 Lineid:1 Paid:false CustomerDeviceID:electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 BillContractID:uuid LineWh:500 LineWhPrice:12000 Curency:uelectra LineWhTotalPrice:6000000 Phase:1 Creator:} {ProducerDeviceID:electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 CycleID:78 Lineid:1 Paid:false CustomerDeviceID:electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy BillContractID:uuid LineWh:1500 LineWhPrice:12000 Curency:uelectra LineWhTotalPrice:18000000 Phase:1 Creator:} {ProducerDeviceID:electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 CycleID:78 Lineid:1 Paid:false CustomerDeviceID:electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87 BillContractID:uuid LineWh:1100 LineWhPrice:12000 Curency:uelectra LineWhTotalPrice:13200000 Phase:1 Creator:} {ProducerDeviceID:electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 CycleID:78 Lineid:1 Paid:false CustomerDeviceID:electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz BillContractID:uuid LineWh:1300 LineWhPrice:12000 Curency:uelectra LineWhTotalPrice:15600000 Phase:1 Creator:}]
+%!(EXTRA string=# makePrepareBill # CycleID: 78  Previous CycleID: 77
+=== addCurrentProduction =============================================
+
+
+========= Build Bill ============================================
+## BEGIN makePrepareBill for electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 #1 phase 1 | WH consumed: 500 curremcy: uelectra id: electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9
+=> buildBill Cust:electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 Iteration #1
+	buildBill Phase:1 required=500 | aPrice=12000 aWhAvailable=18446744073709546616 | pPrice=18446744073709551615, pWhAvailable=0 |
+>>>> makePrepareBill Invoice valid:true Consumer:electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9 billTotalWh=500  Requested=500 Phase=1
+
+
+========= Build Bill ============================================
+## BEGIN makePrepareBill for electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy #2 phase 1 | WH consumed: 1500 curremcy: uelectra id: electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy
+=> buildBill Cust:electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy Iteration #1
+	buildBill Phase:1 required=1500 | aPrice=12000 aWhAvailable=18446744073709546116 | pPrice=18446744073709551615, pWhAvailable=0 |
+>>>> makePrepareBill Invoice valid:true Consumer:electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy billTotalWh=1500  Requested=1500 Phase=1
+
+
+========= Build Bill ============================================
+## BEGIN makePrepareBill for electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87 #3 phase 1 | WH consumed: 1100 curremcy: uelectra id: electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87
+=> buildBill Cust:electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87 Iteration #1
+	buildBill Phase:1 required=1100 | aPrice=12000 aWhAvailable=18446744073709544616 | pPrice=18446744073709551615, pWhAvailable=0 |
+>>>> makePrepareBill Invoice valid:true Consumer:electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87 billTotalWh=1100  Requested=1100 Phase=1
+
+
+========= Build Bill ============================================
+## BEGIN makePrepareBill for electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7 #4 phase 1 | WH consumed: 0 curremcy: uelectra id: electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7
+
+
+========= Build Bill ============================================
+## BEGIN makePrepareBill for electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz #5 phase 1 | WH consumed: 1300 curremcy: uelectra id: electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz
+=> buildBill Cust:electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz Iteration #1
+	buildBill Phase:1 required=1300 | aPrice=12000 aWhAvailable=18446744073709543516 | pPrice=18446744073709551615, pWhAvailable=0 |
+>>>> makePrepareBill Invoice valid:true Consumer:electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz billTotalWh=1300  Requested=1300 Phase=1
+### Output customerbill ###################
+{
+ "electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz": {
+  "billCycleID": 78,
+  "customerDeviceID": "electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz",
+  "billDate": 1683027947,
+  "billTotalWh": 1300,
+  "billTotalPrice": 15600000,
+  "billCurrency": "uelectra",
+  "billValid": true
+ },
+ "electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9": {
+  "billCycleID": 78,
+  "customerDeviceID": "electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9",
+  "billDate": 1683027947,
+  "billTotalWh": 500,
+  "billTotalPrice": 6000000,
+  "billCurrency": "uelectra",
+  "billValid": true
+ },
+ "electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy": {
+  "billCycleID": 78,
+  "customerDeviceID": "electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy",
+  "billDate": 1683027947,
+  "billTotalWh": 1500,
+  "billTotalPrice": 18000000,
+  "billCurrency": "uelectra",
+  "billValid": true
+ },
+ "electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87": {
+  "billCycleID": 78,
+  "customerDeviceID": "electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87",
+  "billDate": 1683027947,
+  "billTotalWh": 1100,
+  "billTotalPrice": 13200000,
+  "billCurrency": "uelectra",
+  "billValid": true
+ }
+}
+### Output customerBillLines ###################
+[
+ {
+  "customerDeviceID": "electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9",
+  "cycleID": 78,
+  "lineid": 1,
+  "lineWh": 500,
+  "lineWhPrice": 18446744073709551615,
+  "curency": "uelectra",
+  "lineWhTotalPrice": 18446744073709551116,
+  "phase": 1
+ },
+ {
+  "customerDeviceID": "electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy",
+  "cycleID": 78,
+  "lineid": 1,
+  "lineWh": 1500,
+  "lineWhPrice": 18446744073709551615,
+  "curency": "uelectra",
+  "lineWhTotalPrice": 18446744073709550116,
+  "phase": 1
+ },
+ {
+  "customerDeviceID": "electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87",
+  "cycleID": 78,
+  "lineid": 1,
+  "lineWh": 1100,
+  "lineWhPrice": 18446744073709551615,
+  "curency": "uelectra",
+  "lineWhTotalPrice": 18446744073709550516,
+  "phase": 1
+ },
+ {
+  "customerDeviceID": "electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz",
+  "cycleID": 78,
+  "lineid": 1,
+  "lineWh": 1300,
+  "lineWhPrice": 18446744073709551615,
+  "curency": "uelectra",
+  "lineWhTotalPrice": 18446744073709550316,
+  "phase": 1
+ }
+]
+### Output producerBillLines ###################
+[
+ {
+  "producerDeviceID": "electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7",
+  "cycleID": 78,
+  "lineid": 1,
+  "customerDeviceID": "electra16n5tnkck6rcg7gxmalc057daputvac5pzjeal9",
+  "billContractID": "uuid",
+  "lineWh": 500,
+  "lineWhPrice": 12000,
+  "curency": "uelectra",
+  "lineWhTotalPrice": 6000000,
+  "phase": 1
+ },
+ {
+  "producerDeviceID": "electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7",
+  "cycleID": 78,
+  "lineid": 1,
+  "customerDeviceID": "electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy",
+  "billContractID": "uuid",
+  "lineWh": 1500,
+  "lineWhPrice": 12000,
+  "curency": "uelectra",
+  "lineWhTotalPrice": 18000000,
+  "phase": 1
+ },
+ {
+  "producerDeviceID": "electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7",
+  "cycleID": 78,
+  "lineid": 1,
+  "customerDeviceID": "electra1krkk5xtp8s7lk9xf2az70txle50zfzga7dah87",
+  "billContractID": "uuid",
+  "lineWh": 1100,
+  "lineWhPrice": 12000,
+  "curency": "uelectra",
+  "lineWhTotalPrice": 13200000,
+  "phase": 1
+ },
+ {
+  "producerDeviceID": "electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7",
+  "cycleID": 78,
+  "lineid": 1,
+  "customerDeviceID": "electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz",
+  "billContractID": "uuid",
+  "lineWh": 1300,
+  "lineWhPrice": 12000,
+  "curency": "uelectra",
+  "lineWhTotalPrice": 15600000,
+  "phase": 1
+ }
+]
+### END ### makePrepareBill Cycle:78 took 1.379063ms @ 2023-05-02 18:45:47.322023841 +0700 +07 m=+2949.394022327
+)
+### END ### PrepareBill All took 7.524933ms @ 2023-05-02 18:45:47.322171344 +0700 +07 m=+2949.394169820 ###
+

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # Created account "test1" with address "electra12lhecv88myvrmgv92syj782dxjfsnjjg3lzvv7" with mnemonic: "slogan wreck armor floor change female industry smart daughter spawn today system shop pigeon game olive always dish camp response can perfect salon stone"
 # Created account "test2" with address "electra12r6lx69zfef6ht3fk7drm9f5222qk4ur6zjpvz" with mnemonic: "boil silk digital carry photo explain kitchen wall unusual garlic suspect leave accident discover banana catch margin reward gap asset raccoon anchor leisure ostrich"
 # Created account "test3" with address "electra19mhfyxz7532gumtyw5zrq00qv23mqtc4plgfzy" with mnemonic: "bounce duty afraid make item occur curious mention stamp lava inspire shock wall hungry culture apart harsh icon burden glide cabbage deal during charge"
@@ -38,7 +38,7 @@ electrad tx meter record $(date '+%s') 1 1400 0 230000 50000 0 16  --from test2 
 sleep 1
 electrad tx meter record $(date '+%s') 1 0 7000 230000 50000 0 16  --from test3 -y | grep "raw_log:"
 sleep 1
-electrad tx meter record $(date '+%s') 1 2000 230000 50000 0 16  --from bob -y | grep "raw_log:"
+electrad tx meter record $(date '+%s') 1 0 2000 230000 50000 0 16  --from bob -y | grep "raw_log:"
 sleep 1
 timestamp3=$(date +%s)
 #Count all records from alice
