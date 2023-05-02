@@ -1,26 +1,59 @@
 syntax = "proto3";
+
 package electra.meter;
 
 import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "electra/meter/params.proto";
+import "electra/meter/meterreadings.proto";
 
 option go_package = "electra/x/meter/types";
 
 // Query defines the gRPC querier service.
 service Query {
+  
   // Parameters queries the parameters of the module.
-  rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
+  rpc Params (QueryParamsRequest) returns (QueryParamsResponse) {
     option (google.api.http).get = "/electra/meter/params";
+  
+  }
+  
+  // Queries a list of Meterreadings items.
+  rpc Meterreadings    (QueryGetMeterreadingsRequest) returns (QueryGetMeterreadingsResponse) {
+    option (google.api.http).get = "/electra/meter/meterreadings/{deviceID}/{timestamp}";
+  
+  }
+  rpc MeterreadingsAll (QueryAllMeterreadingsRequest) returns (QueryAllMeterreadingsResponse) {
+    option (google.api.http).get = "/electra/meter/meterreadings";
+  
   }
 }
-
 // QueryParamsRequest is request type for the Query/Params RPC method.
 message QueryParamsRequest {}
 
 // QueryParamsResponse is response type for the Query/Params RPC method.
 message QueryParamsResponse {
+  
   // params holds all the parameters of this module.
   Params params = 1 [(gogoproto.nullable) = false];
 }
+
+message QueryGetMeterreadingsRequest {
+  string deviceID  = 1;
+  uint64 timestamp = 2;
+}
+
+message QueryGetMeterreadingsResponse {
+  Meterreadings meterreadings = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllMeterreadingsRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllMeterreadingsResponse {
+  repeated Meterreadings                          meterreadings = 1 [(gogoproto.nullable) = false];
+           cosmos.base.query.v1beta1.PageResponse pagination    = 2;
+}
+
