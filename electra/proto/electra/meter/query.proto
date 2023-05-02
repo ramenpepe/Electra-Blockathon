@@ -296,12 +296,13 @@ message QueryGetcustomerbillRequest {
 }
 
 message QueryGetcustomerbillResponse {
-  string customerbillinglines = 1;
+  repeated string customerbillinglines = 1;
   uint64 billTotalWh          = 2;
   uint64 billTotalPrice       = 3;
   string currency             = 4;
   uint64 nblines              = 5;
   string comments             = 6;
+  cosmos.base.query.v1beta1.PageResponse pagination = 7;
 }
 
 message QueryGetCustomerbillsRequest {
@@ -348,12 +349,13 @@ message QueryGetproducerbillRequest {
 }
 
 message QueryGetproducerbillResponse {
-  string producerbillinglines = 1;
+  repeated string producerbillinglines = 1;
   uint64 billTotalWh          = 2;
   uint64 billTotalPrice       = 3;
   string curency              = 4;
   uint64 nblines              = 5;
   string comments             = 6;
+  cosmos.base.query.v1beta1.PageResponse pagination = 7;
 }
 
 message QueryGetProducerbillsRequest {
