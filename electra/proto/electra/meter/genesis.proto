@@ -5,12 +5,14 @@ package electra.meter;
 import "gogoproto/gogo.proto";
 import "electra/meter/params.proto";
 import "electra/meter/meterreadings.proto";
+import "electra/meter/meterdirectory.proto";
 
 option go_package = "electra/x/meter/types";
 
 // GenesisState defines the meter module's genesis state.
 message GenesisState {
-           Params        params            = 1 [(gogoproto.nullable) = false];
-  repeated Meterreadings meterreadingsList = 2 [(gogoproto.nullable) = false];
+           Params         params             = 1 [(gogoproto.nullable) = false];
+  repeated Meterreadings  meterreadingsList  = 2 [(gogoproto.nullable) = false];
+  repeated Meterdirectory meterdirectoryList = 3 [(gogoproto.nullable) = false];
 }
 

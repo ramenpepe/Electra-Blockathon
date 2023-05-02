@@ -6,7 +6,8 @@ option go_package = "electra/x/meter/types";
 
 // Msg defines the Msg service.
 service Msg {
-  rpc Record (MsgRecord) returns (MsgRecordResponse);
+  rpc Record  (MsgRecord ) returns (MsgRecordResponse );
+  rpc Record3 (MsgRecord3) returns (MsgRecord3Response);
 }
 message MsgRecord {
   string creator   = 1;
@@ -21,4 +22,29 @@ message MsgRecord {
 }
 
 message MsgRecordResponse {}
+
+message MsgRecord3 {
+  string creator   =  1;
+  uint64 timestamp =  2;
+  uint64 whin1     =  3;
+  uint64 whout1    =  4;
+  uint64 mvolt1    =  5;
+  uint64 mhertz1   =  6;
+  uint64 mpf1      =  7;
+  uint64 maxmi1    =  8;
+  uint64 whin2     =  9;
+  uint64 whout2    = 10;
+  uint64 mvolt2    = 11;
+  uint64 mhertz2   = 12;
+  uint64 mpf2      = 13;
+  uint64 maxmi2    = 14;
+  uint64 whin3     = 15;
+  uint64 whout3    = 16;
+  uint64 mvolt3    = 17;
+  uint64 mhertz3   = 18;
+  uint64 mpf3      = 19;
+  uint64 maxmi3    = 20;
+}
+
+message MsgRecord3Response {}
 
