@@ -1,5 +1,5 @@
 # electra
-**electra** is a blockchain built using Cosmos SDK and Tendermint and created with [Ignite CLI](https://ignite.com/cli).
+**electra** is a blockchain built during SCB10x blockathon using Cosmos SDK and Tendermint.
 
 ## Get started
 
