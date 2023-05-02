@@ -147,6 +147,48 @@ export interface MsgDeletePpaMap {
 export interface MsgDeletePpaMapResponse {
 }
 
+export interface MsgCreateBillingcycles {
+  creator: string;
+  cycleID: number;
+  begin: number;
+  end: number;
+  whin: number;
+  whout: number;
+  moneyin: number;
+  moneyout: number;
+  curency: string;
+  valid: boolean;
+  paid: boolean;
+}
+
+export interface MsgCreateBillingcyclesResponse {
+}
+
+export interface MsgUpdateBillingcycles {
+  creator: string;
+  cycleID: number;
+  begin: number;
+  end: number;
+  whin: number;
+  whout: number;
+  moneyin: number;
+  moneyout: number;
+  curency: string;
+  valid: boolean;
+  paid: boolean;
+}
+
+export interface MsgUpdateBillingcyclesResponse {
+}
+
+export interface MsgDeleteBillingcycles {
+  creator: string;
+  cycleID: number;
+}
+
+export interface MsgDeleteBillingcyclesResponse {
+}
+
 function createBaseMsgRecord(): MsgRecord {
   return { creator: "", timestamp: 0, phase: 0, whin: 0, whout: 0, mvolt: 0, mhertz: 0, mpf: 0, maxmi: 0 };
 }
@@ -1745,6 +1787,483 @@ export const MsgDeletePpaMapResponse = {
   },
 };
 
+function createBaseMsgCreateBillingcycles(): MsgCreateBillingcycles {
+  return {
+    creator: "",
+    cycleID: 0,
+    begin: 0,
+    end: 0,
+    whin: 0,
+    whout: 0,
+    moneyin: 0,
+    moneyout: 0,
+    curency: "",
+    valid: false,
+    paid: false,
+  };
+}
+
+export const MsgCreateBillingcycles = {
+  encode(message: MsgCreateBillingcycles, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.creator !== "") {
+      writer.uint32(10).string(message.creator);
+    }
+    if (message.cycleID !== 0) {
+      writer.uint32(16).uint64(message.cycleID);
+    }
+    if (message.begin !== 0) {
+      writer.uint32(24).uint64(message.begin);
+    }
+    if (message.end !== 0) {
+      writer.uint32(32).uint64(message.end);
+    }
+    if (message.whin !== 0) {
+      writer.uint32(40).uint64(message.whin);
+    }
+    if (message.whout !== 0) {
+      writer.uint32(48).uint64(message.whout);
+    }
+    if (message.moneyin !== 0) {
+      writer.uint32(56).uint64(message.moneyin);
+    }
+    if (message.moneyout !== 0) {
+      writer.uint32(64).uint64(message.moneyout);
+    }
+    if (message.curency !== "") {
+      writer.uint32(74).string(message.curency);
+    }
+    if (message.valid === true) {
+      writer.uint32(80).bool(message.valid);
+    }
+    if (message.paid === true) {
+      writer.uint32(88).bool(message.paid);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgCreateBillingcycles {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseMsgCreateBillingcycles();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.creator = reader.string();
+          break;
+        case 2:
+          message.cycleID = longToNumber(reader.uint64() as Long);
+          break;
+        case 3:
+          message.begin = longToNumber(reader.uint64() as Long);
+          break;
+        case 4:
+          message.end = longToNumber(reader.uint64() as Long);
+          break;
+        case 5:
+          message.whin = longToNumber(reader.uint64() as Long);
+          break;
+        case 6:
+          message.whout = longToNumber(reader.uint64() as Long);
+          break;
+        case 7:
+          message.moneyin = longToNumber(reader.uint64() as Long);
+          break;
+        case 8:
+          message.moneyout = longToNumber(reader.uint64() as Long);
+          break;
+        case 9:
+          message.curency = reader.string();
+          break;
+        case 10:
+          message.valid = reader.bool();
+          break;
+        case 11:
+          message.paid = reader.bool();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): MsgCreateBillingcycles {
+    return {
+      creator: isSet(object.creator) ? String(object.creator) : "",
+      cycleID: isSet(object.cycleID) ? Number(object.cycleID) : 0,
+      begin: isSet(object.begin) ? Number(object.begin) : 0,
+      end: isSet(object.end) ? Number(object.end) : 0,
+      whin: isSet(object.whin) ? Number(object.whin) : 0,
+      whout: isSet(object.whout) ? Number(object.whout) : 0,
+      moneyin: isSet(object.moneyin) ? Number(object.moneyin) : 0,
+      moneyout: isSet(object.moneyout) ? Number(object.moneyout) : 0,
+      curency: isSet(object.curency) ? String(object.curency) : "",
+      valid: isSet(object.valid) ? Boolean(object.valid) : false,
+      paid: isSet(object.paid) ? Boolean(object.paid) : false,
+    };
+  },
+
+  toJSON(message: MsgCreateBillingcycles): unknown {
+    const obj: any = {};
+    message.creator !== undefined && (obj.creator = message.creator);
+    message.cycleID !== undefined && (obj.cycleID = Math.round(message.cycleID));
+    message.begin !== undefined && (obj.begin = Math.round(message.begin));
+    message.end !== undefined && (obj.end = Math.round(message.end));
+    message.whin !== undefined && (obj.whin = Math.round(message.whin));
+    message.whout !== undefined && (obj.whout = Math.round(message.whout));
+    message.moneyin !== undefined && (obj.moneyin = Math.round(message.moneyin));
+    message.moneyout !== undefined && (obj.moneyout = Math.round(message.moneyout));
+    message.curency !== undefined && (obj.curency = message.curency);
+    message.valid !== undefined && (obj.valid = message.valid);
+    message.paid !== undefined && (obj.paid = message.paid);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<MsgCreateBillingcycles>, I>>(object: I): MsgCreateBillingcycles {
+    const message = createBaseMsgCreateBillingcycles();
+    message.creator = object.creator ?? "";
+    message.cycleID = object.cycleID ?? 0;
+    message.begin = object.begin ?? 0;
+    message.end = object.end ?? 0;
+    message.whin = object.whin ?? 0;
+    message.whout = object.whout ?? 0;
+    message.moneyin = object.moneyin ?? 0;
+    message.moneyout = object.moneyout ?? 0;
+    message.curency = object.curency ?? "";
+    message.valid = object.valid ?? false;
+    message.paid = object.paid ?? false;
+    return message;
+  },
+};
+
+function createBaseMsgCreateBillingcyclesResponse(): MsgCreateBillingcyclesResponse {
+  return {};
+}
+
+export const MsgCreateBillingcyclesResponse = {
+  encode(_: MsgCreateBillingcyclesResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgCreateBillingcyclesResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseMsgCreateBillingcyclesResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(_: any): MsgCreateBillingcyclesResponse {
+    return {};
+  },
+
+  toJSON(_: MsgCreateBillingcyclesResponse): unknown {
+    const obj: any = {};
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<MsgCreateBillingcyclesResponse>, I>>(_: I): MsgCreateBillingcyclesResponse {
+    const message = createBaseMsgCreateBillingcyclesResponse();
+    return message;
+  },
+};
+
+function createBaseMsgUpdateBillingcycles(): MsgUpdateBillingcycles {
+  return {
+    creator: "",
+    cycleID: 0,
+    begin: 0,
+    end: 0,
+    whin: 0,
+    whout: 0,
+    moneyin: 0,
+    moneyout: 0,
+    curency: "",
+    valid: false,
+    paid: false,
+  };
+}
+
+export const MsgUpdateBillingcycles = {
+  encode(message: MsgUpdateBillingcycles, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.creator !== "") {
+      writer.uint32(10).string(message.creator);
+    }
+    if (message.cycleID !== 0) {
+      writer.uint32(16).uint64(message.cycleID);
+    }
+    if (message.begin !== 0) {
+      writer.uint32(24).uint64(message.begin);
+    }
+    if (message.end !== 0) {
+      writer.uint32(32).uint64(message.end);
+    }
+    if (message.whin !== 0) {
+      writer.uint32(40).uint64(message.whin);
+    }
+    if (message.whout !== 0) {
+      writer.uint32(48).uint64(message.whout);
+    }
+    if (message.moneyin !== 0) {
+      writer.uint32(56).uint64(message.moneyin);
+    }
+    if (message.moneyout !== 0) {
+      writer.uint32(64).uint64(message.moneyout);
+    }
+    if (message.curency !== "") {
+      writer.uint32(74).string(message.curency);
+    }
+    if (message.valid === true) {
+      writer.uint32(80).bool(message.valid);
+    }
+    if (message.paid === true) {
+      writer.uint32(88).bool(message.paid);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateBillingcycles {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseMsgUpdateBillingcycles();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.creator = reader.string();
+          break;
+        case 2:
+          message.cycleID = longToNumber(reader.uint64() as Long);
+          break;
+        case 3:
+          message.begin = longToNumber(reader.uint64() as Long);
+          break;
+        case 4:
+          message.end = longToNumber(reader.uint64() as Long);
+          break;
+        case 5:
+          message.whin = longToNumber(reader.uint64() as Long);
+          break;
+        case 6:
+          message.whout = longToNumber(reader.uint64() as Long);
+          break;
+        case 7:
+          message.moneyin = longToNumber(reader.uint64() as Long);
+          break;
+        case 8:
+          message.moneyout = longToNumber(reader.uint64() as Long);
+          break;
+        case 9:
+          message.curency = reader.string();
+          break;
+        case 10:
+          message.valid = reader.bool();
+          break;
+        case 11:
+          message.paid = reader.bool();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): MsgUpdateBillingcycles {
+    return {
+      creator: isSet(object.creator) ? String(object.creator) : "",
+      cycleID: isSet(object.cycleID) ? Number(object.cycleID) : 0,
+      begin: isSet(object.begin) ? Number(object.begin) : 0,
+      end: isSet(object.end) ? Number(object.end) : 0,
+      whin: isSet(object.whin) ? Number(object.whin) : 0,
+      whout: isSet(object.whout) ? Number(object.whout) : 0,
+      moneyin: isSet(object.moneyin) ? Number(object.moneyin) : 0,
+      moneyout: isSet(object.moneyout) ? Number(object.moneyout) : 0,
+      curency: isSet(object.curency) ? String(object.curency) : "",
+      valid: isSet(object.valid) ? Boolean(object.valid) : false,
+      paid: isSet(object.paid) ? Boolean(object.paid) : false,
+    };
+  },
+
+  toJSON(message: MsgUpdateBillingcycles): unknown {
+    const obj: any = {};
+    message.creator !== undefined && (obj.creator = message.creator);
+    message.cycleID !== undefined && (obj.cycleID = Math.round(message.cycleID));
+    message.begin !== undefined && (obj.begin = Math.round(message.begin));
+    message.end !== undefined && (obj.end = Math.round(message.end));
+    message.whin !== undefined && (obj.whin = Math.round(message.whin));
+    message.whout !== undefined && (obj.whout = Math.round(message.whout));
+    message.moneyin !== undefined && (obj.moneyin = Math.round(message.moneyin));
+    message.moneyout !== undefined && (obj.moneyout = Math.round(message.moneyout));
+    message.curency !== undefined && (obj.curency = message.curency);
+    message.valid !== undefined && (obj.valid = message.valid);
+    message.paid !== undefined && (obj.paid = message.paid);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<MsgUpdateBillingcycles>, I>>(object: I): MsgUpdateBillingcycles {
+    const message = createBaseMsgUpdateBillingcycles();
+    message.creator = object.creator ?? "";
+    message.cycleID = object.cycleID ?? 0;
+    message.begin = object.begin ?? 0;
+    message.end = object.end ?? 0;
+    message.whin = object.whin ?? 0;
+    message.whout = object.whout ?? 0;
+    message.moneyin = object.moneyin ?? 0;
+    message.moneyout = object.moneyout ?? 0;
+    message.curency = object.curency ?? "";
+    message.valid = object.valid ?? false;
+    message.paid = object.paid ?? false;
+    return message;
+  },
+};
+
+function createBaseMsgUpdateBillingcyclesResponse(): MsgUpdateBillingcyclesResponse {
+  return {};
+}
+
+export const MsgUpdateBillingcyclesResponse = {
+  encode(_: MsgUpdateBillingcyclesResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateBillingcyclesResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseMsgUpdateBillingcyclesResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(_: any): MsgUpdateBillingcyclesResponse {
+    return {};
+  },
+
+  toJSON(_: MsgUpdateBillingcyclesResponse): unknown {
+    const obj: any = {};
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<MsgUpdateBillingcyclesResponse>, I>>(_: I): MsgUpdateBillingcyclesResponse {
+    const message = createBaseMsgUpdateBillingcyclesResponse();
+    return message;
+  },
+};
+
+function createBaseMsgDeleteBillingcycles(): MsgDeleteBillingcycles {
+  return { creator: "", cycleID: 0 };
+}
+
+export const MsgDeleteBillingcycles = {
+  encode(message: MsgDeleteBillingcycles, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.creator !== "") {
+      writer.uint32(10).string(message.creator);
+    }
+    if (message.cycleID !== 0) {
+      writer.uint32(16).uint64(message.cycleID);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgDeleteBillingcycles {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseMsgDeleteBillingcycles();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.creator = reader.string();
+          break;
+        case 2:
+          message.cycleID = longToNumber(reader.uint64() as Long);
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): MsgDeleteBillingcycles {
+    return {
+      creator: isSet(object.creator) ? String(object.creator) : "",
+      cycleID: isSet(object.cycleID) ? Number(object.cycleID) : 0,
+    };
+  },
+
+  toJSON(message: MsgDeleteBillingcycles): unknown {
+    const obj: any = {};
+    message.creator !== undefined && (obj.creator = message.creator);
+    message.cycleID !== undefined && (obj.cycleID = Math.round(message.cycleID));
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<MsgDeleteBillingcycles>, I>>(object: I): MsgDeleteBillingcycles {
+    const message = createBaseMsgDeleteBillingcycles();
+    message.creator = object.creator ?? "";
+    message.cycleID = object.cycleID ?? 0;
+    return message;
+  },
+};
+
+function createBaseMsgDeleteBillingcyclesResponse(): MsgDeleteBillingcyclesResponse {
+  return {};
+}
+
+export const MsgDeleteBillingcyclesResponse = {
+  encode(_: MsgDeleteBillingcyclesResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgDeleteBillingcyclesResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseMsgDeleteBillingcyclesResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(_: any): MsgDeleteBillingcyclesResponse {
+    return {};
+  },
+
+  toJSON(_: MsgDeleteBillingcyclesResponse): unknown {
+    const obj: any = {};
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<MsgDeleteBillingcyclesResponse>, I>>(_: I): MsgDeleteBillingcyclesResponse {
+    const message = createBaseMsgDeleteBillingcyclesResponse();
+    return message;
+  },
+};
+
 /** Msg defines the Msg service. */
 export interface Msg {
   Record(request: MsgRecord): Promise<MsgRecordResponse>;
@@ -1755,6 +2274,9 @@ export interface Msg {
   CreatePpaMap(request: MsgCreatePpaMap): Promise<MsgCreatePpaMapResponse>;
   UpdatePpaMap(request: MsgUpdatePpaMap): Promise<MsgUpdatePpaMapResponse>;
   DeletePpaMap(request: MsgDeletePpaMap): Promise<MsgDeletePpaMapResponse>;
+  CreateBillingcycles(request: MsgCreateBillingcycles): Promise<MsgCreateBillingcyclesResponse>;
+  UpdateBillingcycles(request: MsgUpdateBillingcycles): Promise<MsgUpdateBillingcyclesResponse>;
+  DeleteBillingcycles(request: MsgDeleteBillingcycles): Promise<MsgDeleteBillingcyclesResponse>;
 }
 
 export class MsgClientImpl implements Msg {
@@ -1769,6 +2291,9 @@ export class MsgClientImpl implements Msg {
     this.CreatePpaMap = this.CreatePpaMap.bind(this);
     this.UpdatePpaMap = this.UpdatePpaMap.bind(this);
     this.DeletePpaMap = this.DeletePpaMap.bind(this);
+    this.CreateBillingcycles = this.CreateBillingcycles.bind(this);
+    this.UpdateBillingcycles = this.UpdateBillingcycles.bind(this);
+    this.DeleteBillingcycles = this.DeleteBillingcycles.bind(this);
   }
   Record(request: MsgRecord): Promise<MsgRecordResponse> {
     const data = MsgRecord.encode(request).finish();
@@ -1822,6 +2347,24 @@ export class MsgClientImpl implements Msg {
     const data = MsgDeletePpaMap.encode(request).finish();
     const promise = this.rpc.request("electra.meter.Msg", "DeletePpaMap", data);
     return promise.then((data) => MsgDeletePpaMapResponse.decode(new _m0.Reader(data)));
+  }
+
+  CreateBillingcycles(request: MsgCreateBillingcycles): Promise<MsgCreateBillingcyclesResponse> {
+    const data = MsgCreateBillingcycles.encode(request).finish();
+    const promise = this.rpc.request("electra.meter.Msg", "CreateBillingcycles", data);
+    return promise.then((data) => MsgCreateBillingcyclesResponse.decode(new _m0.Reader(data)));
+  }
+
+  UpdateBillingcycles(request: MsgUpdateBillingcycles): Promise<MsgUpdateBillingcyclesResponse> {
+    const data = MsgUpdateBillingcycles.encode(request).finish();
+    const promise = this.rpc.request("electra.meter.Msg", "UpdateBillingcycles", data);
+    return promise.then((data) => MsgUpdateBillingcyclesResponse.decode(new _m0.Reader(data)));
+  }
+
+  DeleteBillingcycles(request: MsgDeleteBillingcycles): Promise<MsgDeleteBillingcyclesResponse> {
+    const data = MsgDeleteBillingcycles.encode(request).finish();
+    const promise = this.rpc.request("electra.meter.Msg", "DeleteBillingcycles", data);
+    return promise.then((data) => MsgDeleteBillingcyclesResponse.decode(new _m0.Reader(data)));
   }
 }
 

@@ -9,6 +9,33 @@
  * ---------------------------------------------------------------
  */
 
+export interface MeterBillingcycles {
+  /** @format uint64 */
+  cycleID?: string;
+
+  /** @format uint64 */
+  begin?: string;
+
+  /** @format uint64 */
+  end?: string;
+
+  /** @format uint64 */
+  whin?: string;
+
+  /** @format uint64 */
+  whout?: string;
+
+  /** @format uint64 */
+  moneyin?: string;
+
+  /** @format uint64 */
+  moneyout?: string;
+  curency?: string;
+  valid?: boolean;
+  paid?: boolean;
+  creator?: string;
+}
+
 export interface MeterMeterdirectory {
   deviceID?: string;
   barcodeserial?: string;
@@ -56,9 +83,13 @@ export interface MeterMeterreadings {
   maxmi?: string;
 }
 
+export type MeterMsgCreateBillingcyclesResponse = object;
+
 export type MeterMsgCreatePowerPurchaseContractResponse = object;
 
 export type MeterMsgCreatePpaMapResponse = object;
+
+export type MeterMsgDeleteBillingcyclesResponse = object;
 
 export type MeterMsgDeletePowerPurchaseContractResponse = object;
 
@@ -67,6 +98,8 @@ export type MeterMsgDeletePpaMapResponse = object;
 export type MeterMsgRecord3Response = object;
 
 export type MeterMsgRecordResponse = object;
+
+export type MeterMsgUpdateBillingcyclesResponse = object;
 
 export type MeterMsgUpdatePowerPurchaseContractResponse = object;
 
@@ -140,6 +173,21 @@ export interface MeterPpaMap {
   creator?: string;
 }
 
+export interface MeterQueryAllBillingcyclesResponse {
+  billingcycles?: MeterBillingcycles[];
+
+  /**
+   * PageResponse is to be embedded in gRPC response messages where the
+   * corresponding request message has used PageRequest.
+   *
+   *  message SomeResponse {
+   *          repeated Bar results = 1;
+   *          PageResponse page = 2;
+   *  }
+   */
+  pagination?: V1Beta1PageResponse;
+}
+
 export interface MeterQueryAllMeterdirectoryResponse {
   meterdirectory?: MeterMeterdirectory[];
 
@@ -198,6 +246,34 @@ export interface MeterQueryAllPpaMapResponse {
    *  }
    */
   pagination?: V1Beta1PageResponse;
+}
+
+export interface MeterQueryCurrentcycleIDResponse {
+  /** @format uint64 */
+  cycleID?: string;
+
+  /** @format uint64 */
+  begin?: string;
+
+  /** @format uint64 */
+  end?: string;
+
+  /** @format uint64 */
+  whin?: string;
+
+  /** @format uint64 */
+  whout?: string;
+
+  /** @format uint64 */
+  moneyin?: string;
+
+  /** @format uint64 */
+  moneyout?: string;
+  curency?: string;
+}
+
+export interface MeterQueryGetBillingcyclesResponse {
+  billingcycles?: MeterBillingcycles;
 }
 
 export interface MeterQueryGetMeterdirectoryResponse {
@@ -447,10 +523,67 @@ export class HttpClient<SecurityDataType = unknown> {
 }
 
 /**
- * @title electra/meter/genesis.proto
+ * @title electra/meter/billingcycles.proto
  * @version version not set
  */
 export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDataType> {
+  /**
+   * No description
+   *
+   * @tags Query
+   * @name QueryBillingcyclesAll
+   * @request GET:/electra/meter/billingcycles
+   */
+  queryBillingcyclesAll = (
+    query?: {
+      "pagination.key"?: string;
+      "pagination.offset"?: string;
+      "pagination.limit"?: string;
+      "pagination.count_total"?: boolean;
+      "pagination.reverse"?: boolean;
+    },
+    params: RequestParams = {},
+  ) =>
+    this.request<MeterQueryAllBillingcyclesResponse, RpcStatus>({
+      path: `/electra/meter/billingcycles`,
+      method: "GET",
+      query: query,
+      format: "json",
+      ...params,
+    });
+
+  /**
+   * No description
+   *
+   * @tags Query
+   * @name QueryBillingcycles
+   * @summary Queries a list of Billingcycles items.
+   * @request GET:/electra/meter/billingcycles/{cycleID}
+   */
+  queryBillingcycles = (cycleId: string, params: RequestParams = {}) =>
+    this.request<MeterQueryGetBillingcyclesResponse, RpcStatus>({
+      path: `/electra/meter/billingcycles/${cycleId}`,
+      method: "GET",
+      format: "json",
+      ...params,
+    });
+
+  /**
+   * No description
+   *
+   * @tags Query
+   * @name QueryCurrentcycleId
+   * @summary Queries a list of CurrentcycleID items.
+   * @request GET:/electra/meter/currentcycle_id
+   */
+  queryCurrentcycleID = (params: RequestParams = {}) =>
+    this.request<MeterQueryCurrentcycleIDResponse, RpcStatus>({
+      path: `/electra/meter/currentcycle_id`,
+      method: "GET",
+      format: "json",
+      ...params,
+    });
+
   /**
    * No description
    *

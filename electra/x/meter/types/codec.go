@@ -16,6 +16,9 @@ func RegisterCodec(cdc *codec.LegacyAmino) {
 	cdc.RegisterConcrete(&MsgCreatePpaMap{}, "meter/CreatePpaMap", nil)
 	cdc.RegisterConcrete(&MsgUpdatePpaMap{}, "meter/UpdatePpaMap", nil)
 	cdc.RegisterConcrete(&MsgDeletePpaMap{}, "meter/DeletePpaMap", nil)
+	cdc.RegisterConcrete(&MsgCreateBillingcycles{}, "meter/CreateBillingcycles", nil)
+	cdc.RegisterConcrete(&MsgUpdateBillingcycles{}, "meter/UpdateBillingcycles", nil)
+	cdc.RegisterConcrete(&MsgDeleteBillingcycles{}, "meter/DeleteBillingcycles", nil)
 	// this line is used by starport scaffolding # 2
 }
 
@@ -35,6 +38,11 @@ func RegisterInterfaces(registry cdctypes.InterfaceRegistry) {
 		&MsgCreatePpaMap{},
 		&MsgUpdatePpaMap{},
 		&MsgDeletePpaMap{},
+	)
+	registry.RegisterImplementations((*sdk.Msg)(nil),
+		&MsgCreateBillingcycles{},
+		&MsgUpdateBillingcycles{},
+		&MsgDeleteBillingcycles{},
 	)
 	// this line is used by starport scaffolding # 3
 

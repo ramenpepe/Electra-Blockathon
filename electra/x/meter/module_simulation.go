@@ -57,6 +57,18 @@ const (
 	// TODO: Determine the simulation weight value
 	defaultWeightMsgDeletePpaMap int = 100
 
+	opWeightMsgCreateBillingcycles = "op_weight_msg_billingcycles"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgCreateBillingcycles int = 100
+
+	opWeightMsgUpdateBillingcycles = "op_weight_msg_billingcycles"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgUpdateBillingcycles int = 100
+
+	opWeightMsgDeleteBillingcycles = "op_weight_msg_billingcycles"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgDeleteBillingcycles int = 100
+
 	// this line is used by starport scaffolding # simapp/module/const
 )
 
@@ -94,6 +106,16 @@ func (AppModule) GenerateGenesisState(simState *module.SimulationState) {
 				AgreementID:      "1",
 				AgreementActive:  false,
 				ContractID:       "1",
+			},
+		},
+		BillingcyclesList: []types.Billingcycles{
+			{
+				Creator: sample.AccAddress(),
+				CycleID: 0,
+			},
+			{
+				Creator: sample.AccAddress(),
+				CycleID: 1,
 			},
 		},
 		// this line is used by starport scaffolding # simapp/module/genesisState
@@ -218,6 +240,39 @@ func (am AppModule) WeightedOperations(simState module.SimulationState) []simtyp
 	operations = append(operations, simulation.NewWeightedOperation(
 		weightMsgDeletePpaMap,
 		metersimulation.SimulateMsgDeletePpaMap(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgCreateBillingcycles int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgCreateBillingcycles, &weightMsgCreateBillingcycles, nil,
+		func(_ *rand.Rand) {
+			weightMsgCreateBillingcycles = defaultWeightMsgCreateBillingcycles
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgCreateBillingcycles,
+		metersimulation.SimulateMsgCreateBillingcycles(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgUpdateBillingcycles int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgUpdateBillingcycles, &weightMsgUpdateBillingcycles, nil,
+		func(_ *rand.Rand) {
+			weightMsgUpdateBillingcycles = defaultWeightMsgUpdateBillingcycles
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgUpdateBillingcycles,
+		metersimulation.SimulateMsgUpdateBillingcycles(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgDeleteBillingcycles int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgDeleteBillingcycles, &weightMsgDeleteBillingcycles, nil,
+		func(_ *rand.Rand) {
+			weightMsgDeleteBillingcycles = defaultWeightMsgDeleteBillingcycles
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgDeleteBillingcycles,
+		metersimulation.SimulateMsgDeleteBillingcycles(am.accountKeeper, am.bankKeeper, am.keeper),
 	))
 
 	// this line is used by starport scaffolding # simapp/module/operation

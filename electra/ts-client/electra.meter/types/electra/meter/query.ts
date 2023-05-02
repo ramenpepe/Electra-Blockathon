@@ -2,6 +2,7 @@
 import Long from "long";
 import _m0 from "protobufjs/minimal";
 import { PageRequest, PageResponse } from "../../cosmos/base/query/v1beta1/pagination";
+import { Billingcycles } from "./billingcycles";
 import { Meterdirectory } from "./meterdirectory";
 import { Meterreadings } from "./meterreadings";
 import { Params } from "./params";
@@ -107,6 +108,37 @@ export interface QueryAllPpaMapRequest {
 export interface QueryAllPpaMapResponse {
   ppaMap: PpaMap[];
   pagination: PageResponse | undefined;
+}
+
+export interface QueryGetBillingcyclesRequest {
+  cycleID: number;
+}
+
+export interface QueryGetBillingcyclesResponse {
+  billingcycles: Billingcycles | undefined;
+}
+
+export interface QueryAllBillingcyclesRequest {
+  pagination: PageRequest | undefined;
+}
+
+export interface QueryAllBillingcyclesResponse {
+  billingcycles: Billingcycles[];
+  pagination: PageResponse | undefined;
+}
+
+export interface QueryCurrentcycleIDRequest {
+}
+
+export interface QueryCurrentcycleIDResponse {
+  cycleID: number;
+  begin: number;
+  end: number;
+  whin: number;
+  whout: number;
+  moneyin: number;
+  moneyout: number;
+  curency: string;
 }
 
 function createBaseQueryParamsRequest(): QueryParamsRequest {
@@ -1314,6 +1346,375 @@ export const QueryAllPpaMapResponse = {
   },
 };
 
+function createBaseQueryGetBillingcyclesRequest(): QueryGetBillingcyclesRequest {
+  return { cycleID: 0 };
+}
+
+export const QueryGetBillingcyclesRequest = {
+  encode(message: QueryGetBillingcyclesRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.cycleID !== 0) {
+      writer.uint32(8).uint64(message.cycleID);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryGetBillingcyclesRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryGetBillingcyclesRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.cycleID = longToNumber(reader.uint64() as Long);
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryGetBillingcyclesRequest {
+    return { cycleID: isSet(object.cycleID) ? Number(object.cycleID) : 0 };
+  },
+
+  toJSON(message: QueryGetBillingcyclesRequest): unknown {
+    const obj: any = {};
+    message.cycleID !== undefined && (obj.cycleID = Math.round(message.cycleID));
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryGetBillingcyclesRequest>, I>>(object: I): QueryGetBillingcyclesRequest {
+    const message = createBaseQueryGetBillingcyclesRequest();
+    message.cycleID = object.cycleID ?? 0;
+    return message;
+  },
+};
+
+function createBaseQueryGetBillingcyclesResponse(): QueryGetBillingcyclesResponse {
+  return { billingcycles: undefined };
+}
+
+export const QueryGetBillingcyclesResponse = {
+  encode(message: QueryGetBillingcyclesResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.billingcycles !== undefined) {
+      Billingcycles.encode(message.billingcycles, writer.uint32(10).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryGetBillingcyclesResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryGetBillingcyclesResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.billingcycles = Billingcycles.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryGetBillingcyclesResponse {
+    return { billingcycles: isSet(object.billingcycles) ? Billingcycles.fromJSON(object.billingcycles) : undefined };
+  },
+
+  toJSON(message: QueryGetBillingcyclesResponse): unknown {
+    const obj: any = {};
+    message.billingcycles !== undefined
+      && (obj.billingcycles = message.billingcycles ? Billingcycles.toJSON(message.billingcycles) : undefined);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryGetBillingcyclesResponse>, I>>(
+    object: I,
+  ): QueryGetBillingcyclesResponse {
+    const message = createBaseQueryGetBillingcyclesResponse();
+    message.billingcycles = (object.billingcycles !== undefined && object.billingcycles !== null)
+      ? Billingcycles.fromPartial(object.billingcycles)
+      : undefined;
+    return message;
+  },
+};
+
+function createBaseQueryAllBillingcyclesRequest(): QueryAllBillingcyclesRequest {
+  return { pagination: undefined };
+}
+
+export const QueryAllBillingcyclesRequest = {
+  encode(message: QueryAllBillingcyclesRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.pagination !== undefined) {
+      PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryAllBillingcyclesRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryAllBillingcyclesRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.pagination = PageRequest.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryAllBillingcyclesRequest {
+    return { pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined };
+  },
+
+  toJSON(message: QueryAllBillingcyclesRequest): unknown {
+    const obj: any = {};
+    message.pagination !== undefined
+      && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryAllBillingcyclesRequest>, I>>(object: I): QueryAllBillingcyclesRequest {
+    const message = createBaseQueryAllBillingcyclesRequest();
+    message.pagination = (object.pagination !== undefined && object.pagination !== null)
+      ? PageRequest.fromPartial(object.pagination)
+      : undefined;
+    return message;
+  },
+};
+
+function createBaseQueryAllBillingcyclesResponse(): QueryAllBillingcyclesResponse {
+  return { billingcycles: [], pagination: undefined };
+}
+
+export const QueryAllBillingcyclesResponse = {
+  encode(message: QueryAllBillingcyclesResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    for (const v of message.billingcycles) {
+      Billingcycles.encode(v!, writer.uint32(10).fork()).ldelim();
+    }
+    if (message.pagination !== undefined) {
+      PageResponse.encode(message.pagination, writer.uint32(18).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryAllBillingcyclesResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryAllBillingcyclesResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.billingcycles.push(Billingcycles.decode(reader, reader.uint32()));
+          break;
+        case 2:
+          message.pagination = PageResponse.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryAllBillingcyclesResponse {
+    return {
+      billingcycles: Array.isArray(object?.billingcycles)
+        ? object.billingcycles.map((e: any) => Billingcycles.fromJSON(e))
+        : [],
+      pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined,
+    };
+  },
+
+  toJSON(message: QueryAllBillingcyclesResponse): unknown {
+    const obj: any = {};
+    if (message.billingcycles) {
+      obj.billingcycles = message.billingcycles.map((e) => e ? Billingcycles.toJSON(e) : undefined);
+    } else {
+      obj.billingcycles = [];
+    }
+    message.pagination !== undefined
+      && (obj.pagination = message.pagination ? PageResponse.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryAllBillingcyclesResponse>, I>>(
+    object: I,
+  ): QueryAllBillingcyclesResponse {
+    const message = createBaseQueryAllBillingcyclesResponse();
+    message.billingcycles = object.billingcycles?.map((e) => Billingcycles.fromPartial(e)) || [];
+    message.pagination = (object.pagination !== undefined && object.pagination !== null)
+      ? PageResponse.fromPartial(object.pagination)
+      : undefined;
+    return message;
+  },
+};
+
+function createBaseQueryCurrentcycleIDRequest(): QueryCurrentcycleIDRequest {
+  return {};
+}
+
+export const QueryCurrentcycleIDRequest = {
+  encode(_: QueryCurrentcycleIDRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryCurrentcycleIDRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryCurrentcycleIDRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(_: any): QueryCurrentcycleIDRequest {
+    return {};
+  },
+
+  toJSON(_: QueryCurrentcycleIDRequest): unknown {
+    const obj: any = {};
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryCurrentcycleIDRequest>, I>>(_: I): QueryCurrentcycleIDRequest {
+    const message = createBaseQueryCurrentcycleIDRequest();
+    return message;
+  },
+};
+
+function createBaseQueryCurrentcycleIDResponse(): QueryCurrentcycleIDResponse {
+  return { cycleID: 0, begin: 0, end: 0, whin: 0, whout: 0, moneyin: 0, moneyout: 0, curency: "" };
+}
+
+export const QueryCurrentcycleIDResponse = {
+  encode(message: QueryCurrentcycleIDResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.cycleID !== 0) {
+      writer.uint32(8).uint64(message.cycleID);
+    }
+    if (message.begin !== 0) {
+      writer.uint32(16).uint64(message.begin);
+    }
+    if (message.end !== 0) {
+      writer.uint32(24).uint64(message.end);
+    }
+    if (message.whin !== 0) {
+      writer.uint32(32).uint64(message.whin);
+    }
+    if (message.whout !== 0) {
+      writer.uint32(40).uint64(message.whout);
+    }
+    if (message.moneyin !== 0) {
+      writer.uint32(48).uint64(message.moneyin);
+    }
+    if (message.moneyout !== 0) {
+      writer.uint32(56).uint64(message.moneyout);
+    }
+    if (message.curency !== "") {
+      writer.uint32(66).string(message.curency);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryCurrentcycleIDResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryCurrentcycleIDResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.cycleID = longToNumber(reader.uint64() as Long);
+          break;
+        case 2:
+          message.begin = longToNumber(reader.uint64() as Long);
+          break;
+        case 3:
+          message.end = longToNumber(reader.uint64() as Long);
+          break;
+        case 4:
+          message.whin = longToNumber(reader.uint64() as Long);
+          break;
+        case 5:
+          message.whout = longToNumber(reader.uint64() as Long);
+          break;
+        case 6:
+          message.moneyin = longToNumber(reader.uint64() as Long);
+          break;
+        case 7:
+          message.moneyout = longToNumber(reader.uint64() as Long);
+          break;
+        case 8:
+          message.curency = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryCurrentcycleIDResponse {
+    return {
+      cycleID: isSet(object.cycleID) ? Number(object.cycleID) : 0,
+      begin: isSet(object.begin) ? Number(object.begin) : 0,
+      end: isSet(object.end) ? Number(object.end) : 0,
+      whin: isSet(object.whin) ? Number(object.whin) : 0,
+      whout: isSet(object.whout) ? Number(object.whout) : 0,
+      moneyin: isSet(object.moneyin) ? Number(object.moneyin) : 0,
+      moneyout: isSet(object.moneyout) ? Number(object.moneyout) : 0,
+      curency: isSet(object.curency) ? String(object.curency) : "",
+    };
+  },
+
+  toJSON(message: QueryCurrentcycleIDResponse): unknown {
+    const obj: any = {};
+    message.cycleID !== undefined && (obj.cycleID = Math.round(message.cycleID));
+    message.begin !== undefined && (obj.begin = Math.round(message.begin));
+    message.end !== undefined && (obj.end = Math.round(message.end));
+    message.whin !== undefined && (obj.whin = Math.round(message.whin));
+    message.whout !== undefined && (obj.whout = Math.round(message.whout));
+    message.moneyin !== undefined && (obj.moneyin = Math.round(message.moneyin));
+    message.moneyout !== undefined && (obj.moneyout = Math.round(message.moneyout));
+    message.curency !== undefined && (obj.curency = message.curency);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryCurrentcycleIDResponse>, I>>(object: I): QueryCurrentcycleIDResponse {
+    const message = createBaseQueryCurrentcycleIDResponse();
+    message.cycleID = object.cycleID ?? 0;
+    message.begin = object.begin ?? 0;
+    message.end = object.end ?? 0;
+    message.whin = object.whin ?? 0;
+    message.whout = object.whout ?? 0;
+    message.moneyin = object.moneyin ?? 0;
+    message.moneyout = object.moneyout ?? 0;
+    message.curency = object.curency ?? "";
+    return message;
+  },
+};
+
 /** Query defines the gRPC querier service. */
 export interface Query {
   /** Parameters queries the parameters of the module. */
@@ -1334,6 +1735,11 @@ export interface Query {
   /** Queries a list of PpaMap items. */
   PpaMap(request: QueryGetPpaMapRequest): Promise<QueryGetPpaMapResponse>;
   PpaMapAll(request: QueryAllPpaMapRequest): Promise<QueryAllPpaMapResponse>;
+  /** Queries a list of Billingcycles items. */
+  Billingcycles(request: QueryGetBillingcyclesRequest): Promise<QueryGetBillingcyclesResponse>;
+  BillingcyclesAll(request: QueryAllBillingcyclesRequest): Promise<QueryAllBillingcyclesResponse>;
+  /** Queries a list of CurrentcycleID items. */
+  CurrentcycleID(request: QueryCurrentcycleIDRequest): Promise<QueryCurrentcycleIDResponse>;
 }
 
 export class QueryClientImpl implements Query {
@@ -1350,6 +1756,9 @@ export class QueryClientImpl implements Query {
     this.PowerPurchaseContractAll = this.PowerPurchaseContractAll.bind(this);
     this.PpaMap = this.PpaMap.bind(this);
     this.PpaMapAll = this.PpaMapAll.bind(this);
+    this.Billingcycles = this.Billingcycles.bind(this);
+    this.BillingcyclesAll = this.BillingcyclesAll.bind(this);
+    this.CurrentcycleID = this.CurrentcycleID.bind(this);
   }
   Params(request: QueryParamsRequest): Promise<QueryParamsResponse> {
     const data = QueryParamsRequest.encode(request).finish();
@@ -1411,6 +1820,24 @@ export class QueryClientImpl implements Query {
     const data = QueryAllPpaMapRequest.encode(request).finish();
     const promise = this.rpc.request("electra.meter.Query", "PpaMapAll", data);
     return promise.then((data) => QueryAllPpaMapResponse.decode(new _m0.Reader(data)));
+  }
+
+  Billingcycles(request: QueryGetBillingcyclesRequest): Promise<QueryGetBillingcyclesResponse> {
+    const data = QueryGetBillingcyclesRequest.encode(request).finish();
+    const promise = this.rpc.request("electra.meter.Query", "Billingcycles", data);
+    return promise.then((data) => QueryGetBillingcyclesResponse.decode(new _m0.Reader(data)));
+  }
+
+  BillingcyclesAll(request: QueryAllBillingcyclesRequest): Promise<QueryAllBillingcyclesResponse> {
+    const data = QueryAllBillingcyclesRequest.encode(request).finish();
+    const promise = this.rpc.request("electra.meter.Query", "BillingcyclesAll", data);
+    return promise.then((data) => QueryAllBillingcyclesResponse.decode(new _m0.Reader(data)));
+  }
+
+  CurrentcycleID(request: QueryCurrentcycleIDRequest): Promise<QueryCurrentcycleIDResponse> {
+    const data = QueryCurrentcycleIDRequest.encode(request).finish();
+    const promise = this.rpc.request("electra.meter.Query", "CurrentcycleID", data);
+    return promise.then((data) => QueryCurrentcycleIDResponse.decode(new _m0.Reader(data)));
   }
 }
 

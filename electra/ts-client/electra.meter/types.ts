@@ -1,3 +1,4 @@
+import { Billingcycles } from "./types/electra/meter/billingcycles"
 import { Meterdirectory } from "./types/electra/meter/meterdirectory"
 import { Meterreadings } from "./types/electra/meter/meterreadings"
 import { Params } from "./types/electra/meter/params"
@@ -6,6 +7,7 @@ import { PpaMap } from "./types/electra/meter/ppa_map"
 
 
 export {     
+    Billingcycles,
     Meterdirectory,
     Meterreadings,
     Params,

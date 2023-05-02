@@ -66,6 +66,14 @@ func TestGenesisState_Validate(t *testing.T) {
 						ContractID:       "1",
 					},
 				},
+				BillingcyclesList: []types.Billingcycles{
+					{
+						CycleID: 0,
+					},
+					{
+						CycleID: 1,
+					},
+				},
 				// this line is used by starport scaffolding # types/genesis/validField
 			},
 			valid: true,
@@ -133,6 +141,20 @@ func TestGenesisState_Validate(t *testing.T) {
 						AgreementID:      "0",
 						AgreementActive:  true,
 						ContractID:       "0",
+					},
+				},
+			},
+			valid: false,
+		},
+		{
+			desc: "duplicated billingcycles",
+			genState: &types.GenesisState{
+				BillingcyclesList: []types.Billingcycles{
+					{
+						CycleID: 0,
+					},
+					{
+						CycleID: 0,
 					},
 				},
 			},

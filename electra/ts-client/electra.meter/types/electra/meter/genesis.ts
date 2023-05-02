@@ -1,5 +1,6 @@
 /* eslint-disable */
 import _m0 from "protobufjs/minimal";
+import { Billingcycles } from "./billingcycles";
 import { Meterdirectory } from "./meterdirectory";
 import { Meterreadings } from "./meterreadings";
 import { Params } from "./params";
@@ -15,6 +16,7 @@ export interface GenesisState {
   meterdirectoryList: Meterdirectory[];
   powerPurchaseContractList: PowerPurchaseContract[];
   ppaMapList: PpaMap[];
+  billingcyclesList: Billingcycles[];
 }
 
 function createBaseGenesisState(): GenesisState {
@@ -24,6 +26,7 @@ function createBaseGenesisState(): GenesisState {
     meterdirectoryList: [],
     powerPurchaseContractList: [],
     ppaMapList: [],
+    billingcyclesList: [],
   };
 }
 
@@ -43,6 +46,9 @@ export const GenesisState = {
     }
     for (const v of message.ppaMapList) {
       PpaMap.encode(v!, writer.uint32(42).fork()).ldelim();
+    }
+    for (const v of message.billingcyclesList) {
+      Billingcycles.encode(v!, writer.uint32(50).fork()).ldelim();
     }
     return writer;
   },
@@ -69,6 +75,9 @@ export const GenesisState = {
         case 5:
           message.ppaMapList.push(PpaMap.decode(reader, reader.uint32()));
           break;
+        case 6:
+          message.billingcyclesList.push(Billingcycles.decode(reader, reader.uint32()));
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -90,6 +99,9 @@ export const GenesisState = {
         ? object.powerPurchaseContractList.map((e: any) => PowerPurchaseContract.fromJSON(e))
         : [],
       ppaMapList: Array.isArray(object?.ppaMapList) ? object.ppaMapList.map((e: any) => PpaMap.fromJSON(e)) : [],
+      billingcyclesList: Array.isArray(object?.billingcyclesList)
+        ? object.billingcyclesList.map((e: any) => Billingcycles.fromJSON(e))
+        : [],
     };
   },
 
@@ -118,6 +130,11 @@ export const GenesisState = {
     } else {
       obj.ppaMapList = [];
     }
+    if (message.billingcyclesList) {
+      obj.billingcyclesList = message.billingcyclesList.map((e) => e ? Billingcycles.toJSON(e) : undefined);
+    } else {
+      obj.billingcyclesList = [];
+    }
     return obj;
   },
 
@@ -131,6 +148,7 @@ export const GenesisState = {
     message.powerPurchaseContractList =
       object.powerPurchaseContractList?.map((e) => PowerPurchaseContract.fromPartial(e)) || [];
     message.ppaMapList = object.ppaMapList?.map((e) => PpaMap.fromPartial(e)) || [];
+    message.billingcyclesList = object.billingcyclesList?.map((e) => Billingcycles.fromPartial(e)) || [];
     return message;
   },
 };

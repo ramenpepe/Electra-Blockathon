@@ -8,6 +8,7 @@ import "electra/meter/meterreadings.proto";
 import "electra/meter/meterdirectory.proto";
 import "electra/meter/power_purchase_contract.proto";
 import "electra/meter/ppa_map.proto";
+import "electra/meter/billingcycles.proto";
 
 option go_package = "electra/x/meter/types";
 
@@ -18,5 +19,6 @@ message GenesisState {
   repeated Meterdirectory        meterdirectoryList        = 3 [(gogoproto.nullable) = false];
   repeated PowerPurchaseContract powerPurchaseContractList = 4 [(gogoproto.nullable) = false];
   repeated PpaMap                ppaMapList                = 5 [(gogoproto.nullable) = false];
+  repeated Billingcycles         billingcyclesList         = 6 [(gogoproto.nullable) = false];
 }
 

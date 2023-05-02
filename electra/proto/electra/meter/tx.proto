@@ -4,6 +4,7 @@ package electra.meter;
 
 import "electra/meter/power_purchase_contract.proto";
 import "electra/meter/ppa_map.proto";
+import "electra/meter/billingcycles.proto";
 
 option go_package = "electra/x/meter/types";
 
@@ -17,6 +18,9 @@ service Msg {
   rpc CreatePpaMap                (MsgCreatePpaMap               ) returns (MsgCreatePpaMapResponse               );
   rpc UpdatePpaMap                (MsgUpdatePpaMap               ) returns (MsgUpdatePpaMapResponse               );
   rpc DeletePpaMap                (MsgDeletePpaMap               ) returns (MsgDeletePpaMapResponse               );
+  rpc CreateBillingcycles         (MsgCreateBillingcycles        ) returns (MsgCreateBillingcyclesResponse        );
+  rpc UpdateBillingcycles         (MsgUpdateBillingcycles        ) returns (MsgUpdateBillingcyclesResponse        );
+  rpc DeleteBillingcycles         (MsgDeleteBillingcycles        ) returns (MsgDeleteBillingcyclesResponse        );
 }
 message MsgRecord {
   string creator   = 1;
@@ -152,4 +156,43 @@ message MsgDeletePpaMap {
 }
 
 message MsgDeletePpaMapResponse {}
+
+message MsgCreateBillingcycles {
+  string creator  =  1;
+  uint64 cycleID  =  2;
+  uint64 begin    =  3;
+  uint64 end      =  4;
+  uint64 whin     =  5;
+  uint64 whout    =  6;
+  uint64 moneyin  =  7;
+  uint64 moneyout =  8;
+  string curency  =  9;
+  bool   valid    = 10;
+  bool   paid     = 11;
+}
+
+message MsgCreateBillingcyclesResponse {}
+
+message MsgUpdateBillingcycles {
+  string creator  =  1;
+  uint64 cycleID  =  2;
+  uint64 begin    =  3;
+  uint64 end      =  4;
+  uint64 whin     =  5;
+  uint64 whout    =  6;
+  uint64 moneyin  =  7;
+  uint64 moneyout =  8;
+  string curency  =  9;
+  bool   valid    = 10;
+  bool   paid     = 11;
+}
+
+message MsgUpdateBillingcyclesResponse {}
+
+message MsgDeleteBillingcycles {
+  string creator = 1;
+  uint64 cycleID = 2;
+}
+
+message MsgDeleteBillingcyclesResponse {}
 

@@ -10,6 +10,7 @@ import "electra/meter/meterreadings.proto";
 import "electra/meter/meterdirectory.proto";
 import "electra/meter/power_purchase_contract.proto";
 import "electra/meter/ppa_map.proto";
+import "electra/meter/billingcycles.proto";
 
 option go_package = "electra/x/meter/types";
 
@@ -65,6 +66,22 @@ service Query {
   }
   rpc PpaMapAll (QueryAllPpaMapRequest) returns (QueryAllPpaMapResponse) {
     option (google.api.http).get = "/electra/meter/ppa_map";
+  
+  }
+  
+  // Queries a list of Billingcycles items.
+  rpc Billingcycles    (QueryGetBillingcyclesRequest) returns (QueryGetBillingcyclesResponse) {
+    option (google.api.http).get = "/electra/meter/billingcycles/{cycleID}";
+  
+  }
+  rpc BillingcyclesAll (QueryAllBillingcyclesRequest) returns (QueryAllBillingcyclesResponse) {
+    option (google.api.http).get = "/electra/meter/billingcycles";
+  
+  }
+  
+  // Queries a list of CurrentcycleID items.
+  rpc CurrentcycleID (QueryCurrentcycleIDRequest) returns (QueryCurrentcycleIDResponse) {
+    option (google.api.http).get = "/electra/meter/currentcycle_id";
   
   }
 }
@@ -165,5 +182,35 @@ message QueryAllPpaMapRequest {
 message QueryAllPpaMapResponse {
   repeated PpaMap                                 ppaMap     = 1 [(gogoproto.nullable) = false];
            cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+message QueryGetBillingcyclesRequest {
+  uint64 cycleID = 1;
+}
+
+message QueryGetBillingcyclesResponse {
+  Billingcycles billingcycles = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllBillingcyclesRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllBillingcyclesResponse {
+  repeated Billingcycles                          billingcycles = 1 [(gogoproto.nullable) = false];
+           cosmos.base.query.v1beta1.PageResponse pagination    = 2;
+}
+
+message QueryCurrentcycleIDRequest {}
+
+message QueryCurrentcycleIDResponse {
+  uint64 cycleID  = 1;
+  uint64 begin    = 2;
+  uint64 end      = 3;
+  uint64 whin     = 4;
+  uint64 whout    = 5;
+  uint64 moneyin  = 6;
+  uint64 moneyout = 7;
+  string curency  = 8;
 }
 
