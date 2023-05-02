@@ -1,6 +1,8 @@
 # Electra-Blockathon
 Electra repo for 2023
 
+
+
 Front end:
 http://electra.alkia.net:5173/
 
@@ -10,7 +12,12 @@ http://electra.alkia.net:26657/status?
 API:
 http://electra.alkia.net:1317/
 
+
+
 ## Q&A
+
+![image](https://user-images.githubusercontent.com/17525857/235558001-98df9f93-54d0-4c88-bbb7-7d466cfd13de.png)
+
 ### What is the problem you’re trying to solve?
 Build a semi-decenralized, distributed marketplace for producers to sell their surplus of electricity and consumers to purchase at the best market rate.
 
