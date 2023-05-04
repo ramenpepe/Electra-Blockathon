@@ -21,7 +21,7 @@ By the early 20th century, most cities had centralized power stations (powergrid
 
 Community-based renewable energy systems present significant innovation opportunities that can transform the way we generate and consume electricity. These systems offer a range of benefits, including increased access to clean energy, reduced energy costs, and improved social and economic outcomes for communities.
 
-### Problem Statement
+### Problem
 The growing interest in renewal energy creates an opportunity for individuals and companies to produce their own electricity instead of completely relying on centralized power stations. 
 
 Decentralizing electricity through the use of renewable energy sources has the potential to transform the way we generate and consume electricity. However, it also presents several challenges that must be addressed to make it a viable and sustainable option.
