@@ -33723,6 +33723,54 @@ paths:
           type: boolean
       tags:
         - Query
+  /electra/meter/listrecordings_100/{deviceID}/{byUnixTime}:
+    get:
+      summary: Queries a list of Listrecordings100 items.
+      operationId: ElectraMeterListrecordings100
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              meterreadings:
+                type: array
+                items:
+                  type: string
+              comments:
+                type: string
+              total:
+                type: string
+                format: uint64
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: deviceID
+          in: path
+          required: true
+          type: string
+        - name: byUnixTime
+          in: path
+          required: true
+          type: boolean
+      tags:
+        - Query
   /electra/meter/meterdirectory:
     get:
       operationId: ElectraMeterMeterdirectoryAll
@@ -70663,6 +70711,18 @@ definitions:
                    repeated Bar results = 1;
                    PageResponse page = 2;
            }
+  electra.meter.QueryListrecordings100Response:
+    type: object
+    properties:
+      meterreadings:
+        type: array
+        items:
+          type: string
+      comments:
+        type: string
+      total:
+        type: string
+        format: uint64
   electra.meter.QueryListrecordingsResponse:
     type: object
     properties:
