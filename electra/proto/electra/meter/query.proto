@@ -140,6 +140,12 @@ service Query {
     option (google.api.http).get = "/electra/meter/producerbills";
   
   }
+  
+  // Queries a list of Listrecordings100 items.
+  rpc Listrecordings100 (QueryListrecordings100Request) returns (QueryListrecordings100Response) {
+    option (google.api.http).get = "/electra/meter/listrecordings_100/{deviceID}/{byUnixTime}";
+  
+  }
 }
 // QueryParamsRequest is request type for the Query/Params RPC method.
 message QueryParamsRequest {}
@@ -291,19 +297,19 @@ message QueryAllCustomerbillinglineResponse {
 }
 
 message QueryGetcustomerbillRequest {
-  string customerDeviceID = 1;
-  uint64 billCycleID      = 2;
-  cosmos.base.query.v1beta1.PageRequest pagination = 3;
+  string                                customerDeviceID = 1;
+  uint64                                billCycleID      = 2;
+  cosmos.base.query.v1beta1.PageRequest pagination       = 3;
 }
 
 message QueryGetcustomerbillResponse {
-  repeated string customerbillinglines = 1;
-  uint64 billTotalWh          = 2;
-  uint64 billTotalPrice       = 3;
-  string currency             = 4;
-  uint64 nblines              = 5;
-  string comments             = 6;
-  cosmos.base.query.v1beta1.PageResponse pagination = 7;
+  repeated string                                 customerbillinglines = 1;
+           uint64                                 billTotalWh          = 2;
+           uint64                                 billTotalPrice       = 3;
+           string                                 currency             = 4;
+           uint64                                 nblines              = 5;
+           string                                 comments             = 6;
+           cosmos.base.query.v1beta1.PageResponse pagination           = 7;
 }
 
 message QueryGetCustomerbillsRequest {
@@ -345,19 +351,19 @@ message QueryAllProducerbillinglineResponse {
 }
 
 message QueryGetproducerbillRequest {
-  string producerDeviceID = 1;
-  uint64 billCycleID      = 2;
-  cosmos.base.query.v1beta1.PageRequest pagination = 3;
+  string                                producerDeviceID = 1;
+  uint64                                billCycleID      = 2;
+  cosmos.base.query.v1beta1.PageRequest pagination       = 3;
 }
 
 message QueryGetproducerbillResponse {
-  repeated string producerbillinglines = 1;
-  uint64 billTotalWh          = 2;
-  uint64 billTotalPrice       = 3;
-  string curency              = 4;
-  uint64 nblines              = 5;
-  string comments             = 6;
-  cosmos.base.query.v1beta1.PageResponse pagination = 7;
+  repeated string                                 producerbillinglines = 1;
+           uint64                                 billTotalWh          = 2;
+           uint64                                 billTotalPrice       = 3;
+           string                                 curency              = 4;
+           uint64                                 nblines              = 5;
+           string                                 comments             = 6;
+           cosmos.base.query.v1beta1.PageResponse pagination           = 7;
 }
 
 message QueryGetProducerbillsRequest {
@@ -376,5 +382,16 @@ message QueryAllProducerbillsRequest {
 message QueryAllProducerbillsResponse {
   repeated Producerbills                          producerbills = 1 [(gogoproto.nullable) = false];
            cosmos.base.query.v1beta1.PageResponse pagination    = 2;
+}
+
+message QueryListrecordings100Request {
+  string deviceID   = 1;
+  bool   byUnixTime = 2;
+}
+
+message QueryListrecordings100Response {
+  string meterreadings = 1;
+  string comments      = 2;
+  uint64 total         = 3;
 }
 
