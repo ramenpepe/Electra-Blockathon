@@ -12,6 +12,8 @@ http://electra.alkia.net:26657/status?
 API:
 http://electra.alkia.net:1317/
 
+![image](https://user-images.githubusercontent.com/17525857/235558001-98df9f93-54d0-4c88-bbb7-7d466cfd13de.png)
+
 ## Executive Summary
 The first centralized power station was built by Thomas Edison in New York City in 1882, which supplied electricity to a small area in Lower Manhattan. Prior to this, electricity was mainly used for small-scale applications, such as lighting and electroplating, and generated on-site using small generators or batteries.
 
@@ -42,7 +44,7 @@ Community-based renewable energy systems provide the folllowing innovation oppor
 
 - Community-based financing models - crowdfunding or community bonds, facilitated by issuing tokens, can enable communities to finance renewable energy projects collectively, spreading the cost and risk of the project among a larger group of investors. These models can help to democratize access to financing for renewable energy projects and enable communities to take a more active role in the energy transition.
 
-### Architecture
+### Architecture - Technical Feasibility
 Each member of the community is outfitted with a smart meter. This smart meter device can be connected to the existing meter. It measures the electricity usage (consumption or production of electricity) from the meter and using the embedded hardware wallet, the smart meter signs and submits transactions to the microgrid blockchain. 
 
 This microgrid blockchain is a specialized blockchain based on Cosmos. It is permissioned. New members are automatically added to the microgrid blockchain when they are outfitted with a smart meter. The microgrid blockchain does not enforce gas fees and each member, represented by each smart meter, is a validator in a round robbin fashion (for example).
@@ -52,8 +54,6 @@ The microgrid blockchain is a closed system, meaning participating members canno
 The microgrid node is then connected to the main chain where excess energy can be shared with other microgrids, and accounting is performed on the main chain. Monetary value is exchanged between microgrids through the ELECTRA stablecoin. 
 
 ## Q&A
-
-![image](https://user-images.githubusercontent.com/17525857/235558001-98df9f93-54d0-4c88-bbb7-7d466cfd13de.png)
 
 ### What is the problem you’re trying to solve?
 Build a semi-decenralized, distributed marketplace for producers to sell their surplus of electricity and consumers to purchase at the best market rate.
