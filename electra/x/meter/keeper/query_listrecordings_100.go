@@ -38,11 +38,10 @@ func (k Keeper) Listrecordings100(goCtx context.Context, req *types.QueryListrec
 
 	store := ctx.KVStore(k.storeKey)
 	meterreadingsStore := prefix.NewStore(store, types.KeyPrefix(types.MeterreadingsKeyPrefix))
-	// stDebug = stDebug + " myDeviceID:" + mydeviceID
-	// stDebug = stDebug + fmt.Sprintf(" From:  %d | ", uint64(from))
-	// stDebug = stDebug + fmt.Sprintf(" To:  %d | ", uint64(to))
 
-	iterator := sdk.KVStorePrefixIterator(meterreadingsStore, []byte{})
+	//iterator := sdk.KVStorePrefixIterator(meterreadingsStore, []byte{})
+	iterator := sdk.KVStoreReversePrefixIterator(meterreadingsStore, []byte{})
+	// KVStoreReversePrefixIterator iterates over all the keys with a certain prefix in descending order.
 
 	defer iterator.Close()
 
@@ -55,25 +54,6 @@ func (k Keeper) Listrecordings100(goCtx context.Context, req *types.QueryListrec
 			total++
 		}
 	}
-	////////////////////////////////////////////////////////////
-	/*
-		pageRes, err := query.Paginate(meterreadingsStore, req.Pagination, func(key []byte, value []byte) error {
-			var meterreadings types.Meterreadings
-			if err := k.cdc.Unmarshal(value, &meterreadings); err != nil {
-				stDebug = stDebug + " Error " + err.Error()
-				return err
-			}
-			// stDebug = stDebug + " mydeviceID:" + meterreadings.DeviceID
-			// stDebug = stDebug + " DeviceID:" + meterreadings.DeviceID
-			// stDebug = stDebug + fmt.Sprintf(" Timestamp:  %d | ", meterreadings.Timestamp)
-			if (mydeviceID == meterreadings.DeviceID) && (uint64(meterreadings.Timestamp) >= uint64(from)) && (total <= 99) {
-				//stDebug = stDebug + fmt.Sprintf(" Timestamp:  %d | ", meterreadings.Timestamp)
-				meterreadingss = append(meterreadingss, meterreadings)
-				total++
-			}
-			return nil
-		})
-	*/
 
 	stDebug = stDebug + fmt.Sprintf(" total:  %d | ", total)
 
@@ -86,9 +66,7 @@ func (k Keeper) Listrecordings100(goCtx context.Context, req *types.QueryListrec
 
 	elapsed := time.Since(start)
 	stDebug = stDebug + fmt.Sprintf("Search took %s", elapsed)
-	//return &types.QueryListrecordingsResponse{Meterreadings: displaylines, Comments: stDebug, Total: total}, nil
 
-	//return &types.QueryListrecordings100Response{}, nil
 	return &types.QueryListrecordings100Response{Meterreadings: displaylines, Comments: stDebug, Total: total}, nil
 
 }
