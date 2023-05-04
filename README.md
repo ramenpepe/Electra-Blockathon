@@ -28,7 +28,7 @@ One of the main challenges is the variability and intermittency of renewable ene
 
 Another challenge is the need for a robust and reliable distribution system to connect decentralized renewable energy sources to consumers. In some areas, the existing grid infrastructure may not be sufficient to handle the increased energy flows, which can result in power outages or even damage to the grid. Additionally, the variability of renewable energy sources can make it difficult to balance the supply and demand of electricity, which can also impact grid stability.
 
-### Market Opportunity
+### Market Potential
 Community-based renewable energy systems (microgrids) such as community solar projects or wind cooperatives enable consumers to share the costs and benefits of renewable energy systems, providing access to clean energy for those who might not otherwise be able to afford it. By reselling excess electricity produced with others in need at a substantial discount from the powergrid, there is less energy waste, reduces the need for energy storage systems such as batteries or pumped hydro storage, improves resource efficiency. 
 
 The microgrid model is gaining popularity and offers significant market opportunities for decentralized renewable energy. Microgrids can enable communities to operate their own energy systems independently of the main powergrid, increasing energy security and resilience in the face of power outages or other disruptions.
