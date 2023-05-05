@@ -1,7 +1,10 @@
 # Electra-Blockathon
-Electra repo for 2023
+Repo for Bangkok Blockathon 2023
 
 ---
+
+Presentation:
+https://www.canva.com/design/DAFhmn1sYMU/I82vwvJLsb7ayU0XU5ROaA/edit?utm_content=DAFhmn1sYMU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
 Front end:
 http://electra.alkia.net:5173/
@@ -12,7 +15,13 @@ http://electra.alkia.net:26657/status?
 API:
 http://electra.alkia.net:1317/
 
-![image](https://user-images.githubusercontent.com/17525857/235558001-98df9f93-54d0-4c88-bbb7-7d466cfd13de.png)
+---
+
+![image](https://github.com/ramenpepe/Electra-Blockathon/blob/main/images/judges.png)
+
+![image](https://github.com/ramenpepe/Electra-Blockathon/blob/main/images/judging_criteria.png)
+
+![image](https://github.com/ramenpepe/Electra-Blockathon/blob/main/images/pitching_schedule.png)
 
 ## Executive Summary
 The first centralized power station was built by Thomas Edison in New York City in 1882, which supplied electricity to a small area in Lower Manhattan. Prior to this, electricity was mainly used for small-scale applications, such as lighting and electroplating, and generated on-site using small generators or batteries.
