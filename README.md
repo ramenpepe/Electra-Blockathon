@@ -12,7 +12,10 @@ Repo for Bangkok Blockathon 2023 (April 29 - May 5)
 ## Resources
 
 Presentation:
-https://www.canva.com/design/DAFhmn1sYMU/I82vwvJLsb7ayU0XU5ROaA/edit?utm_content=DAFhmn1sYMU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
+edit version - https://www.canva.com/design/DAFhmn1sYMU/I82vwvJLsb7ayU0XU5ROaA/edit?utm_content=DAFhmn1sYMU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
+view only version - https://www.canva.com/design/DAFhmn1sYMU/kDcnLz4X5cguJiS2rFLHPw/view?utm_content=DAFhmn1sYMU&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink
 
 Front end:
 http://electra.alkia.net:5173/
