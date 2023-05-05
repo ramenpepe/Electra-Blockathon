@@ -1,5 +1,5 @@
 # Electra-Blockathon
-Repo for Bangkok Blockathon 2023
+Repo for Bangkok Blockathon 2023 (April 29 - May 5)
 
 ---
 
