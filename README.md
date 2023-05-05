@@ -1,7 +1,15 @@
-# Electra-Blockathon
+<p align="center">
+  <img src="https://github.com/ramenpepe/Electra-Blockathon/blob/main/images/Electra%20Logo.png" width="300"/>
+</p>
+
+---
+
+# Electra
+
 Repo for Bangkok Blockathon 2023 (April 29 - May 5)
 
 ---
+## Resources
 
 Presentation:
 https://www.canva.com/design/DAFhmn1sYMU/I82vwvJLsb7ayU0XU5ROaA/edit?utm_content=DAFhmn1sYMU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
