@@ -1,7 +1,9 @@
 /* eslint-disable */
+import Long from "long";
 import _m0 from "protobufjs/minimal";
 import { Membership } from "./membership";
 import { Params } from "./params";
+import { Poll } from "./poll";
 
 export const protobufPackage = "electra.dao";
 
@@ -10,10 +12,12 @@ export interface GenesisState {
   params: Params | undefined;
   portId: string;
   membershipList: Membership[];
+  pollList: Poll[];
+  pollCount: number;
 }
 
 function createBaseGenesisState(): GenesisState {
-  return { params: undefined, portId: "", membershipList: [] };
+  return { params: undefined, portId: "", membershipList: [], pollList: [], pollCount: 0 };
 }
 
 export const GenesisState = {
@@ -26,6 +30,12 @@ export const GenesisState = {
     }
     for (const v of message.membershipList) {
       Membership.encode(v!, writer.uint32(26).fork()).ldelim();
+    }
+    for (const v of message.pollList) {
+      Poll.encode(v!, writer.uint32(34).fork()).ldelim();
+    }
+    if (message.pollCount !== 0) {
+      writer.uint32(40).uint64(message.pollCount);
     }
     return writer;
   },
@@ -46,6 +56,12 @@ export const GenesisState = {
         case 3:
           message.membershipList.push(Membership.decode(reader, reader.uint32()));
           break;
+        case 4:
+          message.pollList.push(Poll.decode(reader, reader.uint32()));
+          break;
+        case 5:
+          message.pollCount = longToNumber(reader.uint64() as Long);
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -61,6 +77,8 @@ export const GenesisState = {
       membershipList: Array.isArray(object?.membershipList)
         ? object.membershipList.map((e: any) => Membership.fromJSON(e))
         : [],
+      pollList: Array.isArray(object?.pollList) ? object.pollList.map((e: any) => Poll.fromJSON(e)) : [],
+      pollCount: isSet(object.pollCount) ? Number(object.pollCount) : 0,
     };
   },
 
@@ -73,6 +91,12 @@ export const GenesisState = {
     } else {
       obj.membershipList = [];
     }
+    if (message.pollList) {
+      obj.pollList = message.pollList.map((e) => e ? Poll.toJSON(e) : undefined);
+    } else {
+      obj.pollList = [];
+    }
+    message.pollCount !== undefined && (obj.pollCount = Math.round(message.pollCount));
     return obj;
   },
 
@@ -83,9 +107,30 @@ export const GenesisState = {
       : undefined;
     message.portId = object.portId ?? "";
     message.membershipList = object.membershipList?.map((e) => Membership.fromPartial(e)) || [];
+    message.pollList = object.pollList?.map((e) => Poll.fromPartial(e)) || [];
+    message.pollCount = object.pollCount ?? 0;
     return message;
   },
 };
+
+declare var self: any | undefined;
+declare var window: any | undefined;
+declare var global: any | undefined;
+var globalThis: any = (() => {
+  if (typeof globalThis !== "undefined") {
+    return globalThis;
+  }
+  if (typeof self !== "undefined") {
+    return self;
+  }
+  if (typeof window !== "undefined") {
+    return window;
+  }
+  if (typeof global !== "undefined") {
+    return global;
+  }
+  throw "Unable to locate global object";
+})();
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
@@ -97,6 +142,18 @@ export type DeepPartial<T> = T extends Builtin ? T
 type KeysOfUnion<T> = T extends T ? keyof T : never;
 export type Exact<P, I extends P> = P extends Builtin ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
+
+function longToNumber(long: Long): number {
+  if (long.gt(Number.MAX_SAFE_INTEGER)) {
+    throw new globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
+  }
+  return long.toNumber();
+}
+
+if (_m0.util.Long !== Long) {
+  _m0.util.Long = Long as any;
+  _m0.configure();
+}
 
 function isSet(value: any): boolean {
   return value !== null && value !== undefined;

@@ -1,7 +1,40 @@
 syntax = "proto3";
+
 package electra.dao;
+
+import "electra/dao/poll.proto";
 
 option go_package = "electra/x/dao/types";
 
 // Msg defines the Msg service.
-service Msg {}
+service Msg {
+  rpc CreatePoll (MsgCreatePoll) returns (MsgCreatePollResponse);
+  rpc UpdatePoll (MsgUpdatePoll) returns (MsgUpdatePollResponse);
+  rpc DeletePoll (MsgDeletePoll) returns (MsgDeletePollResponse);
+}
+message MsgCreatePoll {
+  string creator = 1;
+  string title   = 2;
+  string options = 3;
+}
+
+message MsgCreatePollResponse {
+  uint64 id = 1;
+}
+
+message MsgUpdatePoll {
+  string creator = 1;
+  uint64 id      = 2;
+  string title   = 3;
+  string options = 4;
+}
+
+message MsgUpdatePollResponse {}
+
+message MsgDeletePoll {
+  string creator = 1;
+  uint64 id      = 2;
+}
+
+message MsgDeletePollResponse {}
+

@@ -5,6 +5,7 @@ package electra.dao;
 import "gogoproto/gogo.proto";
 import "electra/dao/params.proto";
 import "electra/dao/membership.proto";
+import "electra/dao/poll.proto";
 
 option go_package = "electra/x/dao/types";
 
@@ -13,5 +14,7 @@ message GenesisState {
            Params     params         = 1 [(gogoproto.nullable) = false];
            string     port_id        = 2;
   repeated Membership membershipList = 3 [(gogoproto.nullable) = false];
+  repeated Poll       pollList       = 4 [(gogoproto.nullable) = false];
+           uint64     pollCount      = 5;
 }
 

@@ -31,10 +31,27 @@ export interface DaoMembership {
   block?: number;
 }
 
+export interface DaoMsgCreatePollResponse {
+  /** @format uint64 */
+  id?: string;
+}
+
+export type DaoMsgDeletePollResponse = object;
+
+export type DaoMsgUpdatePollResponse = object;
+
 /**
  * Params defines the parameters for the module.
  */
 export type DaoParams = object;
+
+export interface DaoPoll {
+  /** @format uint64 */
+  id?: string;
+  title?: string;
+  options?: string;
+  creator?: string;
+}
 
 export interface DaoQueryAllMembershipResponse {
   membership?: DaoMembership[];
@@ -51,8 +68,27 @@ export interface DaoQueryAllMembershipResponse {
   pagination?: V1Beta1PageResponse;
 }
 
+export interface DaoQueryAllPollResponse {
+  Poll?: DaoPoll[];
+
+  /**
+   * PageResponse is to be embedded in gRPC response messages where the
+   * corresponding request message has used PageRequest.
+   *
+   *  message SomeResponse {
+   *          repeated Bar results = 1;
+   *          PageResponse page = 2;
+   *  }
+   */
+  pagination?: V1Beta1PageResponse;
+}
+
 export interface DaoQueryGetMembershipResponse {
   membership?: DaoMembership;
+}
+
+export interface DaoQueryGetPollResponse {
+  Poll?: DaoPoll;
 }
 
 /**
@@ -323,6 +359,47 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
   queryParams = (params: RequestParams = {}) =>
     this.request<DaoQueryParamsResponse, RpcStatus>({
       path: `/electra/dao/params`,
+      method: "GET",
+      format: "json",
+      ...params,
+    });
+
+  /**
+   * No description
+   *
+   * @tags Query
+   * @name QueryPollAll
+   * @request GET:/electra/dao/poll
+   */
+  queryPollAll = (
+    query?: {
+      "pagination.key"?: string;
+      "pagination.offset"?: string;
+      "pagination.limit"?: string;
+      "pagination.count_total"?: boolean;
+      "pagination.reverse"?: boolean;
+    },
+    params: RequestParams = {},
+  ) =>
+    this.request<DaoQueryAllPollResponse, RpcStatus>({
+      path: `/electra/dao/poll`,
+      method: "GET",
+      query: query,
+      format: "json",
+      ...params,
+    });
+
+  /**
+   * No description
+   *
+   * @tags Query
+   * @name QueryPoll
+   * @summary Queries a list of Poll items.
+   * @request GET:/electra/dao/poll/{id}
+   */
+  queryPoll = (id: string, params: RequestParams = {}) =>
+    this.request<DaoQueryGetPollResponse, RpcStatus>({
+      path: `/electra/dao/poll/${id}`,
       method: "GET",
       format: "json",
       ...params,

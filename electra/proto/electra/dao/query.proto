@@ -7,6 +7,7 @@ import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "electra/dao/params.proto";
 import "electra/dao/membership.proto";
+import "electra/dao/poll.proto";
 
 option go_package = "electra/x/dao/types";
 
@@ -26,6 +27,16 @@ service Query {
   }
   rpc MembershipAll (QueryAllMembershipRequest) returns (QueryAllMembershipResponse) {
     option (google.api.http).get = "/electra/dao/membership";
+  
+  }
+  
+  // Queries a list of Poll items.
+  rpc Poll    (QueryGetPollRequest) returns (QueryGetPollResponse) {
+    option (google.api.http).get = "/electra/dao/poll/{id}";
+  
+  }
+  rpc PollAll (QueryAllPollRequest) returns (QueryAllPollResponse) {
+    option (google.api.http).get = "/electra/dao/poll";
   
   }
 }
@@ -53,6 +64,23 @@ message QueryAllMembershipRequest {
 
 message QueryAllMembershipResponse {
   repeated Membership                             membership = 1 [(gogoproto.nullable) = false];
+           cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+message QueryGetPollRequest {
+  uint64 id = 1;
+}
+
+message QueryGetPollResponse {
+  Poll Poll = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllPollRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllPollResponse {
+  repeated Poll                                   Poll       = 1 [(gogoproto.nullable) = false];
            cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }
 
