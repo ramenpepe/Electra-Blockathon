@@ -8,6 +8,7 @@ import { IgniteClient } from "../client"
 import { MissingWalletError } from "../helpers"
 import { Api } from "./rest";
 
+import { Membership as typeMembership} from "./types"
 import { DaoPacketData as typeDaoPacketData} from "./types"
 import { NoData as typeNoData} from "./types"
 import { Params as typeParams} from "./types"
@@ -68,6 +69,7 @@ class SDKModule {
 		this.query = queryClient({ addr: client.env.apiURL });		
 		this.updateTX(client);
 		this.structure =  {
+						Membership: getStructure(typeMembership.fromPartial({})),
 						DaoPacketData: getStructure(typeDaoPacketData.fromPartial({})),
 						NoData: getStructure(typeNoData.fromPartial({})),
 						Params: getStructure(typeParams.fromPartial({})),

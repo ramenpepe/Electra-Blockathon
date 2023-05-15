@@ -4,12 +4,14 @@ package electra.dao;
 
 import "gogoproto/gogo.proto";
 import "electra/dao/params.proto";
+import "electra/dao/membership.proto";
 
 option go_package = "electra/x/dao/types";
 
 // GenesisState defines the dao module's genesis state.
 message GenesisState {
-  Params params  = 1 [(gogoproto.nullable) = false];
-  string port_id = 2;
+           Params     params         = 1 [(gogoproto.nullable) = false];
+           string     port_id        = 2;
+  repeated Membership membershipList = 3 [(gogoproto.nullable) = false];
 }
 

@@ -1,5 +1,6 @@
 /* eslint-disable */
 import _m0 from "protobufjs/minimal";
+import { Membership } from "./membership";
 import { Params } from "./params";
 
 export const protobufPackage = "electra.dao";
@@ -8,10 +9,11 @@ export const protobufPackage = "electra.dao";
 export interface GenesisState {
   params: Params | undefined;
   portId: string;
+  membershipList: Membership[];
 }
 
 function createBaseGenesisState(): GenesisState {
-  return { params: undefined, portId: "" };
+  return { params: undefined, portId: "", membershipList: [] };
 }
 
 export const GenesisState = {
@@ -21,6 +23,9 @@ export const GenesisState = {
     }
     if (message.portId !== "") {
       writer.uint32(18).string(message.portId);
+    }
+    for (const v of message.membershipList) {
+      Membership.encode(v!, writer.uint32(26).fork()).ldelim();
     }
     return writer;
   },
@@ -38,6 +43,9 @@ export const GenesisState = {
         case 2:
           message.portId = reader.string();
           break;
+        case 3:
+          message.membershipList.push(Membership.decode(reader, reader.uint32()));
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -50,6 +58,9 @@ export const GenesisState = {
     return {
       params: isSet(object.params) ? Params.fromJSON(object.params) : undefined,
       portId: isSet(object.portId) ? String(object.portId) : "",
+      membershipList: Array.isArray(object?.membershipList)
+        ? object.membershipList.map((e: any) => Membership.fromJSON(e))
+        : [],
     };
   },
 
@@ -57,6 +68,11 @@ export const GenesisState = {
     const obj: any = {};
     message.params !== undefined && (obj.params = message.params ? Params.toJSON(message.params) : undefined);
     message.portId !== undefined && (obj.portId = message.portId);
+    if (message.membershipList) {
+      obj.membershipList = message.membershipList.map((e) => e ? Membership.toJSON(e) : undefined);
+    } else {
+      obj.membershipList = [];
+    }
     return obj;
   },
 
@@ -66,6 +82,7 @@ export const GenesisState = {
       ? Params.fromPartial(object.params)
       : undefined;
     message.portId = object.portId ?? "";
+    message.membershipList = object.membershipList?.map((e) => Membership.fromPartial(e)) || [];
     return message;
   },
 };
