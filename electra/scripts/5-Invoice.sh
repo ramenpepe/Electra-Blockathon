@@ -178,4 +178,3 @@ electrad tx meter prepare-bill $cycle false false --from bob -y
 electrad query meter list-billingcycles | grep -E "cycleID:"\|"end:"\|"start:"
 electrad query meter list-ppa-map --count-total  | grep "total:"
 electrad query meter list-power-purchase-contract --count-total | grep "total:"
- 

@@ -32864,7 +32864,9 @@ paths:
                     title:
                       type: string
                     options:
-                      type: string
+                      type: array
+                      items:
+                        type: string
                     creator:
                       type: string
               pagination:
@@ -32991,7 +32993,9 @@ paths:
                   title:
                     type: string
                   options:
-                    type: string
+                    type: array
+                    items:
+                      type: string
                   creator:
                     type: string
         default:
@@ -69857,7 +69861,9 @@ definitions:
       title:
         type: string
       options:
-        type: string
+        type: array
+        items:
+          type: string
       creator:
         type: string
   electra.dao.QueryAllMembershipResponse:
@@ -69943,7 +69949,9 @@ definitions:
             title:
               type: string
             options:
-              type: string
+              type: array
+              items:
+                type: string
             creator:
               type: string
       pagination:
@@ -70025,7 +70033,9 @@ definitions:
           title:
             type: string
           options:
-            type: string
+            type: array
+            items:
+              type: string
           creator:
             type: string
   electra.dao.QueryParamsResponse:
