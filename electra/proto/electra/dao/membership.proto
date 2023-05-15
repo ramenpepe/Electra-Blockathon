@@ -1,0 +1,26 @@
+syntax = "proto3";
+package electra.dao;
+
+option go_package = "electra/x/dao/types";
+
+message Membership {
+  string memberaddress = 1; 
+  string nickname = 2; 
+  string bio = 3; 
+  string role = 4; 
+  string ens = 5; 
+  string email = 6; 
+  string firstname = 7; 
+  string lastname = 8; 
+  string twiter = 9; 
+  string discord = 10; 
+  string github = 11; 
+  string linkedin = 12; 
+  string telegram = 13; 
+  bool kyc = 14; 
+  string termsconditionsignature = 15; 
+  string date = 16; 
+  int32 block = 17; 
+  
+}
+
