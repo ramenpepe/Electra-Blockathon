@@ -1,5 +1,6 @@
 // THIS FILE IS GENERATED AUTOMATICALLY. DO NOT MODIFY.
 
+import ElectraDao from './electra.dao'
 import ElectraMeter from './electra.meter'
 import IbcApplicationsInterchainAccountsControllerV1 from './ibc.applications.interchain_accounts.controller.v1'
 import IbcApplicationsInterchainAccountsHostV1 from './ibc.applications.interchain_accounts.host.v1'
@@ -30,6 +31,7 @@ import CosmosVestingV1Beta1 from './cosmos.vesting.v1beta1'
 
 
 export default { 
+  ElectraDao: load(ElectraDao, 'electra.dao'),
   ElectraMeter: load(ElectraMeter, 'electra.meter'),
   IbcApplicationsInterchainAccountsControllerV1: load(IbcApplicationsInterchainAccountsControllerV1, 'ibc.applications.interchain_accounts.controller.v1'),
   IbcApplicationsInterchainAccountsHostV1: load(IbcApplicationsInterchainAccountsHostV1, 'ibc.applications.interchain_accounts.host.v1'),

@@ -1,0 +1,7 @@
+syntax = "proto3";
+package electra.dao;
+
+option go_package = "electra/x/dao/types";
+
+// Msg defines the Msg service.
+service Msg {}

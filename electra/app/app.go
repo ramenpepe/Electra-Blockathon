@@ -103,6 +103,9 @@ import (
 	tmos "github.com/tendermint/tendermint/libs/os"
 	dbm "github.com/tendermint/tm-db"
 
+	daomodule "electra/x/dao"
+	daomodulekeeper "electra/x/dao/keeper"
+	daomoduletypes "electra/x/dao/types"
 	metermodule "electra/x/meter"
 	metermodulekeeper "electra/x/meter/keeper"
 	metermoduletypes "electra/x/meter/types"
@@ -165,6 +168,7 @@ var (
 		ica.AppModuleBasic{},
 		vesting.AppModuleBasic{},
 		metermodule.AppModuleBasic{},
+		daomodule.AppModuleBasic{},
 		// this line is used by starport scaffolding # stargate/app/moduleBasic
 	)
 
@@ -179,6 +183,7 @@ var (
 		govtypes.ModuleName:            {authtypes.Burner},
 		ibctransfertypes.ModuleName:    {authtypes.Minter, authtypes.Burner},
 		metermoduletypes.ModuleName:    {authtypes.Minter, authtypes.Burner, authtypes.Staking},
+		daomoduletypes.ModuleName:      {authtypes.Minter, authtypes.Burner, authtypes.Staking},
 		// this line is used by starport scaffolding # stargate/app/maccPerms
 	}
 )
@@ -239,7 +244,9 @@ type App struct {
 	ScopedTransferKeeper capabilitykeeper.ScopedKeeper
 	ScopedICAHostKeeper  capabilitykeeper.ScopedKeeper
 
-	MeterKeeper metermodulekeeper.Keeper
+	MeterKeeper     metermodulekeeper.Keeper
+	ScopedDaoKeeper capabilitykeeper.ScopedKeeper
+	DaoKeeper       daomodulekeeper.Keeper
 	// this line is used by starport scaffolding # stargate/app/keeperDeclaration
 
 	// mm is the module manager
@@ -285,6 +292,7 @@ func New(
 		ibctransfertypes.StoreKey, icahosttypes.StoreKey, capabilitytypes.StoreKey, group.StoreKey,
 		icacontrollertypes.StoreKey,
 		metermoduletypes.StoreKey,
+		daomoduletypes.StoreKey,
 		// this line is used by starport scaffolding # stargate/app/storeKey
 	)
 	tkeys := sdk.NewTransientStoreKeys(paramstypes.TStoreKey)
@@ -511,6 +519,25 @@ func New(
 	)
 	meterModule := metermodule.NewAppModule(appCodec, app.MeterKeeper, app.AccountKeeper, app.BankKeeper)
 
+	scopedDaoKeeper := app.CapabilityKeeper.ScopeToModule(daomoduletypes.ModuleName)
+	app.ScopedDaoKeeper = scopedDaoKeeper
+	app.DaoKeeper = *daomodulekeeper.NewKeeper(
+		appCodec,
+		keys[daomoduletypes.StoreKey],
+		keys[daomoduletypes.MemStoreKey],
+		app.GetSubspace(daomoduletypes.ModuleName),
+		app.IBCKeeper.ChannelKeeper,
+		&app.IBCKeeper.PortKeeper,
+		scopedDaoKeeper,
+		app.BankKeeper,
+		app.AccountKeeper,
+		app.StakingKeeper,
+		app.AuthzKeeper,
+		app.GovKeeper,
+	)
+	daoModule := daomodule.NewAppModule(appCodec, app.DaoKeeper, app.AccountKeeper, app.BankKeeper)
+
+	daoIBCModule := daomodule.NewIBCModule(app.DaoKeeper)
 	// this line is used by starport scaffolding # stargate/app/keeperDefinition
 
 	/**** IBC Routing ****/
@@ -522,6 +549,7 @@ func New(
 	ibcRouter := ibcporttypes.NewRouter()
 	ibcRouter.AddRoute(icahosttypes.SubModuleName, icaHostIBCModule).
 		AddRoute(ibctransfertypes.ModuleName, transferIBCModule)
+	ibcRouter.AddRoute(daomoduletypes.ModuleName, daoIBCModule)
 	// this line is used by starport scaffolding # ibc/app/router
 	app.IBCKeeper.SetRouter(ibcRouter)
 
@@ -577,6 +605,7 @@ func New(
 		transferModule,
 		icaModule,
 		meterModule,
+		daoModule,
 		// this line is used by starport scaffolding # stargate/app/appModule
 	)
 
@@ -607,6 +636,7 @@ func New(
 		paramstypes.ModuleName,
 		vestingtypes.ModuleName,
 		metermoduletypes.ModuleName,
+		daomoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/beginBlockers
 	)
 
@@ -632,6 +662,7 @@ func New(
 		upgradetypes.ModuleName,
 		vestingtypes.ModuleName,
 		metermoduletypes.ModuleName,
+		daomoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/endBlockers
 	)
 
@@ -662,6 +693,7 @@ func New(
 		upgradetypes.ModuleName,
 		vestingtypes.ModuleName,
 		metermoduletypes.ModuleName,
+		daomoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/initGenesis
 	)
 
@@ -692,6 +724,7 @@ func New(
 		ibc.NewAppModule(app.IBCKeeper),
 		transferModule,
 		meterModule,
+		daoModule,
 		// this line is used by starport scaffolding # stargate/app/appModule
 	)
 	app.sm.RegisterStoreDecoders()
@@ -897,6 +930,7 @@ func initParamsKeeper(appCodec codec.BinaryCodec, legacyAmino *codec.LegacyAmino
 	paramsKeeper.Subspace(icacontrollertypes.SubModuleName)
 	paramsKeeper.Subspace(icahosttypes.SubModuleName)
 	paramsKeeper.Subspace(metermoduletypes.ModuleName)
+	paramsKeeper.Subspace(daomoduletypes.ModuleName)
 	// this line is used by starport scaffolding # stargate/app/paramSubspace
 
 	return paramsKeeper

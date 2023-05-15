@@ -497,7 +497,7 @@ export interface MeterQueryGetProducerbillsResponse {
 }
 
 export interface MeterQueryGetcustomerbillResponse {
-  customerbillinglines?: string;
+  customerbillinglines?: string[];
 
   /** @format uint64 */
   billTotalWh?: string;
@@ -509,10 +509,21 @@ export interface MeterQueryGetcustomerbillResponse {
   /** @format uint64 */
   nblines?: string;
   comments?: string;
+
+  /**
+   * PageResponse is to be embedded in gRPC response messages where the
+   * corresponding request message has used PageRequest.
+   *
+   *  message SomeResponse {
+   *          repeated Bar results = 1;
+   *          PageResponse page = 2;
+   *  }
+   */
+  pagination?: V1Beta1PageResponse;
 }
 
 export interface MeterQueryGetproducerbillResponse {
-  producerbillinglines?: string;
+  producerbillinglines?: string[];
 
   /** @format uint64 */
   billTotalWh?: string;
@@ -524,6 +535,25 @@ export interface MeterQueryGetproducerbillResponse {
   /** @format uint64 */
   nblines?: string;
   comments?: string;
+
+  /**
+   * PageResponse is to be embedded in gRPC response messages where the
+   * corresponding request message has used PageRequest.
+   *
+   *  message SomeResponse {
+   *          repeated Bar results = 1;
+   *          PageResponse page = 2;
+   *  }
+   */
+  pagination?: V1Beta1PageResponse;
+}
+
+export interface MeterQueryListrecordings100Response {
+  meterreadings?: string[];
+  comments?: string;
+
+  /** @format uint64 */
+  total?: string;
 }
 
 export interface MeterQueryListrecordingsResponse {
@@ -914,10 +944,22 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
    * @summary Queries a list of Getcustomerbill items.
    * @request GET:/electra/meter/getcustomerbill/{customerDeviceID}/{billCycleID}
    */
-  queryGetcustomerbill = (customerDeviceId: string, billCycleId: string, params: RequestParams = {}) =>
+  queryGetcustomerbill = (
+    customerDeviceId: string,
+    billCycleId: string,
+    query?: {
+      "pagination.key"?: string;
+      "pagination.offset"?: string;
+      "pagination.limit"?: string;
+      "pagination.count_total"?: boolean;
+      "pagination.reverse"?: boolean;
+    },
+    params: RequestParams = {},
+  ) =>
     this.request<MeterQueryGetcustomerbillResponse, RpcStatus>({
       path: `/electra/meter/getcustomerbill/${customerDeviceId}/${billCycleId}`,
       method: "GET",
+      query: query,
       format: "json",
       ...params,
     });
@@ -930,10 +972,22 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
    * @summary Queries a list of Getproducerbill items.
    * @request GET:/electra/meter/getproducerbill/{producerDeviceID}/{billCycleID}
    */
-  queryGetproducerbill = (producerDeviceId: string, billCycleId: string, params: RequestParams = {}) =>
+  queryGetproducerbill = (
+    producerDeviceId: string,
+    billCycleId: string,
+    query?: {
+      "pagination.key"?: string;
+      "pagination.offset"?: string;
+      "pagination.limit"?: string;
+      "pagination.count_total"?: boolean;
+      "pagination.reverse"?: boolean;
+    },
+    params: RequestParams = {},
+  ) =>
     this.request<MeterQueryGetproducerbillResponse, RpcStatus>({
       path: `/electra/meter/getproducerbill/${producerDeviceId}/${billCycleId}`,
       method: "GET",
+      query: query,
       format: "json",
       ...params,
     });
@@ -964,6 +1018,22 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
       path: `/electra/meter/listrecordings/${deviceId}/${start}/${end}/${byUnixTime}`,
       method: "GET",
       query: query,
+      format: "json",
+      ...params,
+    });
+
+  /**
+   * No description
+   *
+   * @tags Query
+   * @name QueryListrecordings100
+   * @summary Queries a list of Listrecordings100 items.
+   * @request GET:/electra/meter/listrecordings_100/{deviceID}/{byUnixTime}
+   */
+  queryListrecordings100 = (deviceId: string, byUnixTime: boolean, params: RequestParams = {}) =>
+    this.request<MeterQueryListrecordings100Response, RpcStatus>({
+      path: `/electra/meter/listrecordings_100/${deviceId}/${byUnixTime}`,
+      method: "GET",
       format: "json",
       ...params,
     });

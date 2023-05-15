@@ -1,0 +1,13 @@
+syntax = "proto3";
+package electra.dao;
+
+option go_package = "electra/x/dao/types";
+
+message DaoPacketData {
+    oneof packet {
+        NoData noData = 1;
+    }
+}
+
+message NoData {
+}
